@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lift The City — Easy SEO Fix Guide (Safe Mode)</title>
+  <style>
+    :root {
+      --ink: #1a2332;
+      --muted: #5a6a7a;
+      --paper: #f7f4ef;
+      --card: #ffffff;
+      --brand: #0e7c66;
+      --brand-dark: #0a5c4c;
+      --warn: #c45c26;
+      --safe: #1f7a4c;
+      --danger: #b42318;
+      --line: #e4ddd3;
+      --sky: #e8f5f1;
+      --amber: #fff4e5;
+      --rose: #fdecea;
+      --blue: #eaf2fb;
+      --shadow: 0 10px 30px rgba(26, 35, 50, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Trebuchet MS", Geneva, Verdana, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, #dff3ec 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, #ffe8d6 0%, transparent 35%),
+        var(--paper);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 20px 80px; }
+    .hero {
+      background: linear-gradient(135deg, #0e7c66 0%, #1a5f8a 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.2; }
+    .hero p { margin: 0; opacity: 0.95; max-width: 58ch; font-size: 1.05rem; }
+    .score-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 22px 0 0;
+    }
+    .score {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+    .score strong { display: block; font-size: 1.6rem; }
+    .score span { font-size: 0.82rem; opacity: 0.9; }
+
+    h2 {
+      margin: 40px 0 14px;
+      font-size: 1.45rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .emoji { font-size: 1.35rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+    .safe-box {
+      background: var(--sky);
+      border: 2px solid #9fd5c5;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 18px 0;
+    }
+    .warn-box {
+      background: var(--amber);
+      border: 2px solid #f0c48a;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+    .danger-box {
+      background: var(--rose);
+      border: 2px solid #f0b4ae;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 16px 16px 16px 64px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 16px; top: 16px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 12px 0 20px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #f0ebe3; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+    .old { color: var(--danger); text-decoration: line-through; opacity: 0.85; }
+    .new { color: var(--safe); font-weight: 700; }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .tag-safe { background: #d8f3e4; color: #146c43; }
+    .tag-careful { background: #ffe8c7; color: #8a4b00; }
+    .tag-code { background: #dde9fb; color: #1d4f91; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .do, .dont {
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 2px solid;
+    }
+    .do { background: #eaf8f1; border-color: #9ad4b5; }
+    .dont { background: #fdeeee; border-color: #f0b4ae; }
+    .do h3, .dont h3 { margin-top: 0; }
+    ul.clean { margin: 8px 0 0; padding-left: 18px; }
+    ul.clean li { margin: 6px 0; }
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88em;
+      background: #f1ece4;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    pre {
+      background: #1a2332;
+      color: #e8eef5;
+      padding: 16px;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .checklist label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: default;
+    }
+    .checklist label:last-child { border-bottom: 0; }
+    .footer-note {
+      margin-top: 36px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .print-btn {
+      display: inline-block;
+      margin-top: 18px;
+      background: #fff;
+      color: var(--brand-dark);
+      font-weight: 800;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    @media print {
+      body { background: #fff; }
+      .print-btn { display: none; }
+      .hero { box-shadow: none; }
+      .card, table, .steps li { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge">SAFE MODE GUIDE · NO WEBSITE BREAKAGE</div>
+      <h1>SEO Fix Guide for Lift The City<br/>Explained Super Simply</h1>
+      <p>
+        Think of SEO like putting clear price tags and a big store sign on your shop.
+        Google is a robot shopper. If your signs are confusing, it walks past.
+        This guide shows what to change — and how to do it without breaking the website.
+      </p>
+      <div class="score-row">
+        <div class="score"><strong>3/10</strong><span>Titles &amp; metas</span></div>
+        <div class="score"><strong>4/10</strong><span>Schema (robot labels)</span></div>
+        <div class="score"><strong>8/10</strong><span>Crawl / sitemap</span></div>
+        <div class="score"><strong>2/10</strong><span>Help pages / blog</span></div>
+      </div>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </header>
+
+    <section class="safe-box">
+      <h2 style="margin-top:0"><span class="emoji">🛡️</span> Golden Rule: Never edit the live theme first</h2>
+      <p style="margin:0">
+        Shopify lets you <strong>copy your theme</strong> (like photocopying a notebook).
+        You make changes on the copy, preview them, then publish only when happy.
+        That way the real website stays safe.
+      </p>
+    </section>
+
+    <h2><span class="emoji">🧠</span> Big ideas in kid words</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Meta Title = Store Sign</h3>
+        <p>The blue link people see on Google. Must say what you sell + where (Toronto) + brand.</p>
+      </div>
+      <div class="card">
+        <h3>Meta Description = Window Poster</h3>
+        <p>Short sentence under the blue link. Makes people click. Must match real offers ($150 / $250).</p>
+      </div>
+      <div class="card">
+        <h3>Schema = Robot Name Tags</h3>
+        <p>Hidden labels that tell Google: “This is a store”, “This is a product”, “This is our address”.</p>
+      </div>
+      <div class="card">
+        <h3>Collections = Aisles</h3>
+        <p>Too many aisles with the same snacks confuses Google. Keep clear main aisles.</p>
+      </div>
+    </div>
+
+    <h2><span class="emoji">✅</span> Do this / Don’t do that</h2>
+    <div class="grid-2">
+      <div class="do">
+        <h3>✅ DO (safe)</h3>
+        <ul class="clean">
+          <li>Duplicate the theme first</li>
+          <li>Change SEO title/description in Shopify admin fields</li>
+          <li>Preview on the unpublished theme</li>
+          <li>Change 1 page type at a time</li>
+          <li>Write down what you changed</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h3>❌ DON’T (risky)</h3>
+        <ul class="clean">
+          <li>Edit the live published theme directly</li>
+          <li>Delete apps or big code chunks “to fix SEO”</li>
+          <li>Change product prices while testing SEO</li>
+          <li>Noindex important money pages by mistake</li>
+          <li>Publish schema without Rich Results Test</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2><span class="emoji">🧰</span> Safe implementation plan (zero drama)</h2>
+    <ol class="steps">
+      <li>
+        <strong>Make a backup theme</strong><br/>
+        Shopify Admin → <span class="mono">Online Store → Themes</span> → on the live theme click
+        <strong>⋯ → Duplicate</strong>. Rename copy to <span class="mono">SEO Safe Copy — July 2026</span>.
+        <div style="margin-top:8px"><span class="tag tag-safe">Zero impact on live site</span></div>
+      </li>
+      <li>
+        <strong>Fix homepage title &amp; description (admin only)</strong><br/>
+        Go to <span class="mono">Online Store → Preferences</span> (or homepage → Edit website SEO).
+        Paste the new title/description below. Save.
+        <div style="margin-top:8px"><span class="tag tag-safe">No code · No design change</span></div>
+      </li>
+      <li>
+        <strong>Fix top collection SEO fields</strong><br/>
+        Open each collection → scroll to <strong>Search engine listing</strong> → edit title + description.
+        Start with only: Protein, Whey Protein, Creatine, Fat Burners, BCAAs, Contact.
+        <div style="margin-top:8px"><span class="tag tag-safe">Text only · Customers won’t notice layout</span></div>
+      </li>
+      <li>
+        <strong>Add schema on the COPY theme only</strong><br/>
+        In the duplicated theme: <span class="mono">Edit code → layout/theme.liquid</span>
+        (or Custom Liquid section in footer). Paste Organization + Store JSON-LD before <span class="mono">&lt;/head&gt;</span> or in footer.
+        Preview the copy theme URL. Test with Google Rich Results Test.
+        <div style="margin-top:8px"><span class="tag tag-careful">Code on copy only</span> <span class="tag tag-code">Then publish</span></div>
+      </li>
+      <li>
+        <strong>Publish when checks pass</strong><br/>
+        If preview looks identical and Rich Results Test is green → Publish the copy theme.
+        Keep the old theme as rollback for 2 weeks.
+      </li>
+    </ol>
+
+    <div class="warn-box">
+      <strong>⏰ Best time to publish:</strong> Quiet hours (late evening). If anything looks weird, click the old theme → <em>Publish</em> to roll back in 10 seconds.
+    </div>
+
+    <h2><span class="emoji">✍️</span> Copy-paste replacements</h2>
+
+    <table>
+      <thead>
+        <tr><th>What</th><th>Old (bad)</th><th>New (good)</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Homepage title</strong></td>
+          <td class="old">Protein, Creatine, And General Health! | LiftTheCitySupplements.Com</td>
+          <td class="new">Buy Protein, Creatine &amp; Pre-Workout in Toronto | Lift The City Supplements</td>
+          <td>Sounds like a real store sign. Says buy + city + brand.</td>
+        </tr>
+        <tr>
+          <td><strong>Homepage description</strong></td>
+          <td class="old">…shipping on orders over $149…</td>
+          <td class="new">Shop authentic protein, creatine, pre-workout &amp; vitamins at Lift The City Supplements in Toronto. Free Toronto delivery over $150 · Free Canada-wide shipping over $250. In-store pickup available.</td>
+          <td>Matches the real offer on the website ($150 / $250).</td>
+        </tr>
+        <tr>
+          <td><strong>Protein collection title</strong></td>
+          <td class="old">PROTEIN</td>
+          <td class="new">Buy Protein Powder in Toronto | Whey, Plant &amp; More</td>
+          <td>One word is too tiny for Google.</td>
+        </tr>
+        <tr>
+          <td><strong>Creatine collection title</strong></td>
+          <td class="old">CREATINE</td>
+          <td class="new">Creatine Monohydrate Powder &amp; Capsules | Lift The City</td>
+          <td>Uses words people actually search.</td>
+        </tr>
+        <tr>
+          <td><strong>Contact title</strong></td>
+          <td class="old">Contact</td>
+          <td class="new">Contact &amp; Store Location — 50 Fort York Blvd, Toronto</td>
+          <td>Helps “near me” / local searches.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2><span class="emoji">🏷️</span> Schema to add (robot name tags)</h2>
+    <div class="card">
+      <p><span class="tag tag-code">Add on theme COPY first</span></p>
+      <p>Put this inside a <code>&lt;script type="application/ld+json"&gt;</code> block in the theme copy:</p>
+      <pre>{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Lift The City Supplements",
+  "url": "https://www.liftthecitysupplements.com/",
+  "telephone": "+1-647-973-3793",
+  "email": "ltc@liftthecitysupplements.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "50 Fort York Blvd",
+    "addressLocality": "Toronto",
+    "addressRegion": "ON",
+    "postalCode": "M5V 4A6",
+    "addressCountry": "CA"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "11:00",
+    "closes": "20:00"
+  }]
+}</pre>
+      <p style="margin-bottom:0"><strong>Also add</strong> an <code>Organization</code> block (name, logo, same phone/email, social links). Full samples are in the technical audit file.</p>
+    </div>
+
+    <div class="danger-box">
+      <strong>⚠️ Schema safety tip:</strong> Wrong schema rarely “breaks” the visible site, but bad JSON can break the script tag if you miss a comma.
+      Always preview. If the page looks normal, customers are fine — schema is invisible.
+    </div>
+
+    <h2><span class="emoji">🚦</span> What can impact the website? (risk meter)</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Risk to live site</th><th>Safe method</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Homepage / collection SEO title &amp; meta</td>
+          <td><span class="tag tag-safe">None</span></td>
+          <td>Shopify admin SEO fields only</td>
+        </tr>
+        <tr>
+          <td>Product SEO title &amp; meta</td>
+          <td><span class="tag tag-safe">None</span></td>
+          <td>Product editor → Search engine listing</td>
+        </tr>
+        <tr>
+          <td>Add Organization / Store schema</td>
+          <td><span class="tag tag-careful">Very low</span></td>
+          <td>Only on duplicated theme → preview → publish</td>
+        </tr>
+        <tr>
+          <td>Noindex empty blog / junk collections</td>
+          <td><span class="tag tag-careful">Low</span></td>
+          <td>Use SEO app or theme setting; double-check URL list first</td>
+        </tr>
+        <tr>
+          <td>Deleting collections / editing theme CSS</td>
+          <td><span class="tag" style="background:#fdd;color:#911;">Higher</span></td>
+          <td>Don’t do for SEO week 1. Not needed for quick wins.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2><span class="emoji">📅</span> 7-day easy schedule (no panic)</h2>
+    <div class="card checklist">
+      <label><input type="checkbox" /> <span><strong>Day 1:</strong> Duplicate theme. Update homepage title + description.</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 2:</strong> Update SEO for 6 money collections + Contact page.</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 3:</strong> Add Store + Organization schema on COPY theme. Preview.</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 4:</strong> Test with <em>Google Rich Results Test</em>. Fix JSON if needed.</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 5:</strong> Publish copy theme at quiet time. Keep old theme.</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 6:</strong> Noindex empty blog (only if still empty).</span></label>
+      <label><input type="checkbox" /> <span><strong>Day 7:</strong> Submit sitemap in Google Search Console. Celebrate 🎉</span></label>
+    </div>
+
+    <h2><span class="emoji">🧪</span> “Did I break anything?” 60-second check</h2>
+    <ol class="steps">
+      <li>Open homepage on phone + computer — does it look the same?</li>
+      <li>Add a product to cart — checkout still opens?</li>
+      <li>Open a product page — price and “Add to cart” still work?</li>
+      <li>View page source → search <code>ld+json</code> — schema present?</li>
+      <li>If anything feels wrong → publish the old theme immediately.</li>
+    </ol>
+
+    <h2><span class="emoji">📦</span> Files in this package</h2>
+    <div class="card">
+      <ul class="clean">
+        <li><strong>Easy-SEO-Safe-Implementation-Guide.html</strong> — this visual guide (open in Chrome)</li>
+        <li><strong>Easy-SEO-Safe-Implementation-Guide.docx</strong> — Word version for sharing with client</li>
+        <li><strong>LiftTheCitySupplements-Technical-SEO-Audit.md</strong> — full expert audit</li>
+        <li><strong>SEO-Quick-Actions.md</strong> — short cheat sheet</li>
+      </ul>
+    </div>
+
+    <p class="footer-note">
+      Made for Lift The City Supplements · Safe Shopify SEO rollout · July 2026<br/>
+      Tip: Open this HTML file in a browser → click <strong>Print / Save as PDF</strong> for a pretty PDF.
+    </p>
+  </div>
+</body>
+</html>
