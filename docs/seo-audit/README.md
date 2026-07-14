@@ -1,32 +1,44 @@
 # Lift The City Supplements — Advanced Technical SEO Audit
 
 **Website:** https://www.liftthecitysupplements.com/  
-**Audit date:** 2026-07-14  
 **Overall score:** 58 / 100
 
-## Open these files
+## Easiest way to open (recommended)
 
-| File | Best for |
-|------|----------|
-| `LiftTheCitySupplements-Advanced-Technical-SEO-Audit.xlsx` | Full audit — upload to **Google Sheets** |
-| `LiftTheCitySupplements-Advanced-Technical-SEO-Audit-Summary.docx` | Short summary — upload to **Google Docs** |
+### Open this HTML file in any browser
+**[`LiftTheCitySupplements-Advanced-Technical-SEO-Audit.html`](LiftTheCitySupplements-Advanced-Technical-SEO-Audit.html)**
 
-## Excel sheets
+- Double-click it, or right-click → Open with Chrome / Edge / Safari / Firefox  
+- No Excel needed  
+- Same content as the spreadsheet, color-coded
 
-1. `01_START_HERE` — scores + top 10 fixes  
-2. `02_EXECUTIVE_SUMMARY` — what’s good vs broken  
-3. `11_SCORECARD` — chart  
-4. `03_PRIORITY_ACTION_PLAN` — task tracker  
-5. `04_PAGE_BY_PAGE` — URL findings  
-6. `05_COLLECTIONS_AUDIT` — collection cleanup list  
-7. `06_TECHNICAL_CHECKLIST` — pass/fail checklist  
-8. `07_PRODUCTS_SAMPLE` — product SEO sample  
-9. `08_SCHEMA_RICH_RESULTS` — schema + LocalBusiness example  
-10. `09_GLOSSARY_EASY_WORDS` — plain-English terms  
-11. `10_TOOLS_AND_NEXT_CHECKS` — free tools to verify fixes  
+## Other formats
 
-## Upload to Google
+| File | How to open |
+|------|-------------|
+| `LiftTheCitySupplements-Advanced-Technical-SEO-Audit.html` | **Any web browser (easiest)** |
+| `csv-sheets/*.csv` or `LiftTheCitySupplements-SEO-Audit-CSV-Sheets.zip` | Google Drive → New → File upload → Open / Import into **Google Sheets** |
+| `LiftTheCitySupplements-Advanced-Technical-SEO-Audit.xlsx` | Excel / LibreOffice / Google Sheets |
+| `LiftTheCitySupplements-Advanced-Technical-SEO-Audit-Summary.docx` | Word / Google Docs |
 
-1. Go to [Google Drive](https://drive.google.com)
-2. Upload the `.xlsx` or `.docx`
-3. Right-click → **Open with** → **Google Sheets** or **Google Docs**
+## Google Sheets import (if Excel won't open)
+
+1. Download `LiftTheCitySupplements-SEO-Audit-CSV-Sheets.zip`
+2. Unzip it
+3. Go to [sheets.google.com](https://sheets.google.com) → Blank spreadsheet
+4. **File → Import → Upload** → pick `01_START_HERE.csv` (or any sheet)
+5. Import each CSV as a new sheet/tab if you want the full workbook
+
+## What's inside
+
+1. Start Here — scores + top 10 fixes  
+2. Executive Summary  
+3. Scorecard  
+4. Priority Action Plan  
+5. Page-by-page findings  
+6. Collections cleanup list  
+7. Technical checklist  
+8. Products sample  
+9. Schema / LocalBusiness example  
+10. Glossary  
+11. Tools & next checks  

@@ -1,0 +1,53 @@
+Lift The City Supplements — Advanced Technical SEO Audit,,,,,
+Website: https://www.liftthecitysupplements.com/   |   Audit date: 2026-07-14   |   Platform: Shopify,,,,,
+HOW TO USE THIS FILE (2 minutes),,,,,
+Step,What to do,,,,
+1,Read this sheet for the overall score and top 10 fixes.,,,,
+2,Open 02_EXECUTIVE_SUMMARY for traffic-impact scores by SEO area.,,,,
+3,Open 03_PRIORITY_ACTION_PLAN and work top to bottom (Critical → High → Medium).,,,,
+4,Use 04_PAGE_BY_PAGE and 05_COLLECTIONS_AUDIT when fixing specific URLs.,,,,
+5,Use 06_TECHNICAL_CHECKLIST as your Shopify admin / theme checklist.,,,,
+6,Share this file in Google Sheets: Upload → Open with Google Sheets.,,,,
+OVERALL TECHNICAL SEO SCORE,,,,,
+58,"Out of 100 — Needs Improvement
+
+Shopify foundation is solid (HTTPS, sitemap, product schema, robots.txt), but on-page SEO for collections/pages, local SEO, indexation hygiene, and structured-data quality are holding the store back.",,,,
+SCORE BY AREA (easy view),,,,,
+SEO Area,Score / 10,Status,Plain-English meaning,,
+Crawl & Indexation,7,OK,"Google can find most pages, but some junk/empty URLs and search pages can still get indexed.",,
+HTTPS / Host / Redirects,8,Good,"HTTP→HTTPS and non-www→www work. Trailing-slash URLs return 200 (minor duplicate risk, mitigated by canonical).",,
+Robots.txt & Sitemap,7,OK,Sitemap exists and updates. Problem: empty/irrelevant collections are still listed.,,
+On-Page SEO (titles/metas/H1),3,Critical,Almost all collections & content pages lack meta descriptions. Titles are too short/generic.,,
+Structured Data (Schema),5,Needs work,"Products have schema, but GTINs are duplicated across variants; missing LocalBusiness/Organization.",,
+Content & Information Architecture,3,Critical,No About/FAQ/Store page. Blog is empty. 238 collections for ~503 products (many thin/empty).,,
+Local SEO (Toronto store),3,Critical,"Phone/email exist, but street address incomplete, no LocalBusiness schema, no Google Business alignment page.",,
+Images & Accessibility,5,Needs work,WebP used (good). Many empty alt texts. Viewport blocks pinch-zoom (accessibility/SEO signal).,,
+Performance / Page Weight,5,Needs work,"Server responds fast, but HTML pages are very heavy (~350–500 KB HTML each).",,
+Internal Linking & UX Signals,6,OK,Brand/collection nav is strong; weak supporting content hubs and blog.,,
+TOP 10 FIXES (do these first),,,,,
+#,Priority,Fix,Where in Shopify,Why it matters,Expected impact
+1,CRITICAL,"Write unique Title + Meta Description for every important collection (Protein, Creatine, Pre-Workout, Fat Burners, brand pages).",Products → Collections → each collection → Search engine listing,65/66 sampled collections have NO meta description. Google currently invents snippets.,High – rankings + CTR
+2,CRITICAL,"Delete, unpublish, or noindex empty/irrelevant collections (dog walking, renovation services, empty apparel, etc.).",Products → Collections + Theme / apps robots meta,Empty & off-topic collections are in the sitemap and waste crawl budget / hurt trust.,High – index quality
+3,CRITICAL,"Add LocalBusiness + Organization schema with full NAP (street, city, postal, phone, hours) and create an About / Store Location page.",Theme code (JSON-LD) + Pages,Toronto local intent is a major opportunity; currently incomplete address & no local schema.,High – local pack + trust
+4,CRITICAL,"Fix product structured data: unique GTIN per variant (or remove bad GTINs), absolute offer URLs.",Product admin barcodes + theme schema,Same GTIN reused on all variants can invalidate rich results / Merchant Center trust.,High – rich results
+5,HIGH,"Add meta titles/descriptions to Contact, policy pages; add H1 on Contact; create About + FAQ pages.",Online Store → Pages,Thin sitewide content footprint (only 3 pages + empty blog).,Medium-High
+6,HIGH,Noindex internal search pages and preferably cart; stop search URLs from self-canonicalizing as indexable.,Theme robots / search template,https://.../search is indexable with canonical to itself.,Medium – index bloat
+7,HIGH,"Publish useful blog content (buying guides: best whey isolate Canada, creatine guide, etc.) — blog currently has 0 articles.",Online Store → Blog posts,Zero content marketing / topical authority beyond product pages.,High – long-term organic
+8,HIGH,Improve titles: Collection titles like 'PROTEIN' → 'Buy Protein Powder in Toronto & Canada | Lift The City'. Product titles can append brand.,Collection/Product SEO fields,Short generic titles reduce relevance and CTR vs competitors.,High – CTR
+9,MEDIUM,Fix image alt text (48 empty alts on homepage) and allow accessibility zoom (remove maximum-scale=1.0).,Theme images + theme.liquid viewport,Accessibility and image search signals.,Medium
+10,MEDIUM,"Reduce homepage/collection HTML weight (apps, sections) and align shipping claims ($149 vs $150 inconsistency in meta vs banner).",Theme sections + apps + meta description,Lighter pages help Core Web Vitals; consistent claims help trust/CTR.,Medium
+SITE SNAPSHOT (facts from crawl),,,,,
+Metric,Value,Notes,,,
+Products in sitemap,503,All include images; lastmod current,,,
+Collections in sitemap,238,Too many vs product count; many thin/empty,,,
+Pages in sitemap,3,"Contact, collection-bundle, official-partners only",,,
+Blog posts,0,Only /blogs/news index exists — empty,,,
+Canonical host,https://www.liftthecitysupplements.com,Correct www preference,,,
+Homepage title,"Protein, Creatine, And General Health! | LiftTheCitySupplements.Com",67 chars — decent length,,,
+Homepage meta description,Present (174 chars),Mentions $149 GTA shipping — banner says $150 (inconsistency),,,
+Theme / stack,Shopify + Cloudflare,HSTS on; Brotli compression on,,,
+COLOR KEY,,,,,
+CRITICAL — fix immediately,,,,,
+HIGH — fix next,,,,,
+MEDIUM — plan in,,,,,
+GOOD / Working,,,,,

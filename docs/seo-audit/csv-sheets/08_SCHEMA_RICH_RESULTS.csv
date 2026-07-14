@@ -1,0 +1,43 @@
+Structured Data & Rich Results Deep Dive,,,
+Current schema inventory,,,
+Page type,Schema found,Missing / problems,Recommended schema
+Homepage,"WebSite + SearchAction, BreadcrumbList","No Organization, No LocalBusiness, No WebPage",Organization + LocalBusiness + WebSite
+Product,"Product, Offer[], Brand, ImageObject, Breadcrumb; AggregateRating sometimes",Duplicate GTIN; relative offer URLs; priceValidUntil short; limited reviews,Fix identifiers; Offer absolute URL; ProductGroup if needed
+Collection,BreadcrumbList only,No CollectionPage / ItemList description,CollectionPage + ItemList (optional) + SEO copy
+Contact,BreadcrumbList only,No ContactPage / LocalBusiness,LocalBusiness or ContactPage
+Blog,BreadcrumbList only,No Blog / BlogPosting (and no posts),Blog + Article when content exists
+Policies,Not deeply audited,Usually fine as WebPage,WebPage + breadcrumb
+"Example LocalBusiness JSON-LD (customize street/hours, then paste in theme)",,,
+"{
+  ""@context"": ""https://schema.org"",
+  ""@type"": ""HealthAndBeautyStore"",
+  ""name"": ""Lift The City Supplements"",
+  ""url"": ""https://www.liftthecitysupplements.com/"",
+  ""telephone"": ""+1-647-973-3793"",
+  ""email"": ""ltc@liftthecitysupplements.com"",
+  ""image"": ""https://cdn.shopify.com/s/files/1/0621/0899/1720/files/image_6483441_5.jpg?v=1656103057"",
+  ""address"": {
+    ""@type"": ""PostalAddress"",
+    ""streetAddress"": ""ADD FULL STREET ADDRESS HERE"",
+    ""addressLocality"": ""Toronto"",
+    ""addressRegion"": ""ON"",
+    ""postalCode"": ""M5V 4A6"",
+    ""addressCountry"": ""CA""
+  },
+  ""geo"": {
+    ""@type"": ""GeoCoordinates"",
+    ""latitude"": ""ADD"",
+    ""longitude"": ""ADD""
+  },
+  ""openingHoursSpecification"": [{
+    ""@type"": ""OpeningHoursSpecification"",
+    ""dayOfWeek"": [""Monday"",""Tuesday"",""Wednesday"",""Thursday"",""Friday""],
+    ""opens"": ""10:00"",
+    ""closes"": ""18:00""
+  }],
+  ""areaServed"": [""Toronto"",""Greater Toronto Area"",""Canada""],
+  ""priceRange"": ""$$"",
+  ""sameAs"": [""https://www.instagram.com/liftthecitysupplements/""]
+}",,,
+GTIN problem explained simply,,,
+"Each product flavour/size should have its own barcode (GTIN/UPC). Right now the store often repeats ONE barcode across many variants. Google and shopping feeds treat that as bad data. Fix in Shopify: Products → variant → Barcode field. If you do not know the real barcode, leave it blank.",,,
