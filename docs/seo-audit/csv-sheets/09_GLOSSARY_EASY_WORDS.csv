@@ -1,0 +1,23 @@
+Glossary — SEO words in plain English,
+Term,Plain English
+Technical SEO,"Making sure Google can find, understand, and trust your pages (not just writing blog posts)."
+Crawl budget,How much time Google spends scanning your site. Don't waste it on empty/junk pages.
+Index / Indexation,Whether a page can appear in Google results.
+noindex,A tag that tells Google 'do not show this page in search'.
+Canonical,The 'main' URL version you want Google to count when duplicates exist.
+Meta description,"The short blurb under your blue title in Google. Does not directly rank, but boosts clicks."
+Title tag,The clickable blue headline in Google. Very important.
+H1,The main visible page heading. Should match the topic.
+Schema / JSON-LD,"Special code that explains products, store info, reviews to Google for rich results."
+GTIN / UPC / Barcode,Product identifier number. Must be unique and correct per variant.
+Rich results,"Fancy Google listings (stars, price, availability)."
+Core Web Vitals / CWV,"Google's speed & stability measures (LCP, INP, CLS)."
+TTFB,How fast the server starts sending the page.
+NAP,"Name, Address, Phone — must be consistent for local SEO."
+LocalBusiness schema,Code that tells Google your physical store details.
+Thin content,"Pages with little unique value (empty collections, empty blog)."
+Cannibalization,"Multiple pages fighting for the same keyword (e.g., generic /products/pre-workout)."
+CTR,Click-through rate — % of searchers who click your result.
+E-E-A-T,"Experience, Expertise, Authoritativeness, Trust — helped by About, real store info, reviews."
+Sitemap,A map of URLs you want Google to discover.
+robots.txt,Rules for bots about where they may crawl (not a full substitute for noindex).

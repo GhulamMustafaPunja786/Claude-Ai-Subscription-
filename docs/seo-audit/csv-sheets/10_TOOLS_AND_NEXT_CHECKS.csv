@@ -1,0 +1,18 @@
+Tools to verify fixes (free),,
+Tool,URL,Use it for
+Google Search Console,https://search.google.com/search-console,"Sitemap submit, coverage, queries, enhancements"
+Rich Results Test,https://search.google.com/test/rich-results,Validate Product / LocalBusiness schema
+Schema Validator,https://validator.schema.org/,Deep schema debugging
+PageSpeed Insights,https://pagespeed.web.dev/,Mobile speed + CWV after theme cleanup
+Mobile-Friendly / viewport check,Chrome DevTools + PSI Accessibility,Confirm zoom works after viewport fix
+Shopify Search engine listing preview,Admin → product/collection,Titles & metas
+site: search operator,site:liftthecitysupplements.com,Spot indexed junk/search/empty pages
+Google Business Profile,https://business.google.com/,Match NAP to website LocalBusiness
+Suggested Google Search Console queries after cleanup,,
+Check,What you hope to see,
+site:www.liftthecitysupplements.com/collections/gussy,Should eventually disappear,
+site:www.liftthecitysupplements.com/search,Should eventually disappear,
+site:www.liftthecitysupplements.com/blogs/news,Should list real articles after publishing,
+"""Lift The City Supplements"" Toronto",Brand + local pack presence improves,
+Audit limitations (transparency),,
+"This audit used live HTTP crawls of the public website, sitemaps, robots.txt, HTML parsing, and product/collection JSON endpoints. PageSpeed Insights API quota was exceeded in this environment, so lab CWV scores were not pulled live — HTML weight and TTFB were measured directly instead. Google ranking positions, Search Console data, and paid app configurations inside Shopify admin were not accessible. Re-run PSI and GSC after implementing Phase 1–2 fixes.",,

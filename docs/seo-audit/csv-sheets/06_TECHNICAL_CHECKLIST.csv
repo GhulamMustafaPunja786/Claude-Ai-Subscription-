@@ -1,0 +1,44 @@
+Advanced Technical SEO Checklist (Shopify),,,,,
+Category,Check,Current status,Pass?,Notes / evidence,Owner
+Crawlability,robots.txt exists & references sitemap,Present; Sitemap line OK,PASS,https://www.liftthecitysupplements.com/robots.txt,Dev
+Crawlability,XML sitemap accessible,Sitemap index with 5 child maps,PASS,products/collections/pages/blogs/agentic,Dev
+Crawlability,Sitemap free of junk URLs,Empty & irrelevant collections included,FAIL,"dog-walking, renovation, empty apparel collections in sitemap",Store owner
+Crawlability,Homepage accidentally in product sitemap,Homepage loc found in products sitemap,WARN,Shopify quirk — monitor,Dev
+Indexation,Important templates indexable,Products/collections indexable,PASS,No accidental sitewide noindex,Dev
+Indexation,Search results noindexed,/search is indexable (self-canonical),FAIL,Add noindex to search template,Dev
+Indexation,Cart/checkout protected,robots.txt disallows; cart meta robots missing,WARN,Prefer meta noindex on cart too,Dev
+Indexation,Pagination handling,page=2 self-canonical; sort_by canonicalizes to clean URL,PASS/WARN,Sort handling good; pagination OK for Shopify,SEO
+URL / Host,HTTPS enforced,HTTP 301 → HTTPS,PASS,Checked,Dev
+URL / Host,www canonical host,non-www → www,PASS,x-redirect-reason: canonical_host_redirection,Dev
+URL / Host,Trailing slash consistency,Both resolve 200; canonical without slash,WARN,Canonical mitigates; 301 would be cleaner,Dev
+URL / Host,Case sensitivity,/PRODUCTS/... → 404,WARN,Normal on Shopify; avoid mixed-case links,Content
+On-Page,Unique title tags,Many generic short titles on collections/pages,FAIL,PROTEIN / Products / Contact / News,SEO
+On-Page,Meta descriptions present,Collections/pages mostly missing; products mostly present,FAIL,65/66 collections missing,SEO
+On-Page,Single clear H1,Home/product/collection OK; Contact/Blog missing,WARN,Fix Contact + Blog templates,Dev
+On-Page,Heading hierarchy sensible,H6 used for shipping blurbs on home,WARN,Don't use H6 for non-outline text,Dev
+Schema,Product schema,Present with Offer/Brand,PASS,Good baseline,Dev
+Schema,Valid unique identifiers (GTIN/SKU),Same gtin12 repeated across variants,FAIL,Fix barcodes or omit invalid GTIN,Store owner
+Schema,Absolute offer URLs,Relative URLs in offers,FAIL,Update liquid schema,Dev
+Schema,Organization schema,Missing on homepage,FAIL,Add Organization,Dev
+Schema,LocalBusiness schema,Missing,FAIL,Critical for Toronto store,Dev
+Schema,BreadcrumbList,Present,PASS,Home → page,Dev
+Schema,Review/AggregateRating coverage,Rare (1/40 sample),WARN,Scale review collection,Marketing
+Content,About page,404,FAIL,Create,Content
+Content,FAQ page,404,FAIL,Create,Content
+Content,Blog activity,0 posts,FAIL,Publish guides,Content
+Content,Collection uniqueness / thin pages,Many 0–3 product collections,FAIL,Clean IA,SEO
+Local,NAP completeness,Phone+email yes; street missing; hours incomplete,FAIL,Contact page,Store owner
+Local,Consistent shipping claims,$149 meta vs $150 banner,FAIL,Align copy,Marketing
+Images,Alt attributes,Many empty on homepage,FAIL,48 empty alts,Content
+Images,Next-gen formats,WebP yes,PASS,Shopify CDN,Dev
+Images,Sitemap image entries,503/503 products have image in sitemap,PASS,Good,Dev
+Performance,TTFB,~28ms measured,PASS,Edge/CDN strong,Dev
+Performance,HTML document weight,350–500KB HTML common,FAIL,App/section bloat likely,Dev
+Performance,Compression,br (Brotli),PASS,Good,Dev
+Security,HSTS,max-age≈3 months,WARN,Consider longer max-age once stable,Dev
+Security,CSP / X-Frame-Options,frame-ancestors none; XFO DENY,PASS,Good hardening,Dev
+Accessibility,Viewport zoom allowed,maximum-scale=1.0 set,FAIL,Remove max/min scale locks,Dev
+Mobile,Responsive viewport meta present,Yes (but zoom locked),WARN,Fix scale,Dev
+Intl,Hreflang,None (single locale en-CA),PASS,OK if Canada-only,SEO
+Social,Open Graph tags,Present on home,PASS,og:image 1200x628,SEO
+Social,Twitter card type,summary (not large image),WARN,Use summary_large_image,Dev

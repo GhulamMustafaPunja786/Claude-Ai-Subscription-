@@ -1,0 +1,43 @@
+Product SEO Sample (40 products),,,,,,,
+Summary: Missing meta desc = 1/40 | Product schema = 40/40 | AggregateRating = 1/40 | Avg title length ≈ 37 chars (often missing store brand name),,,,,,,
+Handle,Title,Title length,Has meta desc?,Meta length,Product schema?,Review schema?,Notes
+pre-workout,Limitless Pharma BLOW Pre-Workout 50 Servings,45,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+allmax-agmatine-sulfate,Allmax Agmatine 45g,19,YES,131,YES,NO,Title short — add variant/benefit/brand keywords; No review stars schema; Consider appending | Lift The City
+allmax-l-glutamine,Allmax L-Glutamine 400g &amp; 1000g,35,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+atp-omega-pure,ATPLab Omega Pure 120 Softgels,30,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+atp-labs-iso,ATPLab 100% Whey Protein Isolate 900g,37,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+progressive-vegessential-all-in-one,Progressive Vegessential All In One 840g (Clearance),52,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+pvl-isogold,"PVL Isogold 340g, 1.85LB &amp; 5LB",34,YES,324,YES,YES,Consider appending | Lift The City
+himalaya-ashwagandha,Himalaya Ashwagandha 60 &amp; 90 Capsules,41,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+dymatize-iso100-protein,Dymatize Iso100 Protein 1.34LB &amp; 5LB,40,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+pvl-water-tight-90-capsules,PVL WaterTight 90 Capsules,26,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+lifttech-padded-leather-belt-4,Lifttech Padded Leather Belt 4&quot; &amp; 6&quot;,50,YES,325,YES,NO,No review stars schema
+quest-mini-peanut-butter-cups,Quest Mini Peanut Butter Cups 128g,34,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+unisex-gold-ambition-premium-midweight-hoodie,Unisex &quot;Gold Ambition&quot; Premium Midweight Hoodie,57,YES,266,YES,NO,No review stars schema; Consider appending | Lift The City
+beyond-yourself-amrap,Beyond Yourself AMRAP 400g,26,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+unisex-ltc-vice-edition-premium-t-shirt-pre-order,Unisex LTC &quot;Vice Edition&quot; Premium T-Shirt,51,YES,330,YES,NO,No review stars schema; Consider appending | Lift The City
+atplab-ultra-omega-3,ATPLab Ultra Omega 3 60 Capsules,32,YES,279,YES,NO,No review stars schema; Consider appending | Lift The City
+copy-of-owala-freesip-32-oz,Owala FreeSip 24oz,18,YES,203,YES,NO,Title short — add variant/benefit/brand keywords; No review stars schema; Consider appending | Lift The City
+salus-gallexier-herbal-bitters-liquid-250ml,Salus Gallexier Herbal Bitters Liquid 250ml,43,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+ehplabs-oxyshred-248-324g,EHPlabs Oxyshred Ultra Concentration 264-294g,45,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+atplab-inflam-control-120-capsules,ATPlab Inflam Control 120 Capsules,34,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+alora-naturals-alpha-gpc,Alora Naturals Alpha GPC 60 Capsules,36,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+atplab-trans-resveratrol-99-60-capsules,ATPLab Trans Resveratrol 99% 60 Capsules,40,YES,157,YES,NO,No review stars schema; Consider appending | Lift The City
+alora-naturals-joint-recovery-extra-strength-150-capsules,Alora Naturals Joint Recovery Extra Strength 150 Capsules,57,YES,77,YES,NO,No review stars schema; Consider appending | Lift The City
+pvl-proh20,PVL PRO H20 255g &amp; 612g,27,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+hd-muscle,HD Muscle MultiHD 120 Capsules,30,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+becks-broth-22g-35g,Beck&#39;s Broth 21g-25g (Clearance),36,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+omaha-protein-popcorn-124-224g,OPP Omaha Protein Popcorn 62g-124g,34,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+aor-nattokinase-30-capsules,AOR Nattokinase 30 Capsules,27,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+sinfit-protein-pancake-waffle-mix,Sinfit Nutrition Protein Pancake &amp; Waffle Mix 612g,54,YES,328,YES,NO,No review stars schema; Consider appending | Lift The City
+lifttech-elite-wrist-wrap-mens,Lifttech Elite Wrist Wrap Mens Medium,37,YES,282,YES,NO,No review stars schema
+pure-le-iron-60-capsules,Pure-Le Lipofective Iron 60 Capsules,36,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+aor-l-glutamine-120-capsules,AOR L-Glutamine 120 Capsules,28,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+nutridom-organic-moringa-leaf-500mg-120-capsules,Nutridom Organic Moringa Leaf 500mg 120 Capsules,48,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+perfect-sports-mag-z,Perfect Sports Mag-Z 90 Capsules,32,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+nutridom-vitamin-k2-120-capsules,Nutridom Vitamin K2 120 Capsules,32,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City
+rabeko-protein-chocolate-spread-250g,Rabeko Protein Chocolate Spread 250g,36,NO,0,YES,NO,Add meta description; No review stars schema; Consider appending | Lift The City
+cover,Covertape Premium Kinesiology Tape,34,YES,320,YES,NO,No review stars schema; Consider appending | Lift The City
+hd-muscle-prehd-essential-preworkout-369g,HD Muscle PreHD Essential Preworkout 369g,41,YES,188,YES,NO,No review stars schema; Consider appending | Lift The City
+aor-p-5-p-60-capsules,AOR P-5-P 60 Capsules,21,YES,320,YES,NO,Title short — add variant/benefit/brand keywords; No review stars schema; Consider appending | Lift The City
+jacksons-avocado-oil-sweet-potato-chips-sea-salt-142g,Jackson&#39;s Avocado Oil Sweet Potato Chips | Sea Salt 142g,60,YES,324,YES,NO,No review stars schema; Consider appending | Lift The City

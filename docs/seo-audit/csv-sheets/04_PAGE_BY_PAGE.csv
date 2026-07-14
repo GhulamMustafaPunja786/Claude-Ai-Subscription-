@@ -1,0 +1,16 @@
+Page-by-Page Technical SEO Findings (sampled live URLs),,,,,,,,,,,
+URL,HTTP,Title,Title len,Meta desc?,Meta len,H1,Schema types,Words~,HTML KB,Issues / Notes,Priority fix
+https://www.liftthecitysupplements.com/,200,"Protein, Creatine, And General Health! | LiftTheCitySupplements.Com",67,Yes,174,Lift The City Supplements,"WebSite, SearchAction, BreadcrumbList",1325,405,48 empty image alts; shipping $149 vs $150 mismatch; no Organization/LocalBusiness schema; heavy HTML; viewport max-scale=1,Add Organization/LocalBusiness; fix alts; align shipping copy
+.../products/pure-whey-isolate-2lb,200,Limitless Pharma Pure Whey Isolate 2LB & 5LB,44,Yes,320,Limitless Pharma Pure Whey Isolate 2LB & 5LB,"Product, Offer, Brand, AggregateRating, Breadcrumb",988,438,Duplicate gtin12 on all variants; relative offer URLs; title missing store name; meta a bit long (>160),Fix GTINs; shorten meta; append brand in title
+.../products/pre-workout,200,Limitless Pharma BLOW Pre-Workout 50 Servings,45,Yes,320,Limitless Pharma BLOW Pre-Workout 50 Servings,"Product, Offer, Brand, Breadcrumb",1482,371,Handle /products/pre-workout is overly generic for one brand SKU (cannibalization risk if others compete for 'pre-workout'),Consider more specific handle or canonical strategy; unique GTIN
+.../products/pe-science-select-protein,200,PEScience Select Protein 27 & 55 Servings,41,Yes,320,PEScience Select Protein 27 & 55 Servings,"Product, Offer, Brand, Breadcrumb",1038,489,Same GTIN reuse pattern; heavy HTML,Fix variant identifiers
+.../collections/protein,200,PROTEIN,7,NO,0,PROTEIN,BreadcrumbList only,1159,401,Critical money page with almost no SEO fields; no CollectionPage description schema,Write title+meta+intro copy
+.../collections/all,200,Products,8,NO,0,All products,BreadcrumbList only,1124,349,Generic title; pagination self-canonical on ?page=2 (normal for Shopify but watch duplicates),Better title/meta or noindex if thin preference
+.../collections/frontpage,200,Home page,9,NO,0,Home page,BreadcrumbList,819,239,Should usually be hidden/noindex — duplicates homepage theme,Hide/noindex frontpage collection
+.../collections/limitless-pharma,200,LIMITLESS PHARMA,16,NO,0,LIMITLESS PHARMA,BreadcrumbList,875,268,Brand collection needs unique meta + supporting copy,Add SEO fields + brand blurb
+.../collections/creatine,404,404 Not Found,13,NO,0,(none),Breadcrumb,722,205,Dead URL pattern users may guess; real collection is /collections/creatine-monohydrate,Add 301 from /creatine → /creatine-monohydrate
+.../pages/contact,200,Contact,7,NO,0,MISSING,Breadcrumb only,756,207,No H1; incomplete address (no street); no LocalBusiness,Full NAP + H1 + meta
+.../blogs/news,200,News,4,NO,0,MISSING/empty,Breadcrumb,709,204,Empty blog index — thin page risk if indexed,Publish posts or noindex until content exists
+.../search?q=protein,200,protein - Lift The City Supplements,35,NO,0,n/a,n/a,n/a,n/a,Canonical points to search URL; indexable thin result pages,Noindex all search templates
+.../pages/about (and about-us),404,—,0,—,0,—,—,0,0,Missing trust page,Create About Us page
+.../pages/faq,404,—,0,—,0,—,—,0,0,Missing support/SEO content,Create FAQ
