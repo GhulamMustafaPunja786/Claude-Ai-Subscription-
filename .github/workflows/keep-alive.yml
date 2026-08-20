@@ -1,0 +1,26 @@
+# Optional: ping a deployed Hugging Face Space so it does not sleep.
+# cron-job.org is the better free option (no GitHub Actions minutes).
+# Enable this only on a public repo, or accept ~1,500 minutes/month on a 30-min schedule.
+name: Keep n8n Space awake
+
+on:
+  workflow_dispatch:
+  # Uncomment after setting the N8N_URL repository variable:
+  # schedule:
+  #   - cron: "*/30 * * * *"
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping n8n health endpoint
+        env:
+          N8N_URL: ${{ vars.N8N_URL }}
+        run: |
+          set -euo pipefail
+          if [ -z "${N8N_URL:-}" ]; then
+            echo "Set repo variable N8N_URL to https://YOUR-SPACE.hf.space"
+            exit 1
+          fi
+          curl -fsS --max-time 30 "${N8N_URL%/}/healthz" || curl -fsS --max-time 30 "${N8N_URL%/}/webhook/ping"
+          echo "ok"

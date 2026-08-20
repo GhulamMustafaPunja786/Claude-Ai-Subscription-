@@ -1,0 +1,8 @@
+{
+  "name": "free-n8n-automation",
+  "private": true,
+  "description": "Completely free n8n hosting kit (Hugging Face + Supabase) with a Typeform to WhatsApp workflow",
+  "scripts": {
+    "test": "node tests/workflow.test.js"
+  }
+}

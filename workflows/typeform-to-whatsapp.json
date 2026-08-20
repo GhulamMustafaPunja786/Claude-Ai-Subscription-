@@ -1,0 +1,179 @@
+{
+  "name": "Typeform to WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform-lead",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "a1c2e3f4-1111-2222-3333-444455556666",
+      "name": "Typeform Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "typeform-lead"
+    },
+    {
+      "parameters": {
+        "jsCode": "const root = $input.first().json;\nconst payload = root.body || root;\nconst form = payload.form_response || payload;\nconst fields = (form.definition && form.definition.fields) || [];\nconst answers = form.answers || [];\n\nfunction fieldMeta(id) {\n  const field = fields.find((item) => item.id === id) || {};\n  return {\n    title: String(field.title || '').toLowerCase(),\n    ref: String(field.ref || '').toLowerCase(),\n    label: field.title || field.ref || id || 'field',\n  };\n}\n\nfunction answerValue(answer) {\n  if (!answer) return '';\n  if (answer.type === 'email') return answer.email || '';\n  if (answer.type === 'phone_number') return answer.phone_number || '';\n  if (answer.type === 'boolean') return answer.boolean ? 'Yes' : 'No';\n  if (answer.type === 'number') return String(answer.number ?? '');\n  if (answer.type === 'choice') return (answer.choice && answer.choice.label) || '';\n  if (answer.type === 'choices') return ((answer.choices && answer.choices.labels) || []).join(', ');\n  if (answer.type === 'date') return answer.date || '';\n  if (answer.type === 'url') return answer.url || '';\n  if (answer.file_url) return answer.file_url;\n  return answer.text || answer.email || answer.phone_number || '';\n}\n\nfunction digitsOnly(value) {\n  return String(value || '').replace(/[^\\d]/g, '');\n}\n\nconst extracted = {};\nconst lines = [];\n\nfor (const answer of answers) {\n  const meta = fieldMeta(answer.field && answer.field.id);\n  const key = meta.ref || meta.title || (answer.field && answer.field.id) || 'field';\n  const value = answerValue(answer);\n  extracted[key] = value;\n  if (value) lines.push(`${meta.label}: ${value}`);\n\n  const haystack = `${meta.title} ${meta.ref}`;\n  if (/email/.test(haystack) || answer.type === 'email') extracted.email = value;\n  if (/phone|whatsapp|mobile|cell/.test(haystack) || answer.type === 'phone_number') {\n    extracted.phone = value;\n  }\n  if (/(^| )(name|full name|your name|first name)( |$)/.test(` ${haystack} `)) {\n    extracted.name = extracted.name || value;\n  }\n}\n\nconst notifyTo = digitsOnly($env.WHATSAPP_NOTIFY_TO);\nconst name = extracted.name || 'someone';\nconst summary = lines.join('\\n') || 'No answers';\n\nreturn [{\n  json: {\n    name,\n    email: extracted.email || '',\n    phone: digitsOnly(extracted.phone),\n    notifyTo,\n    submittedAt: form.submitted_at || '',\n    formId: form.form_id || '',\n    summary,\n    message: `New Typeform lead from ${name}\\n${summary}`.slice(0, 4000),\n    shouldSend: Boolean(notifyTo && $env.WHATSAPP_ACCESS_TOKEN && $env.WHATSAPP_PHONE_NUMBER_ID),\n  },\n}];"
+      },
+      "id": "b2d3e4f5-1111-2222-3333-444455556666",
+      "name": "Parse Typeform Answers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "should-send",
+              "leftValue": "={{ $json.shouldSend }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3e4f5a6-1111-2222-3333-444455556666",
+      "name": "Has WhatsApp Config?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v21.0/{{ $env.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.WHATSAPP_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $json.notifyTo }}\",\n  \"type\": \"text\",\n  \"text\": {\n    \"body\": {{ JSON.stringify($json.message) }},\n    \"preview_url\": false\n  }\n}",
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "d4f5a6b7-1111-2222-3333-444455556666",
+      "name": "Send WhatsApp Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [980, 180]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "skipped",
+              "name": "status",
+              "value": "skipped_missing_whatsapp_env",
+              "type": "string"
+            },
+            {
+              "id": "parsed",
+              "name": "parsed",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5a6b7c8-1111-2222-3333-444455556666",
+      "name": "Skip Send",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [980, 420]
+    }
+  ],
+  "connections": {
+    "Typeform Webhook": {
+      "main": [
+        [
+          {
+            "node": "Parse Typeform Answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Typeform Answers": {
+      "main": [
+        [
+          {
+            "node": "Has WhatsApp Config?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has WhatsApp Config?": {
+      "main": [
+        [
+          {
+            "node": "Send WhatsApp Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Karachi"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "free-n8n-typeform-whatsapp"
+  },
+  "tags": [
+    {
+      "name": "free"
+    },
+    {
+      "name": "whatsapp"
+    },
+    {
+      "name": "typeform"
+    }
+  ]
+}

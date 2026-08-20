@@ -1,0 +1,72 @@
+{
+  "name": "Keep n8n Awake Ping",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "ping",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "f6b7c8d9-1111-2222-3333-444455556666",
+      "name": "Ping Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "keep-awake-ping"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ok",
+              "name": "ok",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "at",
+              "name": "ts",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7c8d9e0-1111-2222-3333-444455556666",
+      "name": "Pong",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [500, 300]
+    }
+  ],
+  "connections": {
+    "Ping Webhook": {
+      "main": [
+        [
+          {
+            "node": "Pong",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Karachi"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [
+    {
+      "name": "ops"
+    }
+  ]
+}

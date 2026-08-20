@@ -1,0 +1,12 @@
+.git
+.github
+.env
+.env.*
+*.md
+!README.md
+tests
+samples
+docs
+workflows
+node_modules
+.DS_Store
