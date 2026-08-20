@@ -9,6 +9,10 @@ make import
 ./scripts/activate-workflow.sh n8nfreehello0001
 ```
 
+Re-importing a workflow that already exists overwrites it **and deactivates it**
+(`Deactivating workflow "..."` in the import output). After pulling updated
+workflow files, re-activate anything that should be live.
+
 ## 01 — Hello Webhook
 
 `workflows/01-hello-webhook.json` · id `n8nfreehello0001`

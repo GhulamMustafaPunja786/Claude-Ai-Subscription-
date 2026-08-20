@@ -23,7 +23,8 @@ n8n_cli list:workflow | sed 's/^/  /'
 
 cat <<EOF
 
-Imported workflows are inactive. Turn one on with:
+Imported workflows are inactive - re-importing an existing one deactivates it
+too. Turn one on with:
 
   ./scripts/activate-workflow.sh <id>
 
