@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+
+backups/*
+!backups/.gitkeep
+
+caddy/data/
+caddy/config/
+*.log
+.DS_Store

@@ -1,0 +1,77 @@
+name: n8n-free-lite
+
+# Lightweight stack for a 1 GB free VM (Oracle Always Free AMD micro, GCP e2-micro,
+# AWS t2.micro, a spare laptop or a Raspberry Pi). SQLite instead of Postgres saves
+# roughly 150-250 MB of RAM. Same n8n, same workflows, smaller footprint.
+#
+#   docker compose -f docker-compose.sqlite.yml up -d
+#   docker compose -f docker-compose.sqlite.yml --profile tunnel up -d   # + free HTTPS
+#
+# Trade-off: SQLite serializes writes, so keep concurrency low and avoid queue mode.
+# Move to docker-compose.yml once you outgrow it - workflows migrate by export/import.
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:${N8N_IMAGE_TAG:-2.35.5}
+    restart: unless-stopped
+    ports:
+      - "${N8N_BIND_ADDRESS:-127.0.0.1}:${N8N_PUBLISHED_PORT:-5678}:5678"
+    environment:
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
+      - N8N_LISTEN_ADDRESS=0.0.0.0
+      - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - N8N_EDITOR_BASE_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - N8N_PROXY_HOPS=${N8N_PROXY_HOPS:-0}
+      - N8N_SECURE_COOKIE=${N8N_SECURE_COOKIE:-false}
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY:?N8N_ENCRYPTION_KEY is not set - run ./scripts/gen-env.sh}
+      - N8N_USER_MANAGEMENT_JWT_SECRET=${N8N_USER_MANAGEMENT_JWT_SECRET:?N8N_USER_MANAGEMENT_JWT_SECRET is not set - run ./scripts/gen-env.sh}
+      - DB_TYPE=sqlite
+      - DB_SQLITE_POOL_SIZE=1
+      # Aggressive pruning: a 1 GB box has no room for months of execution history.
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=${EXECUTIONS_DATA_MAX_AGE:-72}
+      - EXECUTIONS_DATA_PRUNE_MAX_COUNT=${EXECUTIONS_DATA_PRUNE_MAX_COUNT:-2000}
+      - EXECUTIONS_DATA_SAVE_ON_SUCCESS=${EXECUTIONS_DATA_SAVE_ON_SUCCESS:-none}
+      - N8N_DEFAULT_BINARY_DATA_MODE=filesystem
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=${N8N_BLOCK_ENV_ACCESS_IN_NODE:-true}
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+      - N8N_HIRING_BANNER_ENABLED=false
+      - N8N_RUNNERS_ENABLED=true
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-UTC}
+      - TZ=${GENERIC_TIMEZONE:-UTC}
+      - NODE_ENV=production
+      # Node's default heap can exceed a 1 GB box under load.
+      - NODE_OPTIONS=--max-old-space-size=${NODE_MAX_OLD_SPACE_MB:-512}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./workflows:/workflows:ro
+      - ./backups:/backups
+    networks:
+      - n8n
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:5678/healthz || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    depends_on:
+      - n8n
+    command: tunnel --no-autoupdate --metrics 0.0.0.0:2000 run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN:-}
+    networks:
+      - n8n
+
+volumes:
+  n8n_data:
+
+networks:
+  n8n:

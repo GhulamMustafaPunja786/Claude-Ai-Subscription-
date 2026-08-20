@@ -1,0 +1,28 @@
+{
+	email {$LETSENCRYPT_EMAIL}
+}
+
+{$N8N_HOST} {
+	encode zstd gzip
+
+	reverse_proxy n8n:5678 {
+		# n8n pushes editor updates over SSE. Buffering here makes the canvas
+		# look frozen while a workflow runs, so stream responses through.
+		flush_interval -1
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output file /data/access.log {
+			roll_size 10MiB
+			roll_keep 3
+		}
+	}
+}

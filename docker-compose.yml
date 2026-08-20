@@ -1,0 +1,132 @@
+name: n8n-free
+
+# Full stack for a free-tier VM with >= 2 GB RAM (e.g. Oracle Cloud Always Free Ampere).
+# On a 1 GB box use docker-compose.sqlite.yml instead.
+#
+#   docker compose up -d                          # n8n + Postgres, reachable on 127.0.0.1:5678
+#   docker compose --profile caddy up -d          # + Caddy for automatic HTTPS on your domain
+#   docker compose --profile tunnel up -d         # + Cloudflare Tunnel (no open ports needed)
+
+services:
+  postgres:
+    # n8n 2.x logs a compatibility warning on Postgres 16 and older.
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-n8n}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is not set - run ./scripts/gen-env.sh}
+      POSTGRES_DB: ${POSTGRES_DB:-n8n}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - n8n
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-n8n} -d ${POSTGRES_DB:-n8n}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:${N8N_IMAGE_TAG:-2.35.5}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      # Defaults to loopback only: the proxy or tunnel is what faces the internet.
+      # Set N8N_BIND_ADDRESS=0.0.0.0 to reach the editor directly over the VM's IP.
+      - "${N8N_BIND_ADDRESS:-127.0.0.1}:${N8N_PUBLISHED_PORT:-5678}:5678"
+    environment:
+      # --- Public identity. WEBHOOK_URL being wrong is the #1 cause of dead triggers.
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
+      - N8N_LISTEN_ADDRESS=0.0.0.0
+      - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - N8N_EDITOR_BASE_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - N8N_PROXY_HOPS=${N8N_PROXY_HOPS:-0}
+      - N8N_SECURE_COOKIE=${N8N_SECURE_COOKIE:-false}
+      # --- Secrets. Losing N8N_ENCRYPTION_KEY makes every stored credential unreadable.
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY:?N8N_ENCRYPTION_KEY is not set - run ./scripts/gen-env.sh}
+      - N8N_USER_MANAGEMENT_JWT_SECRET=${N8N_USER_MANAGEMENT_JWT_SECRET:?N8N_USER_MANAGEMENT_JWT_SECRET is not set - run ./scripts/gen-env.sh}
+      # --- Database
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=${POSTGRES_DB:-n8n}
+      - DB_POSTGRESDB_USER=${POSTGRES_USER:-n8n}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      # --- Housekeeping. Without pruning, execution history fills a free tier disk.
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=${EXECUTIONS_DATA_MAX_AGE:-168}
+      - EXECUTIONS_DATA_PRUNE_MAX_COUNT=${EXECUTIONS_DATA_PRUNE_MAX_COUNT:-10000}
+      - EXECUTIONS_DATA_SAVE_ON_SUCCESS=${EXECUTIONS_DATA_SAVE_ON_SUCCESS:-all}
+      - N8N_DEFAULT_BINARY_DATA_MODE=filesystem
+      # --- Hardening and less noise
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=${N8N_BLOCK_ENV_ACCESS_IN_NODE:-true}
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+      - N8N_HIRING_BANNER_ENABLED=false
+      - N8N_RUNNERS_ENABLED=true
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-UTC}
+      - TZ=${GENERIC_TIMEZONE:-UTC}
+      - NODE_ENV=production
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./workflows:/workflows:ro
+      - ./backups:/backups
+    networks:
+      - n8n
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:5678/healthz || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["caddy"]
+    restart: unless-stopped
+    depends_on:
+      - n8n
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      # Must be a real domain for Let's Encrypt to issue a certificate.
+      # ./scripts/preflight.sh checks this before you start the profile.
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-}
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - n8n
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    depends_on:
+      - n8n
+    # Point the tunnel's public hostname at http://n8n:5678 in the Cloudflare dashboard.
+    command: tunnel --no-autoupdate --metrics 0.0.0.0:2000 run
+    environment:
+      # Compose interpolates every service, active profile or not, so this cannot
+      # be a required variable. ./scripts/preflight.sh checks it instead.
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN:-}
+    networks:
+      - n8n
+
+volumes:
+  postgres_data:
+  n8n_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  n8n:
