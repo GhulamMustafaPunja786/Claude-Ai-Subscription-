@@ -1,0 +1,92 @@
+{
+  "id": "helloWorldWebhook001",
+  "name": "Hello World Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "hello-world",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1f1a6c1a-0000-4000-8000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "webhookId": "hello-world"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9c1c7c1a-0000-4000-8000-000000000002",
+              "name": "message",
+              "value": "n8n is running for free! Your webhook was received.",
+              "type": "string"
+            },
+            {
+              "id": "9c1c7c1a-0000-4000-8000-000000000003",
+              "name": "receivedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1f1a6c1a-0000-4000-8000-000000000002",
+      "name": "Set Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1f1a6c1a-0000-4000-8000-000000000003",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        900,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
