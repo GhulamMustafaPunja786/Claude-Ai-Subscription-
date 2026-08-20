@@ -1,0 +1,151 @@
+{
+  "id": "n8nfreeuptime003",
+  "name": "03 - Uptime monitor with alerting",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703001",
+      "name": "Every 15 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-660, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// One item per site to watch. Add your own here.\nconst targets = [\n  { label: 'n8n docs', url: 'https://docs.n8n.io/' },\n  { label: 'example.com', url: 'https://example.com/' },\n];\n\nreturn targets.map((t) => ({ json: t }));"
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703002",
+      "name": "Define Targets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-440, 0]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "timeout": 15000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703003",
+      "name": "Check Target",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-220, 0],
+      "onError": "continueRegularOutput",
+      "notes": "neverError keeps a 500 flowing down the branch instead of failing the run, so the IF node can decide."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9c2f0f4a-5d3b-4a1e-9b7c-0e5a1f704001",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": 400,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703004",
+      "name": "Is It Down?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// runOnceForEachItem so $('Define Targets').item resolves the matching target.\nconst target = $('Define Targets').item.json;\nconst status = $json.statusCode ?? 0;\n\nreturn {\n  json: {\n    label: target.label,\n    url: target.url,\n    statusCode: status,\n    checkedAt: new Date().toISOString(),\n    text: `DOWN: ${target.label} (${target.url}) returned ${status || 'no response'}`,\n  },\n};"
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703005",
+      "name": "Build Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, -100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://example.com/replace-me-with-your-incoming-webhook",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $json.text, text: $json.text }) }}",
+        "options": {}
+      },
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703006",
+      "name": "Alert Me",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, -100],
+      "disabled": true,
+      "notes": "Disabled on purpose. Paste a Slack, Discord or Google Chat incoming webhook URL and enable it."
+    },
+    {
+      "parameters": {},
+      "id": "a1c9e77b-2b64-4c8e-9a35-6f0b1d703007",
+      "name": "All Good",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [220, 120]
+    }
+  ],
+  "connections": {
+    "Every 15 Minutes": {
+      "main": [[{ "node": "Define Targets", "type": "main", "index": 0 }]]
+    },
+    "Define Targets": {
+      "main": [[{ "node": "Check Target", "type": "main", "index": 0 }]]
+    },
+    "Check Target": {
+      "main": [[{ "node": "Is It Down?", "type": "main", "index": 0 }]]
+    },
+    "Is It Down?": {
+      "main": [
+        [{ "node": "Build Alert", "type": "main", "index": 0 }],
+        [{ "node": "All Good", "type": "main", "index": 0 }]
+      ]
+    },
+    "Build Alert": {
+      "main": [[{ "node": "Alert Me", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "description": "Polls a list of URLs and branches on the status code. Replaces a paid uptime monitor for free."
+  }
+}

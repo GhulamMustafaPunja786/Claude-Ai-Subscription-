@@ -1,0 +1,96 @@
+{
+  "id": "n8nfreedigest002",
+  "name": "02 - Daily digest on a schedule",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "8b7c5d21-4e3f-4a10-8c22-1d9e4f602001",
+      "name": "Every day at 08:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-440, 0],
+      "notes": "Fires in the timezone set by GENERIC_TIMEZONE in .env."
+    },
+    {
+      "parameters": {
+        "url": "https://api.open-meteo.com/v1/forecast",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "latitude", "value": "31.5204" },
+            { "name": "longitude", "value": "74.3587" },
+            { "name": "daily", "value": "temperature_2m_max,temperature_2m_min,precipitation_probability_max" },
+            { "name": "forecast_days", "value": "1" },
+            { "name": "timezone", "value": "auto" }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "8b7c5d21-4e3f-4a10-8c22-1d9e4f602002",
+      "name": "Fetch Forecast",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-220, 0],
+      "notes": "Open-Meteo is free and needs no API key. Swap in any API you like - the shape below is all that changes."
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst daily = data.daily ?? {};\nconst units = data.daily_units ?? {};\n\nconst high = daily.temperature_2m_max?.[0];\nconst low = daily.temperature_2m_min?.[0];\nconst rain = daily.precipitation_probability_max?.[0];\nconst unit = units.temperature_2m_max ?? '\\u00b0C';\n\nconst lines = [\n  `Daily digest for ${daily.time?.[0] ?? 'today'}`,\n  `High ${high}${unit} / low ${low}${unit}`,\n  `Chance of rain: ${rain}%`,\n  rain >= 50 ? 'Take an umbrella.' : 'No umbrella needed.',\n];\n\nreturn [\n  {\n    json: {\n      text: lines.join('\\n'),\n      high,\n      low,\n      rainProbability: rain,\n      generatedAt: new Date().toISOString(),\n    },\n  },\n];"
+      },
+      "id": "8b7c5d21-4e3f-4a10-8c22-1d9e4f602003",
+      "name": "Format Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://example.com/replace-me-with-your-incoming-webhook",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $json.text, text: $json.text }) }}",
+        "options": {}
+      },
+      "id": "8b7c5d21-4e3f-4a10-8c22-1d9e4f602004",
+      "name": "Send to Your Channel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [220, 0],
+      "disabled": true,
+      "notes": "Disabled on purpose. Paste a Slack, Discord or Google Chat incoming webhook URL and enable it. Both `content` (Discord) and `text` (Slack) are sent so either works."
+    }
+  ],
+  "connections": {
+    "Every day at 08:00": {
+      "main": [[{ "node": "Fetch Forecast", "type": "main", "index": 0 }]]
+    },
+    "Fetch Forecast": {
+      "main": [[{ "node": "Format Digest", "type": "main", "index": 0 }]]
+    },
+    "Format Digest": {
+      "main": [[{ "node": "Send to Your Channel", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "description": "Schedule -> free public API -> format -> push to a chat channel. The pattern behind most recurring reports."
+  }
+}

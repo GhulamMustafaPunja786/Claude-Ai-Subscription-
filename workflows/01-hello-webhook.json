@@ -1,0 +1,61 @@
+{
+  "id": "n8nfreehello0001",
+  "name": "01 - Hello Webhook (start here)",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hello",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "3f1a6c4e-1f2b-4d6a-9f01-7c2ab0e51001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-220, 0],
+      "webhookId": "3f1a6c4e-1f2b-4d6a-9f01-7c2ab0e51001",
+      "notes": "POST {WEBHOOK_URL}webhook/hello - the URL you hand to Typeform, Stripe, GitHub, a chat bot, anything."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Everything the caller sent arrives under `body`.\nconst incoming = $input.first().json;\nconst body = incoming.body ?? {};\n\nconst name = (body.name ?? 'world').toString().trim();\n\nreturn [\n  {\n    json: {\n      ok: true,\n      message: `Hello, ${name}!`,\n      receivedAt: new Date().toISOString(),\n      // Handy while wiring up a new integration: see exactly what it posted.\n      echo: body,\n    },\n  },\n];"
+      },
+      "id": "3f1a6c4e-1f2b-4d6a-9f01-7c2ab0e51002",
+      "name": "Build Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "3f1a6c4e-1f2b-4d6a-9f01-7c2ab0e51003",
+      "name": "Respond to Caller",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [220, 0]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{ "node": "Build Reply", "type": "main", "index": 0 }]]
+    },
+    "Build Reply": {
+      "main": [[{ "node": "Respond to Caller", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "description": "Smallest useful automation: receive a webhook, transform it, answer the caller. Used by scripts/smoke-test.sh to prove the instance works end to end."
+  }
+}
