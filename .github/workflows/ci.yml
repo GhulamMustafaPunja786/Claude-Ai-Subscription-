@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Lint compose, workflows and scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shellcheck
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
+      - run: ./scripts/validate.sh
+
+  smoke:
+    name: End-to-end (boot, import, fire a webhook)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Postgres stack
+        run: ./scripts/smoke-test.sh --with-network
+      - name: Backup and restore round trip
+        run: |
+          ./scripts/backup.sh
+          dir=$(find backups -maxdepth 1 -mindepth 1 -type d | sort -r | head -1)
+          docker compose exec -T -e PGPASSWORD="$(sed -n 's/^POSTGRES_PASSWORD=//p' .env)" \
+            postgres psql -U n8n -d n8n -tAc 'delete from workflow_entity;'
+          ./scripts/restore.sh "$dir" --yes
+          # The webhook workflow was active before the wipe, so it must answer again.
+          curl -sf -X POST http://127.0.0.1:5678/webhook/hello \
+            -H 'Content-Type: application/json' -d '{"name":"restored"}' | tee /dev/stderr | grep -q 'Hello, restored!'
+      - name: SQLite stack
+        run: |
+          docker compose down
+          LITE=1 ./scripts/smoke-test.sh
+      - name: Container logs on failure
+        if: failure()
+        run: docker compose logs --tail=100 || true
