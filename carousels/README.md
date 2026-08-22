@@ -75,3 +75,12 @@ npm run export:c2
 ```
 
 **Note:** CTA on slide 6 uses a red pen box annotation (not a solid red fill), per C2 rules.
+
+## Brand fonts
+
+Downloadable font files for Figma, Canva, and desktop use:
+
+- **Folder:** `carousels/fonts/`
+- **Zip:** `vithu-law-brand-fonts.zip` (Cormorant Garamond, IBM Plex Mono, Source Sans 3)
+
+See `fonts/README.md` for install instructions and weight mapping.
