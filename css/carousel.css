@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Carousel component styles
+   ========================================================================== */
+
+.carousel {
+  position: relative;
+  outline: none;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: grab;
+}
+
+.carousel__viewport:active {
+  cursor: grabbing;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.3, 1);
+  will-change: transform;
+}
+
+.carousel__slide {
+  min-width: 0;
+  user-select: none;
+}
+
+/* --- Arrows ------------------------------------------------------------- */
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1a2e;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.carousel__arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: translateY(-50%);
+}
+
+.carousel__arrow--prev { left: 14px; }
+.carousel__arrow--next { right: 14px; }
+
+/* --- Dots --------------------------------------------------------------- */
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #c9cdd6;
+  cursor: pointer;
+  transition: background 0.25s, width 0.25s;
+}
+
+.carousel__dot:hover {
+  background: #9aa0ae;
+}
+
+.carousel__dot--active {
+  width: 26px;
+  background: #5b5ef4;
+}

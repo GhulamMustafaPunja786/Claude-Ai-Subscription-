@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carousels — Lightweight Vanilla JS Carousel Component</title>
+  <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/demo.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Carousels</h1>
+    <p>A lightweight, dependency-free carousel component — arrows, dots, autoplay, swipe &amp; keyboard support.</p>
+  </header>
+
+  <main>
+    <!-- 1. Hero image carousel -->
+    <section class="demo-section">
+      <h2>1. Hero carousel</h2>
+      <p>Single slide per view, loops infinitely, autoplays every 4 seconds (pauses on hover). Try dragging with your mouse or swiping on touch.</p>
+
+      <div class="carousel" id="hero-carousel">
+        <div class="carousel__viewport">
+          <div class="carousel__track">
+            <div class="carousel__slide">
+              <div class="slide-hero bg-aurora">
+                <span class="slide-kicker">Slide 01</span>
+                <h3>Build once, use anywhere</h3>
+                <p>Drop the component into any page — no frameworks, no build step, no dependencies.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="slide-hero bg-sunset">
+                <span class="slide-kicker">Slide 02</span>
+                <h3>Autoplay that respects users</h3>
+                <p>Rotation pauses automatically on hover and keyboard focus.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="slide-hero bg-ocean">
+                <span class="slide-kicker">Slide 03</span>
+                <h3>Swipe &amp; drag friendly</h3>
+                <p>Works with touch gestures on mobile and mouse dragging on desktop.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="slide-hero bg-forest">
+                <span class="slide-kicker">Slide 04</span>
+                <h3>Keyboard accessible</h3>
+                <p>Focus the carousel and use the arrow keys to navigate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Multi-item card carousel -->
+    <section class="demo-section">
+      <h2>2. Card carousel (multi-item)</h2>
+      <p>Shows 1 card on mobile, 2 on tablet, 3 on desktop — configured with responsive breakpoints.</p>
+
+      <div class="carousel" id="card-carousel">
+        <div class="carousel__viewport">
+          <div class="carousel__track">
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#9889;</div>
+                <h3>Fast</h3>
+                <p>Pure CSS transforms with zero layout thrashing — buttery-smooth on any device.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#128230;</div>
+                <h3>Zero dependencies</h3>
+                <p>One small JS file and one CSS file. No npm install, no bundler required.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#128241;</div>
+                <h3>Responsive</h3>
+                <p>Configure how many slides show per breakpoint with a simple options object.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#9855;</div>
+                <h3>Accessible</h3>
+                <p>Keyboard navigation, ARIA labels on controls, and focus-aware autoplay.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#127912;</div>
+                <h3>Themeable</h3>
+                <p>Plain CSS classes make it easy to restyle arrows, dots, and slides.</p>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="card">
+                <div class="card__icon">&#128260;</div>
+                <h3>Looping</h3>
+                <p>Optional infinite looping, or clamp at the ends with disabled arrows.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Testimonial carousel -->
+    <section class="demo-section">
+      <h2>3. Testimonial carousel</h2>
+      <p>Non-looping variant — the arrows disable at the first and last slide.</p>
+
+      <div class="carousel" id="testimonial-carousel">
+        <div class="carousel__viewport">
+          <div class="carousel__track">
+            <div class="carousel__slide">
+              <div class="testimonial">
+                <blockquote>&ldquo;We swapped a 40&nbsp;KB slider library for this and nobody noticed — except our Lighthouse score.&rdquo;</blockquote>
+                <div class="author">Sarah K.</div>
+                <div class="role">Frontend Lead</div>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="testimonial">
+                <blockquote>&ldquo;The responsive breakpoints just work. Three cards on desktop, one on mobile, zero media-query headaches.&rdquo;</blockquote>
+                <div class="author">Ahmed R.</div>
+                <div class="role">Product Engineer</div>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <div class="testimonial">
+                <blockquote>&ldquo;Finally a carousel I can actually read and customize. The whole thing is one small class.&rdquo;</blockquote>
+                <div class="author">Maria L.</div>
+                <div class="role">UI Developer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Carousel component demo — vanilla HTML, CSS &amp; JavaScript.</footer>
+
+  <script src="js/carousel.js"></script>
+  <script>
+    new Carousel(document.getElementById('hero-carousel'), {
+      loop: true,
+      autoplay: 4000,
+      perView: 1,
+      gap: 16,
+    });
+
+    new Carousel(document.getElementById('card-carousel'), {
+      loop: true,
+      autoplay: 0,
+      perView: 1,
+      gap: 16,
+      breakpoints: {
+        640: { perView: 2 },
+        1024: { perView: 3 },
+      },
+    });
+
+    new Carousel(document.getElementById('testimonial-carousel'), {
+      loop: false,
+      autoplay: 0,
+      perView: 1,
+      gap: 16,
+    });
+  </script>
+</body>
+</html>
