@@ -6,6 +6,7 @@
   "scripts": {
     "export:c1": "node scripts/export-c1.mjs",
     "export:c1-option-b": "node scripts/export-c1-option-b.mjs",
+    "export:c2": "node scripts/export-c2.mjs",
     "preview": "npx serve c1"
   },
   "devDependencies": {

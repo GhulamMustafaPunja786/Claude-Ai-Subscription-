@@ -60,6 +60,18 @@ npm run export:c1
 
 Output lands in `c1/export/`.
 
-## C2
+## C2 — "How to stop losing your best juniors"
 
-C2 brief not yet included — add `c2/` using the same structure when ready.
+Marked-up memo concept. Bone ground, navy type, red pen annotations only (no red fills). Natural-colour square images.
+
+| Slide | File |
+|-------|------|
+| Cover | `c2/export/c2-slide-01.png` |
+| 01–04 | `c2/export/c2-slide-02.png` – `05.png` |
+| Closer | `c2/export/c2-slide-06.png` |
+
+```bash
+npm run export:c2
+```
+
+**Note:** CTA on slide 6 uses a red pen box annotation (not a solid red fill), per C2 rules.
