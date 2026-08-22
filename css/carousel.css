@@ -62,6 +62,15 @@
 .carousel__arrow--prev { left: 14px; }
 .carousel__arrow--next { right: 14px; }
 
+/* Variant: arrows sit half-outside the carousel so they never cover
+   slide content (useful for card/text slides on light backgrounds). */
+.carousel--arrows-outside .carousel__arrow {
+  border: 1px solid #e3e5ec;
+}
+
+.carousel--arrows-outside .carousel__arrow--prev { left: -22px; }
+.carousel--arrows-outside .carousel__arrow--next { right: -22px; }
+
 /* --- Dots --------------------------------------------------------------- */
 
 .carousel__dots {

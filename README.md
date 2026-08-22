@@ -63,6 +63,14 @@ The demo page shows three variants: a looping autoplay hero carousel, a responsi
 </script>
 ```
 
+### Arrow placement
+
+By default the arrows overlay the slides (good for full-bleed images). For card or text slides, add the `carousel--arrows-outside` modifier class to the root element so the arrows sit half-outside the carousel and never cover content:
+
+```html
+<div class="carousel carousel--arrows-outside" id="my-carousel">...</div>
+```
+
 ## Files
 
 | File | Purpose |
