@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500&display=swap");
+
+:root {
+  --ink-navy: #163646;
+  --bone: #f2efe7;
+  --file-red: #c4392f;
+  --slide-w: 1080px;
+  --slide-h: 1350px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+}
+
+.slide {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  overflow: hidden;
+  background: var(--ink-navy);
+  color: var(--bone);
+}
+
+/* Duotone treatment */
+.slide__image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.slide__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url(#duotone-navy-bone);
+}
+
+.slide__image-wrap--upper {
+  height: 68%;
+}
+
+.slide__image-wrap--upper img {
+  height: 100%;
+}
+
+.slide__gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.slide__gradient--cover {
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 54, 70, 0.35) 0%,
+    rgba(22, 54, 70, 0.55) 45%,
+    rgba(22, 54, 70, 0.92) 72%,
+    rgba(22, 54, 70, 0.98) 100%
+  );
+}
+
+.slide__gradient--lower {
+  top: 52%;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 54, 70, 0) 0%,
+    rgba(22, 54, 70, 0.75) 18%,
+    rgba(22, 54, 70, 0.98) 38%,
+    var(--ink-navy) 55%
+  );
+}
+
+.slide__paper-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.slide__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide__content--cover {
+  padding: 72px 80px 96px;
+}
+
+.slide__content--body {
+  padding: 0 80px 88px;
+  justify-content: flex-end;
+  margin-top: auto;
+  min-height: 42%;
+}
+
+.slide__label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--file-red);
+  margin-bottom: 28px;
+}
+
+.slide__label--top {
+  position: absolute;
+  top: 72px;
+  left: 80px;
+  z-index: 3;
+}
+
+.slide__headline {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  max-width: 920px;
+}
+
+.slide__headline--cover {
+  font-size: 68px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.slide__headline--center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.slide__sub {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--bone);
+  margin-top: 24px;
+}
+
+.slide__sub--cover {
+  text-align: center;
+  max-width: 780px;
+  margin: 24px auto 0;
+}
+
+.slide__sub--center {
+  text-align: center;
+  max-width: 720px;
+  margin: 24px auto 0;
+}
+
+.slide__body {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--bone);
+  margin-top: 28px;
+  max-width: 880px;
+}
+
+.slide__cover-copy {
+  margin-top: auto;
+  text-align: center;
+}
+
+.slide__closer-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.slide__footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding-bottom: 8px;
+}
+
+.slide__cta {
+  display: inline-block;
+  background: var(--file-red);
+  color: var(--bone);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  padding: 22px 48px;
+  border: none;
+}
+
+.slide__signature {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--bone);
+  opacity: 0.6;
+}
+
+/* Exhibit filing mark — recurring red accent */
+.slide__filing-mark {
+  position: absolute;
+  top: 0;
+  right: 64px;
+  width: 3px;
+  height: 120px;
+  background: var(--file-red);
+  z-index: 3;
+  opacity: 0.85;
+}
+
+.slide__filing-mark::after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: -18px;
+  width: 39px;
+  height: 3px;
+  background: var(--file-red);
+}
+
+.slide__rule {
+  width: 64px;
+  height: 2px;
+  background: var(--file-red);
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.slide__exhibit-stamp {
+  position: absolute;
+  top: 68px;
+  right: 80px;
+  z-index: 3;
+  width: 88px;
+  height: 88px;
+  border: 2px solid var(--file-red);
+  border-radius: 50%;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.slide__exhibit-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--file-red);
+  border-radius: 50%;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "vithu-law-carousels",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export:c1": "node scripts/export-c1.mjs",
+    "preview": "npx serve c1"
+  },
+  "devDependencies": {
+    "playwright": "^1.51.0"
+  }
+}
