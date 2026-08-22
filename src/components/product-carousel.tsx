@@ -51,7 +51,7 @@ const PRODUCTS = [
 
 export function ProductCarousel() {
   return (
-    <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+    <Carousel className="w-full min-w-0" opts={{ align: "start", loop: true }}>
       <CarouselContent className="-ml-4">
         {PRODUCTS.map((product) => (
           <CarouselItem
@@ -74,8 +74,8 @@ export function ProductCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2 border-white/15 bg-background/80" />
-      <CarouselNext className="right-2 border-white/15 bg-background/80" />
+      <CarouselPrevious className="left-2 z-20 size-9 border-white/20 bg-background/90" />
+      <CarouselNext className="right-2 z-20 size-9 border-white/20 bg-background/90" />
       <CarouselDots className="mt-6" />
     </Carousel>
   )

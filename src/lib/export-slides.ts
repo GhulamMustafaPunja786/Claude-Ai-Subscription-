@@ -12,6 +12,10 @@ function downloadBlob(blob: Blob, filename: string) {
 }
 
 export async function elementToPngBlob(element: HTMLElement): Promise<Blob> {
+  if (document.fonts?.ready) {
+    await document.fonts.ready
+  }
+
   const dataUrl = await toPng(element, {
     cacheBust: true,
     pixelRatio: 1,

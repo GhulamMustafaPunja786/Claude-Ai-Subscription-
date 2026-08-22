@@ -18,28 +18,14 @@ export function HeroCarousel() {
 
   return (
     <Carousel
-      className="w-full"
+      className="w-full max-w-[440px]"
       opts={{ loop: true, align: "center" }}
       plugins={[Autoplay({ delay: 4200, stopOnInteraction: true })]}
     >
       <CarouselContent>
         {deck.slides.map((slide, index) => (
           <CarouselItem key={slide.id} className="flex justify-center">
-            <ScaledSlide size={360} className="sm:hidden">
-              <InstagramSlideCanvas
-                slide={slide}
-                index={index}
-                total={deck.slides.length}
-              />
-            </ScaledSlide>
-            <ScaledSlide size={440} className="hidden sm:block lg:hidden">
-              <InstagramSlideCanvas
-                slide={slide}
-                index={index}
-                total={deck.slides.length}
-              />
-            </ScaledSlide>
-            <ScaledSlide size={520} className="hidden lg:block">
+            <ScaledSlide size={400}>
               <InstagramSlideCanvas
                 slide={slide}
                 index={index}
@@ -49,8 +35,8 @@ export function HeroCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2 border-white/20 bg-black/50 text-white hover:bg-black/70 sm:left-4" />
-      <CarouselNext className="right-2 border-white/20 bg-black/50 text-white hover:bg-black/70 sm:right-4" />
+      <CarouselPrevious className="left-2 z-20 size-9 border-white/25 bg-black/70 text-white hover:bg-black" />
+      <CarouselNext className="right-2 z-20 size-9 border-white/25 bg-black/70 text-white hover:bg-black" />
       <CarouselDots className="mt-6" />
     </Carousel>
   )

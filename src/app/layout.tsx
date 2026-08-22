@@ -25,7 +25,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${outfit.variable} ${bebas.variable} dark h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600&display=swap"
+        />
+      </head>
+      <body className="flex min-h-full flex-col overflow-x-clip bg-background font-sans text-foreground">
         {children}
       </body>
     </html>

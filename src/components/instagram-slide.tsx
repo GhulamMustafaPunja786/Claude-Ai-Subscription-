@@ -26,6 +26,7 @@ export function InstagramSlideCanvas({
         height: SLIDE_SIZE,
         background: theme.background,
         color: theme.title,
+        fontFamily: '"Outfit", var(--font-outfit), ui-sans-serif, sans-serif',
       }}
       data-slide-id={slide.id}
     >
@@ -36,6 +37,7 @@ export function InstagramSlideCanvas({
           color: theme.stamp,
           fontSize: 420,
           letterSpacing: -12,
+          fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif',
         }}
       >
         {number}
@@ -45,13 +47,19 @@ export function InstagramSlideCanvas({
         <header className="flex items-start justify-between gap-8">
           <p
             className="font-display text-[34px] tracking-[0.28em] uppercase"
-            style={{ color: theme.eyebrow }}
+            style={{
+              color: theme.eyebrow,
+              fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif',
+            }}
           >
             {slide.eyebrow}
           </p>
           <p
             className="font-display text-[28px] tracking-[0.22em] uppercase"
-            style={{ color: theme.footer }}
+            style={{
+              color: theme.footer,
+              fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif',
+            }}
           >
             {number} / {String(total).padStart(2, "0")}
           </p>
@@ -60,7 +68,10 @@ export function InstagramSlideCanvas({
         <div className="max-w-[860px]">
           <h2
             className="font-display text-[92px] leading-[0.9] tracking-tight uppercase"
-            style={{ color: theme.title }}
+            style={{
+              color: theme.title,
+              fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif',
+            }}
           >
             {slide.title}
           </h2>
@@ -78,7 +89,10 @@ export function InstagramSlideCanvas({
 
         <footer
           className="flex items-end justify-between font-display text-[28px] tracking-[0.2em] uppercase"
-          style={{ color: theme.footer }}
+          style={{
+            color: theme.footer,
+            fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif',
+          }}
         >
           <span>{slide.footer}</span>
           <span>Lift The City</span>

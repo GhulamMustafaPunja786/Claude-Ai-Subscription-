@@ -10,8 +10,8 @@ export default function Home() {
     <div className="flex flex-1 flex-col">
       <SiteHeader active="home" />
       <main className="flex-1">
-        <section className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div className="max-w-xl">
+        <section className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div className="min-w-0 max-w-xl">
             <p className="text-xs tracking-[0.28em] text-amber-300 uppercase">
               Instagram + website carousels
             </p>
