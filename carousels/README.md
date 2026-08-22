@@ -4,16 +4,35 @@ Production system for **1080 × 1350 px** carousel slides (4:5) with the Vithu L
 
 ## C1 — "Why small firms stay small"
 
-Six slides, case-file concept. All photography is AI-generated and treated with a navy/bone duotone.
+Two layout options, same copy and images.
+
+### Option A — Navy overlay (original)
+
+Full-bleed duotone images with navy ground and bone type overlaid. Case-file exhibit stamps and filing marks.
 
 | Slide | File |
 |-------|------|
 | Cover | `c1/export/c1-slide-01.png` |
-| Exhibit 01 | `c1/export/c1-slide-02.png` |
-| Exhibit 02 | `c1/export/c1-slide-03.png` |
-| Exhibit 03 | `c1/export/c1-slide-04.png` |
-| Exhibit 04 | `c1/export/c1-slide-05.png` |
+| Exhibit 01–04 | `c1/export/c1-slide-02.png` – `05.png` |
 | Closer | `c1/export/c1-slide-06.png` |
+
+```bash
+npm run export:c1
+```
+
+### Option B — Bone file card
+
+Split layout: image band on top, bone parchment panel below with navy type. Red file-tab labels on the left edge.
+
+| Slide | File |
+|-------|------|
+| Cover | `c1-option-b/export/c1-option-b-slide-01.png` |
+| Exhibit 01–04 | `c1-option-b/export/c1-option-b-slide-02.png` – `05.png` |
+| Closer | `c1-option-b/export/c1-option-b-slide-06.png` |
+
+```bash
+npm run export:c1-option-b
+```
 
 ## Brand quick reference
 

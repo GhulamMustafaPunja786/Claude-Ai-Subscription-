@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500&display=swap");
+
+:root {
+  --ink-navy: #163646;
+  --bone: #f2efe7;
+  --file-red: #c4392f;
+  --slide-w: 1080px;
+  --slide-h: 1350px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111;
+}
+
+.slide {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  overflow: hidden;
+  background: var(--bone);
+}
+
+/* ── Image band (top) ── */
+.slide__image-band {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 58%;
+  overflow: hidden;
+}
+
+.slide__image-band--cover {
+  height: 62%;
+}
+
+.slide__image-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url(#duotone-navy-bone);
+}
+
+.slide__image-band::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, var(--bone));
+}
+
+/* ── Bone copy panel (bottom) ── */
+.slide__panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: var(--bone);
+  padding: 48px 72px 64px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide__panel--cover {
+  height: 38%;
+  padding: 40px 80px 72px;
+  align-items: center;
+  text-align: center;
+}
+
+.slide__panel--closer {
+  height: 44%;
+  padding: 36px 80px 56px;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Red file tab on left edge ── */
+.slide__tab {
+  position: absolute;
+  left: 0;
+  top: 58%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: var(--file-red);
+  color: var(--bone);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 28px 14px;
+  line-height: 1;
+}
+
+.slide__tab--cover {
+  top: 62%;
+}
+
+.slide__tab--closer {
+  top: 56%;
+}
+
+/* ── Typography ── */
+.slide__label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--file-red);
+  margin-bottom: 16px;
+}
+
+.slide__rule {
+  width: 48px;
+  height: 2px;
+  background: var(--file-red);
+  margin-bottom: 20px;
+}
+
+.slide__headline {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink-navy);
+  max-width: 860px;
+}
+
+.slide__headline--cover {
+  font-size: 54px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.slide__headline--closer {
+  font-size: 52px;
+  text-align: center;
+  max-width: 820px;
+}
+
+.slide__sub {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--ink-navy);
+  margin-top: 16px;
+}
+
+.slide__sub--cover {
+  text-align: center;
+  max-width: 720px;
+}
+
+.slide__body {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 26px;
+  line-height: 1.45;
+  color: var(--ink-navy);
+  margin-top: 18px;
+  max-width: 820px;
+  opacity: 0.88;
+}
+
+/* ── Closer elements ── */
+.slide__cta {
+  display: inline-block;
+  background: var(--file-red);
+  color: var(--bone);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  padding: 20px 44px;
+  margin-top: 28px;
+}
+
+.slide__signature {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--ink-navy);
+  opacity: 0.6;
+  margin-top: 24px;
+}
+
+/* ── Decorative: hairline document margin on panel ── */
+.slide__panel::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 88px;
+  width: 1px;
+  background: var(--ink-navy);
+  opacity: 0.08;
+}
+
+.slide__panel--cover::before,
+.slide__panel--closer::before {
+  display: none;
+}
+
+/* ── Subtle paper grain on bone panel ── */
+.slide__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* ── Red filing notch top-right on image ── */
+.slide__notch {
+  position: absolute;
+  top: 0;
+  right: 56px;
+  width: 3px;
+  height: 72px;
+  background: var(--file-red);
+  z-index: 3;
+}
+
+.slide__notch::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -14px;
+  width: 31px;
+  height: 3px;
+  background: var(--file-red);
+}
