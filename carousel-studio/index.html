@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carousel Studio — make Instagram &amp; LinkedIn carousels</title>
+<meta name="description" content="Offline carousel maker: write slides, preview the swipe, export PNGs, a ZIP or a LinkedIn-ready PDF.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="logo-dot" aria-hidden="true"></span>
+    <div>
+      <strong>Carousel Studio</strong>
+      <small>No install, no account, works offline</small>
+    </div>
+  </div>
+
+  <label class="project-name">
+    <span class="sr-only">Carousel name</span>
+    <input id="projectName" type="text" placeholder="Carousel name" autocomplete="off">
+  </label>
+
+  <div class="topbar-actions">
+    <button id="exportPng" class="btn" type="button">PNG (this slide)</button>
+    <button id="exportZip" class="btn btn-primary" type="button">ZIP of PNGs (Instagram)</button>
+    <button id="exportPdf" class="btn btn-primary" type="button">PDF (LinkedIn)</button>
+    <button id="saveJson" class="btn btn-ghost" type="button">Save project</button>
+    <label class="btn btn-ghost file-btn">Open project
+      <input id="openJson" type="file" accept="application/json,.json" hidden>
+    </label>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="panel">
+    <section class="panel-section">
+      <h2>Slides</h2>
+      <ol id="slideList" class="slide-list"></ol>
+      <div class="row">
+        <button id="addSlide" class="btn btn-block" type="button">+ Add slide</button>
+      </div>
+    </section>
+
+    <section class="panel-section">
+      <h2>Start from a pack</h2>
+      <div class="row">
+        <select id="packSelect" class="control"></select>
+        <button id="loadPack" class="btn" type="button">Load</button>
+      </div>
+      <p class="hint">Loading a pack replaces the current carousel.</p>
+    </section>
+
+    <section class="panel-section">
+      <h2>Paste an outline</h2>
+      <textarea id="outline" class="control" rows="9" placeholder="Paste your slides here"></textarea>
+      <div class="row">
+        <button id="applyOutline" class="btn" type="button">Build slides</button>
+        <button id="outlineExample" class="btn btn-ghost" type="button">Insert example</button>
+      </div>
+      <p class="hint"><code>---</code> starts a new slide, <code>#</code> is the headline, <code>@</code> is the small label, <code>-</code> is a checklist line, <code>:: quote</code> picks a layout.</p>
+    </section>
+  </aside>
+
+  <section class="stage">
+    <div id="carousel" class="carousel-mount"></div>
+    <div class="stage-tools">
+      <label class="check"><input id="toggleGuides" type="checkbox"> Show safe-area guide</label>
+      <span class="stage-format" id="stageFormat"></span>
+      <span class="stage-tip">Drag the slide, use the arrows or press &larr; / &rarr;</span>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <section class="panel-section">
+      <h2>Selected slide</h2>
+      <label class="field">
+        <span>Layout</span>
+        <select id="slideLayout" class="control"></select>
+      </label>
+      <label class="field">
+        <span>Small label</span>
+        <input id="slideEyebrow" class="control" type="text" placeholder="e.g. Step 1" autocomplete="off">
+      </label>
+      <label class="field">
+        <span id="headingLabel">Headline</span>
+        <textarea id="slideHeading" class="control" rows="3" placeholder="The one idea on this slide"></textarea>
+      </label>
+      <label class="field">
+        <span id="bodyLabel">Body</span>
+        <textarea id="slideBody" class="control" rows="6" placeholder="Supporting copy"></textarea>
+      </label>
+      <p class="hint" id="bodyHint"></p>
+      <div class="row">
+        <button id="duplicateSlide" class="btn" type="button">Duplicate</button>
+        <button id="deleteSlide" class="btn btn-danger" type="button">Delete</button>
+      </div>
+    </section>
+
+    <section class="panel-section">
+      <h2>Design</h2>
+      <label class="field"><span>Size</span><select id="formatSelect" class="control"></select></label>
+      <label class="field"><span>Theme</span><select id="themeSelect" class="control"></select></label>
+      <label class="field"><span>Font</span><select id="fontSelect" class="control"></select></label>
+      <label class="field"><span>Background</span><select id="backgroundSelect" class="control"></select></label>
+    </section>
+
+    <section class="panel-section">
+      <h2>Brand</h2>
+      <label class="field"><span>Handle</span><input id="brandHandle" class="control" type="text" autocomplete="off"></label>
+      <label class="field"><span>Button text (CTA slide)</span><input id="brandCta" class="control" type="text" autocomplete="off"></label>
+      <label class="field">
+        <span>Logo (PNG with transparency works best)</span>
+        <input id="brandLogo" class="control" type="file" accept="image/*">
+      </label>
+      <div class="row">
+        <button id="clearLogo" class="btn btn-ghost" type="button">Remove logo</button>
+      </div>
+      <label class="check"><input id="showHandle" type="checkbox"> Show handle</label>
+      <label class="check"><input id="showPageNumbers" type="checkbox"> Show page numbers</label>
+      <label class="check"><input id="showSwipeHint" type="checkbox"> Show swipe hint</label>
+    </section>
+
+    <section class="panel-section">
+      <h2>Caption</h2>
+      <textarea id="caption" class="control" rows="6" placeholder="The caption you will paste when you post. Saved inside the ZIP as caption.txt."></textarea>
+    </section>
+
+    <section class="panel-section">
+      <h2>Danger zone</h2>
+      <button id="resetProject" class="btn btn-danger btn-block" type="button">Start an empty carousel</button>
+    </section>
+  </aside>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="js/design.js"></script>
+<script src="js/state.js"></script>
+<script src="js/render.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/export.js"></script>
+<script src="js/packs.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
