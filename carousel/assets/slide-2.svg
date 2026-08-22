@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#g2)"/>
+  <circle cx="1050" cy="480" r="200" fill="#ffffff" opacity="0.08"/>
+  <circle cx="100" cy="90" r="120" fill="#ffffff" opacity="0.08"/>
+  <text x="60" y="310" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" fill="#ffffff">New Arrivals</text>
+  <text x="60" y="360" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#ecfeff">Be the first to shop this week's drop</text>
+</svg>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carousel Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Carousel Demo</h1>
+    <p>
+      A lightweight, dependency-free carousel with autoplay, swipe/drag,
+      keyboard navigation, and dot indicators. Use the arrows, dots, keyboard
+      arrow keys, or drag/swipe to navigate.
+    </p>
+  </header>
+
+  <div class="carousel" data-autoplay="999999" data-loop="true">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="assets/slide-1.svg" alt="Summer Collection promotion" />
+        <div class="carousel-caption">
+          <h2>Summer Collection</h2>
+          <p>Fresh styles, bold colors, up to 40% off</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/slide-2.svg" alt="New Arrivals promotion" />
+        <div class="carousel-caption">
+          <h2>New Arrivals</h2>
+          <p>Be the first to shop this week's drop</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/slide-3.svg" alt="Limited Time Deal promotion" />
+        <div class="carousel-caption">
+          <h2>Limited Time Deal</h2>
+          <p>Save big this weekend only</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/slide-4.svg" alt="Free Shipping promotion" />
+        <div class="carousel-caption">
+          <h2>Free Shipping</h2>
+          <p>On all orders over $50, worldwide</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="carousel.js"></script>
+</body>
+</html>
