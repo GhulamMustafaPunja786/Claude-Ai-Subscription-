@@ -1,42 +1,64 @@
-# ElecSecure Town Hall Presentation Pack
+# ElecSecure Town Hall Presentation Pack (Complete)
 
-Professional materials for the **Annual Town Hall 2026** presentation.
+Professional materials for the **Annual Town Hall 2026** — ready to present.
 
-## Contents
+## Quick Start — Which file to use?
+
+| Your situation | Open this file | Duration |
+|----------------|----------------|----------|
+| **Full town hall** (recommended) | `ElecSecure-Townhall-2026-Full.pptx` | 20–25 min + Q&A |
+| **Short time slot** | `ElecSecure-Townhall-2026-10-Slides.pptx` | 12–15 min + Q&A |
+| **Executive / leadership only** | `ElecSecure-Townhall-2026-Executive-5min.pptx` | 5 min |
+| **Printable handout** | `ElecSecure-Executive-OnePager.pdf` | Give to attendees |
+
+## All files
 
 | File | Purpose |
 |------|---------|
-| `ElecSecure-Townhall-2026.pptx` | 17-slide PowerPoint deck (ready to present) |
-| `ElecSecure-Project-Blueprint.md` | Master project blueprint and stakeholder reference |
-| `Speaker-Notes.md` | Slide-by-slide script, Q&A prep, and delivery tips |
-| `One-Page-Executive-Summary.md` | Printable handout for leadership and attendees |
-| `generate_presentation.py` | Script to regenerate the PPTX if content changes |
+| `ElecSecure-Townhall-2026-Full.pptx` | 17-slide branded deck with logo + demo callout |
+| `ElecSecure-Townhall-2026-10-Slides.pptx` | Condensed 10-slide version |
+| `ElecSecure-Townhall-2026-Executive-5min.pptx` | 5-slide executive briefing |
+| `ElecSecure-Townhall-2026.pptx` | Alias of full deck |
+| `ElecSecure-Project-Blueprint.md` | Master project blueprint |
+| `Speaker-Notes.md` | Full slide-by-slide script |
+| `Live-Demo-Script.md` | 90-second mobile app demo script |
+| `Rehearsal-Guide.md` | Practice guide for key slides 6, 11, 12 |
+| `One-Page-Executive-Summary.md` | Markdown handout |
+| `ElecSecure-Executive-OnePager.pdf` | Printable PDF handout |
+| `assets/elecsecure-logo.png` | Brand logo (large) |
+| `assets/elecsecure-logo-small.png` | Brand logo (slide header) |
 
-## Recommended presentation flow
+## Before you present
 
-1. **Duration:** 20–25 minutes + 10 minutes Q&A
-2. **Audience:** Mixed (technical + non-technical)
-3. **Tone:** Professional, outcome-focused, inclusive
-4. **Key message:** *Safety • Savings • Control*
+1. Read `Rehearsal-Guide.md` — focus on slides 6, 11, 12
+2. Practice the 90-second demo in `Live-Demo-Script.md`
+3. Print `ElecSecure-Executive-OnePager.pdf` for executives
+4. Choose the right deck for your time slot (see table above)
 
-## How to use
-
-1. Review `Speaker-Notes.md` before the town hall
-2. Present `ElecSecure-Townhall-2026.pptx`
-3. Share `ElecSecure-Project-Blueprint.md` with stakeholders who want detail
-4. Distribute `One-Page-Executive-Summary.md` as a takeaway
-
-## Regenerating the deck
+## Regenerate everything
 
 ```bash
-pip install python-pptx
-python3 presentations/townhall-2026/generate_presentation.py
+cd presentations/townhall-2026
+pip install python-pptx pillow reportlab
+python3 assets/create_logo.py
+python3 generate_all.py
+python3 generate_onepager_pdf.py
 ```
 
-## Expert additions included
+Generate a specific variant:
+```bash
+python3 generate_all.py --variant short      # 10-slide only
+python3 generate_all.py --variant executive  # 5-slide only
+python3 generate_all.py --variant full       # 17-slide only
+```
 
-- Mixed-audience messaging (non-project staff friendly)
-- Stakeholder value matrix in blueprint
-- Risk & mitigation slide for leadership credibility
-- Clear call-to-action slide
-- Speaker notes embedded in every PPT slide
+## Branding included
+
+- ElecSecure shield + lightning logo on all slides
+- Navy / electric blue / teal colour scheme
+- Live demo callout on "How It Works" slide
+- Speaker notes embedded in every slide
+
+## Key message
+
+**Safety • Savings • Control**
