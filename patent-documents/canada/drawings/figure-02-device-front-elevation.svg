@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <title>Figure 2 - Device Front Elevation</title>
+  <rect width="400" height="500" fill="white"/>
+  <text x="200" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 2</text>
+  
+  <!-- Enclosure 202 -->
+  <rect x="120" y="80" width="160" height="320" fill="none" stroke="black" stroke-width="2"/>
+  <text x="290" y="100" font-family="Arial" font-size="14" font-weight="bold">202</text>
+  
+  <!-- Top terminals 204 -->
+  <rect x="140" y="60" width="30" height="20" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="230" y="60" width="30" height="20" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="155" y="55" text-anchor="middle" font-family="Arial" font-size="10">L</text>
+  <text x="245" y="55" text-anchor="middle" font-family="Arial" font-size="10">N</text>
+  <text x="310" y="70" font-family="Arial" font-size="12" font-weight="bold">204</text>
+  
+  <!-- Bottom terminals 206 -->
+  <rect x="140" y="400" width="30" height="20" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="230" y="400" width="30" height="20" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="155" y="435" text-anchor="middle" font-family="Arial" font-size="10">L</text>
+  <text x="245" y="435" text-anchor="middle" font-family="Arial" font-size="10">N</text>
+  <text x="310" y="415" font-family="Arial" font-size="12" font-weight="bold">206</text>
+  
+  <!-- LEDs 208 -->
+  <circle cx="155" cy="180" r="8" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="200" cy="180" r="8" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="245" cy="180" r="8" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="290" y="185" font-family="Arial" font-size="12" font-weight="bold">208</text>
+  
+  <!-- Test/Reset 210 -->
+  <rect x="165" y="280" width="70" height="25" rx="3" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="297" text-anchor="middle" font-family="Arial" font-size="9">TEST/RESET</text>
+  <text x="290" y="297" font-family="Arial" font-size="12" font-weight="bold">210</text>
+  
+  <!-- Brand label -->
+  <text x="200" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">ELECSECURE</text>
+  
+  <!-- Dimensions -->
+  <line x1="120" y1="430" x2="280" y2="430" stroke="black" stroke-width="1"/>
+  <line x1="120" y1="425" x2="120" y2="435" stroke="black" stroke-width="1"/>
+  <line x1="280" y1="425" x2="280" y2="435" stroke="black" stroke-width="1"/>
+  <text x="200" y="450" text-anchor="middle" font-family="Arial" font-size="11">36 mm (2 modules)</text>
+  
+  <line x1="100" y1="80" x2="100" y2="400" stroke="black" stroke-width="1"/>
+  <line x1="95" y1="80" x2="105" y2="80" stroke="black" stroke-width="1"/>
+  <line x1="95" y1="400" x2="105" y2="400" stroke="black" stroke-width="1"/>
+  <text x="75" y="245" text-anchor="middle" font-family="Arial" font-size="11" transform="rotate(-90,75,245)">~90 mm</text>
+</svg>

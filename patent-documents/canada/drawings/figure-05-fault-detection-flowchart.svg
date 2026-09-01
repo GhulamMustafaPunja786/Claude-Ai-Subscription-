@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 750" width="620" height="750">
+  <title>Figure 5 - Local Fault Detection Flowchart</title>
+  <rect width="620" height="750" fill="white"/>
+  <text x="310" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 5</text>
+
+  <!-- Reference numeral margin guide (not printed in final patent - visual aid) -->
+  <line x1="500" y1="45" x2="500" y2="700" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- 502 -->
+  <rect x="150" y="55" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="80" text-anchor="middle" font-family="Arial" font-size="10">Acquire sensor data</text>
+  <text x="530" y="80" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">502</text>
+
+  <!-- 504 -->
+  <rect x="150" y="125" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="150" text-anchor="middle" font-family="Arial" font-size="10">Evaluate trip thresholds</text>
+  <text x="530" y="150" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">504</text>
+
+  <!-- 506 -->
+  <polygon points="260,195 310,225 260,255 210,225" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="230" text-anchor="middle" font-family="Arial" font-size="9">Short-circuit?</text>
+  <text x="530" y="230" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">506</text>
+
+  <!-- 508 -->
+  <rect x="30" y="275" width="140" height="35" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="100" y="297" text-anchor="middle" font-family="Arial" font-size="9">Magnetic trip</text>
+  <text x="100" y="325" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">508</text>
+
+  <!-- 510 -->
+  <polygon points="260,335 310,365 260,395 210,365" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="370" text-anchor="middle" font-family="Arial" font-size="9">Overload?</text>
+  <text x="530" y="370" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">510</text>
+
+  <!-- 512 -->
+  <rect x="30" y="415" width="140" height="35" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="100" y="437" text-anchor="middle" font-family="Arial" font-size="9">Thermal trip</text>
+  <text x="100" y="465" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">512</text>
+
+  <!-- 514 -->
+  <rect x="150" y="475" width="220" height="35" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="497" text-anchor="middle" font-family="Arial" font-size="9">Arc signature analysis</text>
+  <text x="530" y="497" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">514</text>
+
+  <!-- 516 -->
+  <polygon points="260,530 310,560 260,590 210,560" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="565" text-anchor="middle" font-family="Arial" font-size="9">Arc fault?</text>
+  <text x="530" y="565" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">516</text>
+
+  <!-- 518 - separate row below, no overlap -->
+  <rect x="330" y="610" width="150" height="35" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="405" y="632" text-anchor="middle" font-family="Arial" font-size="9">Arc extinguish</text>
+  <text x="530" y="632" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">518</text>
+
+  <!-- 520 -->
+  <rect x="150" y="670" width="220" height="35" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="260" y="692" text-anchor="middle" font-family="Arial" font-size="9">Transmit telemetry + alert</text>
+  <text x="530" y="692" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">520</text>
+
+  <!-- Arrows -->
+  <line x1="260" y1="95" x2="260" y2="120" stroke="black" stroke-width="1"/>
+  <polygon points="260,120 256,112 264,112" fill="black"/>
+  <line x1="260" y1="165" x2="260" y2="190" stroke="black" stroke-width="1"/>
+  <polygon points="260,190 256,182 264,182" fill="black"/>
+  <line x1="210" y1="225" x2="100" y2="270" stroke="black" stroke-width="1"/>
+  <polygon points="100,270 106,264 106,272" fill="black"/>
+  <line x1="260" y1="255" x2="260" y2="330" stroke="black" stroke-width="1"/>
+  <polygon points="260,330 256,322 264,322" fill="black"/>
+  <line x1="210" y1="365" x2="100" y2="410" stroke="black" stroke-width="1"/>
+  <polygon points="100,410 106,404 106,412" fill="black"/>
+  <line x1="260" y1="395" x2="260" y2="470" stroke="black" stroke-width="1"/>
+  <polygon points="260,470 256,462 264,462" fill="black"/>
+  <line x1="260" y1="510" x2="260" y2="525" stroke="black" stroke-width="1"/>
+  <polygon points="260,525 256,517 264,517" fill="black"/>
+  <line x1="285" y1="575" x2="350" y2="608" stroke="black" stroke-width="1"/>
+  <polygon points="350,608 342,604 346,612" fill="black"/>
+  <line x1="260" y1="590" x2="260" y2="665" stroke="black" stroke-width="1"/>
+  <polygon points="260,665 256,657 264,657" fill="black"/>
+
+  <text x="310" y="735" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">500</text>
+</svg>

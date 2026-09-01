@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <title>Figure 3 - Arc Extinguishing Subsystem Section</title>
+  <rect width="600" height="450" fill="white"/>
+  <text x="300" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 3</text>
+  
+  <!-- Housing outline -->
+  <rect x="80" y="60" width="440" height="340" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- Contacts -->
+  <rect x="120" y="320" width="40" height="15" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="200" y="320" width="40" height="15" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="180" y="355" text-anchor="middle" font-family="Arial" font-size="10">Contact gap</text>
+  
+  <!-- Arc path (zigzag) -->
+  <path d="M 220 320 Q 240 280 250 240 Q 260 200 270 170" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="275" y="250" font-family="Arial" font-size="10">Arc</text>
+  
+  <!-- Arc runners 302 -->
+  <path d="M 230 315 L 260 200 L 280 120" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M 240 315 L 270 200 L 290 120" fill="none" stroke="black" stroke-width="2"/>
+  <text x="310" y="200" font-family="Arial" font-size="12" font-weight="bold">302</text>
+  <text x="310" y="215" font-family="Arial" font-size="9">Arc runners</text>
+  
+  <!-- Pre-chamber plates 304 -->
+  <line x1="300" y1="100" x2="300" y2="250" stroke="black" stroke-width="2"/>
+  <line x1="330" y1="110" x2="330" y2="260" stroke="black" stroke-width="2"/>
+  <line x1="360" y1="120" x2="360" y2="270" stroke="black" stroke-width="2"/>
+  <text x="400" y="180" font-family="Arial" font-size="12" font-weight="bold">304</text>
+  <text x="400" y="195" font-family="Arial" font-size="9">Pre-chamber</text>
+  <text x="400" y="208" font-family="Arial" font-size="9">plates</text>
+  
+  <!-- Arc chamber 306 -->
+  <rect x="380" y="80" width="120" height="200" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Hatching for chamber walls -->
+  <line x1="385" y1="90" x2="495" y2="90" stroke="black" stroke-width="0.5"/>
+  <line x1="385" y1="100" x2="495" y2="100" stroke="black" stroke-width="0.5"/>
+  <line x1="385" y1="110" x2="495" y2="110" stroke="black" stroke-width="0.5"/>
+  <text x="440" y="170" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">306</text>
+  <text x="440" y="185" text-anchor="middle" font-family="Arial" font-size="9">Arc chamber</text>
+  
+  <!-- Subdivided arcs inside chamber -->
+  <path d="M 390 150 L 410 130 L 430 150 L 450 130 L 470 150" fill="none" stroke="black" stroke-width="1"/>
+  <text x="440" y="220" text-anchor="middle" font-family="Arial" font-size="9">Subdivided arcs</text>
+  
+  <!-- Arc sensor 308 -->
+  <rect x="150" y="250" width="50" height="30" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="175" y="270" text-anchor="middle" font-family="Arial" font-size="9">Sensor</text>
+  <text x="100" y="265" font-family="Arial" font-size="12" font-weight="bold">308</text>
+  
+  <!-- Subsystem label 300 -->
+  <text x="100" y="55" font-family="Arial" font-size="14" font-weight="bold">300</text>
+  
+  <!-- Arrow showing arc direction -->
+  <line x1="270" y1="170" x2="375" y2="150" stroke="black" stroke-width="1" stroke-dasharray="4,2"/>
+  <polygon points="375,150 367,146 369,154" fill="black"/>
+</svg>

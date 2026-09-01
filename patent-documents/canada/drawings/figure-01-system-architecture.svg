@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <title>Figure 1 - System Architecture</title>
+  <rect width="800" height="600" fill="white"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 1</text>
+  
+  <!-- Device 102 -->
+  <rect x="50" y="200" width="120" height="80" fill="none" stroke="black" stroke-width="2"/>
+  <text x="110" y="235" text-anchor="middle" font-family="Arial" font-size="11">ElecSecure</text>
+  <text x="110" y="252" text-anchor="middle" font-family="Arial" font-size="11">Device</text>
+  <text x="110" y="275" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">102</text>
+  
+  <!-- Local Network 104 -->
+  <rect x="230" y="200" width="100" height="80" fill="none" stroke="black" stroke-width="2"/>
+  <text x="280" y="235" text-anchor="middle" font-family="Arial" font-size="11">Local</text>
+  <text x="280" y="252" text-anchor="middle" font-family="Arial" font-size="11">Network</text>
+  <text x="280" y="275" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">104</text>
+  
+  <!-- Cloud 106 -->
+  <ellipse cx="450" cy="240" rx="70" ry="50" fill="none" stroke="black" stroke-width="2"/>
+  <text x="450" y="235" text-anchor="middle" font-family="Arial" font-size="11">Cloud</text>
+  <text x="450" y="252" text-anchor="middle" font-family="Arial" font-size="11">Platform</text>
+  <text x="450" y="275" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">106</text>
+  
+  <!-- Mobile App 108 -->
+  <rect x="580" y="180" width="80" height="120" rx="8" fill="none" stroke="black" stroke-width="2"/>
+  <text x="620" y="230" text-anchor="middle" font-family="Arial" font-size="11">Mobile</text>
+  <text x="620" y="247" text-anchor="middle" font-family="Arial" font-size="11">App</text>
+  <text x="620" y="275" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">108</text>
+  
+  <!-- Smart Home 110 -->
+  <rect x="580" y="380" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="640" y="405" text-anchor="middle" font-family="Arial" font-size="11">Smart Home</text>
+  <text x="640" y="425" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">110</text>
+  
+  <!-- System boundary 100 -->
+  <rect x="30" y="150" width="700" height="320" fill="none" stroke="black" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="50" y="145" font-family="Arial" font-size="14" font-weight="bold">100</text>
+  
+  <!-- Arrows -->
+  <line x1="170" y1="240" x2="225" y2="240" stroke="black" stroke-width="1.5"/>
+  <polygon points="225,240 217,236 217,244" fill="black"/>
+  <line x1="330" y1="240" x2="375" y2="240" stroke="black" stroke-width="1.5"/>
+  <polygon points="375,240 367,236 367,244" fill="black"/>
+  <line x1="520" y1="240" x2="575" y2="240" stroke="black" stroke-width="1.5"/>
+  <polygon points="575,240 567,236 567,244" fill="black"/>
+  <line x1="620" y1="300" x2="620" y2="375" stroke="black" stroke-width="1.5"/>
+  <polygon points="620,375 616,367 624,367" fill="black"/>
+  <line x1="450" y1="290" x2="580" y2="410" stroke="black" stroke-width="1.5"/>
+  <polygon points="580,410 572,404 576,412" fill="black"/>
+  
+  <!-- Connectivity module 112 -->
+  <rect x="70" y="310" width="80" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="110" y="335" text-anchor="middle" font-family="Arial" font-size="10">Wi-Fi/BLE</text>
+  <text x="110" y="350" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">112</text>
+  <line x1="110" y1="280" x2="110" y2="310" stroke="black" stroke-width="1"/>
+</svg>

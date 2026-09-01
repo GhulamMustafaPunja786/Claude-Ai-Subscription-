@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280">
+  <title>Figure 11 - CIPO Filing Timeline</title>
+  <rect width="900" height="280" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">CIPO PATENT FILING TIMELINE (CANADA)</text>
+
+  <!-- Timeline bar -->
+  <line x1="60" y1="120" x2="840" y2="120" stroke="#1a365d" stroke-width="3"/>
+
+  <!-- Steps -->
+  <g>
+    <circle cx="100" cy="120" r="18" fill="#2b6cb0" stroke="#1a365d" stroke-width="2"/>
+    <text x="100" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">1</text>
+    <text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Prior Art</text>
+    <text x="100" y="86" text-anchor="middle" font-family="Arial" font-size="9">Search</text>
+    <text x="100" y="165" text-anchor="middle" font-family="Arial" font-size="9">Week 1-4</text>
+  </g>
+
+  <g>
+    <circle cx="250" cy="120" r="18" fill="#2b6cb0" stroke="#1a365d" stroke-width="2"/>
+    <text x="250" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">2</text>
+    <text x="250" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Agent Review</text>
+    <text x="250" y="86" text-anchor="middle" font-family="Arial" font-size="9">Claims polish</text>
+    <text x="250" y="165" text-anchor="middle" font-family="Arial" font-size="9">Week 2-6</text>
+  </g>
+
+  <g>
+    <circle cx="400" cy="120" r="18" fill="#276749" stroke="#1a365d" stroke-width="2"/>
+    <text x="400" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">3</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">File with CIPO</text>
+    <text x="400" y="86" text-anchor="middle" font-family="Arial" font-size="9">$595 CAD fee</text>
+    <text x="400" y="165" text-anchor="middle" font-family="Arial" font-size="9">Filing date set</text>
+  </g>
+
+  <g>
+    <circle cx="550" cy="120" r="18" fill="#6b46c1" stroke="#1a365d" stroke-width="2"/>
+    <text x="550" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">4</text>
+    <text x="550" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Request</text>
+    <text x="550" y="86" text-anchor="middle" font-family="Arial" font-size="9">Examination</text>
+    <text x="550" y="165" text-anchor="middle" font-family="Arial" font-size="9">Within 4 years</text>
+  </g>
+
+  <g>
+    <circle cx="700" cy="120" r="18" fill="#c05621" stroke="#1a365d" stroke-width="2"/>
+    <text x="700" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">5</text>
+    <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Prosecution</text>
+    <text x="700" y="86" text-anchor="middle" font-family="Arial" font-size="9">Office actions</text>
+    <text x="700" y="165" text-anchor="middle" font-family="Arial" font-size="9">2-4 years</text>
+  </g>
+
+  <g>
+    <circle cx="820" cy="120" r="18" fill="#1a365d" stroke="#1a365d" stroke-width="2"/>
+    <text x="820" y="126" text-anchor="middle" font-family="Arial" font-size="12" fill="white" font-weight="bold">-</text>
+    <text x="820" y="70" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Patent</text>
+    <text x="820" y="86" text-anchor="middle" font-family="Arial" font-size="9">Granted</text>
+    <text x="820" y="165" text-anchor="middle" font-family="Arial" font-size="9">20-yr term</text>
+  </g>
+
+  <rect x="60" y="200" width="780" height="55" rx="6" fill="#edf2f7" stroke="#cbd5e0" stroke-width="1"/>
+  <text x="450" y="222" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Key deadlines: Request examination within 4 years | Pay annual maintenance fees from year 2</text>
+  <text x="450" y="242" text-anchor="middle" font-family="Arial" font-size="9">Portal: ised-isde.canada.ca/site/canadian-intellectual-property-office/en</text>
+</svg>

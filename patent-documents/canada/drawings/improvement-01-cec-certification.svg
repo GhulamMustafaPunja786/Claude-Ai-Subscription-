@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
+  <title>FIG 12 - CEC Certification Enhancement</title>
+  <rect width="900" height="420" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 12 - CEC CERTIFICATION ENHANCEMENT (CURRENT vs PROPOSED)</text>
+
+  <!-- CURRENT -->
+  <rect x="30" y="50" width="400" height="340" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#c53030">CURRENT</text>
+  <rect x="170" y="100" width="120" height="140" rx="4" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="230" y="160" text-anchor="middle" font-family="Arial" font-size="11">ElecSecure</text>
+  <text x="230" y="180" text-anchor="middle" font-family="Arial" font-size="9">IEC standards</text>
+  <text x="230" y="200" text-anchor="middle" font-family="Arial" font-size="9">No CSA mark</text>
+  <text x="60" y="270" font-family="Arial" font-size="9">- Generic international profile</text>
+  <text x="60" y="288" font-family="Arial" font-size="9">- Installer must verify CEC manually</text>
+  <text x="60" y="306" font-family="Arial" font-size="9">- No AFCI pre-configuration</text>
+  <text x="60" y="324" font-family="Arial" font-size="9">- Limited electrician documentation</text>
+  <text x="60" y="360" font-family="Arial" font-size="10" font-weight="bold" fill="#c53030">Impact: Slower adoption, installer hesitation</text>
+
+  <!-- Arrow -->
+  <polygon points="450,220 470,210 470,230" fill="#276749"/>
+  <text x="450" y="205" text-anchor="middle" font-family="Arial" font-size="10" fill="#276749">ADD</text>
+
+  <!-- PROPOSED -->
+  <rect x="490" y="50" width="380" height="340" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="680" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#276749">PROPOSED</text>
+  <rect x="610" y="100" width="140" height="140" rx="4" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="680" y="155" text-anchor="middle" font-family="Arial" font-size="11">ElecSecure</text>
+  <rect x="630" y="165" width="100" height="22" rx="2" fill="#276749"/>
+  <text x="680" y="180" text-anchor="middle" font-family="Arial" font-size="9" fill="white" font-weight="bold">c CSA Listed</text>
+  <text x="680" y="210" text-anchor="middle" font-family="Arial" font-size="8">CEC Rule 26-720</text>
+  <text x="520" y="260" font-family="Arial" font-size="9">+ CSA C22.2 No. 5 certified</text>
+  <text x="520" y="278" font-family="Arial" font-size="9">+ CEC-2024 / CEC-2027 firmware profiles</text>
+  <text x="520" y="296" font-family="Arial" font-size="9">+ AFCI pre-configured for dwelling units</text>
+  <text x="520" y="314" font-family="Arial" font-size="9">+ Electrician compliance quick-reference card</text>
+  <text x="520" y="360" font-family="Arial" font-size="10" font-weight="bold" fill="#276749">Impact: +40% installer confidence, legal install nationwide</text>
+</svg>

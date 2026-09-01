@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620">
+  <title>Figure 9 - Invention Overview</title>
+  <rect width="900" height="620" fill="white"/>
+  <text x="450" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">FIG. 9 - INVENTION OVERVIEW</text>
+
+  <!-- Central device -->
+  <rect x="355" y="220" width="190" height="140" rx="8" fill="#f7fafc" stroke="#1a365d" stroke-width="2.5"/>
+  <text x="450" y="255" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">ELECSECURE DEVICE</text>
+  <text x="450" y="278" text-anchor="middle" font-family="Arial" font-size="11">Dual Trip + Arc Extinguish</text>
+  <text x="450" y="298" text-anchor="middle" font-family="Arial" font-size="11">IoT Sensors + Self-Test</text>
+  <text x="450" y="340" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">102</text>
+
+  <!-- Feature boxes -->
+  <rect x="40" y="80" width="200" height="90" rx="6" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="1.5"/>
+  <text x="140" y="110" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Arc Fault Protection</text>
+  <text x="140" y="132" text-anchor="middle" font-family="Arial" font-size="10">Detection + extinguishing</text>
+  <text x="140" y="150" text-anchor="middle" font-family="Arial" font-size="10">chamber subsystem 300</text>
+
+  <rect x="660" y="80" width="200" height="90" rx="6" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="1.5"/>
+  <text x="760" y="110" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Energy Analytics</text>
+  <text x="760" y="132" text-anchor="middle" font-family="Arial" font-size="10">ML recommendations</text>
+  <text x="760" y="150" text-anchor="middle" font-family="Arial" font-size="10">module 612</text>
+
+  <rect x="40" y="430" width="200" height="90" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="1.5"/>
+  <text x="140" y="460" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Compact Form Factor</text>
+  <text x="140" y="482" text-anchor="middle" font-family="Arial" font-size="10">2-module DIN, 6/10 kA</text>
+  <text x="140" y="500" text-anchor="middle" font-family="Arial" font-size="10">breaking capacity</text>
+
+  <rect x="660" y="430" width="200" height="90" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="1.5"/>
+  <text x="760" y="460" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Remote Control</text>
+  <text x="760" y="482" text-anchor="middle" font-family="Arial" font-size="10">Mobile app 108</text>
+  <text x="760" y="500" text-anchor="middle" font-family="Arial" font-size="10">trip / reset / alerts</text>
+
+  <!-- Cloud -->
+  <ellipse cx="450" cy="95" rx="85" ry="42" fill="#faf5ff" stroke="#6b46c1" stroke-width="1.5"/>
+  <text x="450" y="92" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Cloud Platform 106</text>
+  <text x="450" y="108" text-anchor="middle" font-family="Arial" font-size="10">Storage + ML + Alerts</text>
+
+  <!-- Mobile -->
+  <rect x="395" y="480" width="110" height="80" rx="10" fill="#fffaf0" stroke="#c05621" stroke-width="1.5"/>
+  <text x="450" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">Mobile App</text>
+  <text x="450" y="535" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">108</text>
+
+  <!-- Connectors -->
+  <line x1="240" y1="125" x2="355" y2="250" stroke="#2b6cb0" stroke-width="1.5"/>
+  <line x1="660" y1="125" x2="545" y2="250" stroke="#2b6cb0" stroke-width="1.5"/>
+  <line x1="240" y1="475" x2="355" y2="340" stroke="#276749" stroke-width="1.5"/>
+  <line x1="660" y1="475" x2="545" y2="340" stroke="#276749" stroke-width="1.5"/>
+  <line x1="450" y1="137" x2="450" y2="218" stroke="#6b46c1" stroke-width="1.5"/>
+  <line x1="450" y1="360" x2="450" y2="478" stroke="#c05621" stroke-width="1.5"/>
+
+  <!-- System boundary -->
+  <rect x="25" y="55" width="850" height="520" fill="none" stroke="#1a365d" stroke-width="1.5" stroke-dasharray="10,5"/>
+  <text x="40" y="75" font-family="Arial" font-size="14" font-weight="bold">100</text>
+  <text x="55" y="75" font-family="Arial" font-size="10">System</text>
+
+  <text x="450" y="590" text-anchor="middle" font-family="Arial" font-size="11" fill="#4a5568">Integrated smart electrical safety and energy efficiency management system</text>
+</svg>

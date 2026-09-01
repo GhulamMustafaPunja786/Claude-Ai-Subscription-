@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <title>FIG 15 - TOU Rate Integration</title>
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 15 - CANADIAN TOU RATE INTEGRATION</text>
+
+  <rect x="40" y="55" width="380" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#c53030">CURRENT: kWh Only</text>
+  <text x="230" y="130" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">2,847 kWh</text>
+  <text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="9">This month</text>
+  <text x="70" y="220" font-family="Arial" font-size="9">No CAD cost display</text>
+  <text x="70" y="238" font-family="Arial" font-size="9">No provincial TOU schedules</text>
+  <text x="70" y="270" font-family="Arial" font-size="9" fill="#c53030">Users cannot see dollar savings</text>
+
+  <rect x="480" y="55" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="670" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#276749">PROPOSED: CAD + TOU</text>
+  <text x="670" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">$187.42 CAD</text>
+  <text x="670" y="145" text-anchor="middle" font-family="Arial" font-size="8">Ontario ULO Rate</text>
+  <rect x="520" y="160" width="300" height="60" fill="white" stroke="#cbd5e0" stroke-width="1"/>
+  <rect x="520" y="160" width="80" height="60" fill="#bee3f8"/>
+  <rect x="600" y="160" width="60" height="60" fill="#feb2b2"/>
+  <rect x="660" y="160" width="160" height="60" fill="#c6f6d5"/>
+  <text x="560" y="195" text-anchor="middle" font-family="Arial" font-size="7">Off-peak</text>
+  <text x="630" y="195" text-anchor="middle" font-family="Arial" font-size="7">Peak</text>
+  <text x="740" y="195" text-anchor="middle" font-family="Arial" font-size="7">Mid-peak</text>
+  <text x="500" y="250" font-family="Arial" font-size="9">+ ON, QC, BC, AB utility schedules</text>
+  <text x="500" y="268" font-family="Arial" font-size="9">+ Shift load recommendations</text>
+  <text x="500" y="300" font-family="Arial" font-size="9" fill="#276749">Impact: +35% retention, 8-15% bill savings</text>
+</svg>

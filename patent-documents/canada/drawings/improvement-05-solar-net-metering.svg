@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <title>FIG 16 - Solar Net Metering</title>
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 16 - SOLAR / NET METERING INTEGRATION</text>
+
+  <rect x="40" y="55" width="380" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#c53030">CURRENT: Grid Import Only</text>
+  <rect x="180" y="120" width="100" height="60" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="9">ElecSecure</text>
+  <line x1="280" y1="150" x2="350" y2="150" stroke="black" stroke-width="2"/>
+  <polygon points="350,150 342,146 342,154" fill="black"/>
+  <text x="370" y="155" font-family="Arial" font-size="9">Grid</text>
+  <text x="70" y="230" font-family="Arial" font-size="9">No solar export visibility</text>
+  <text x="70" y="248" font-family="Arial" font-size="9">No net metering dashboard</text>
+
+  <rect x="480" y="55" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="670" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#276749">PROPOSED: Bidirectional + Solar</text>
+  <rect x="520" y="110" width="70" height="50" fill="#fefcbf" stroke="black" stroke-width="1"/>
+  <text x="555" y="140" text-anchor="middle" font-family="Arial" font-size="8">Solar</text>
+  <rect x="620" y="110" width="90" height="50" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="665" y="140" text-anchor="middle" font-family="Arial" font-size="8">ElecSecure</text>
+  <rect x="740" y="110" width="70" height="50" fill="#bee3f8" stroke="black" stroke-width="1"/>
+  <text x="775" y="140" text-anchor="middle" font-family="Arial" font-size="8">Grid</text>
+  <line x1="590" y1="135" x2="618" y2="135" stroke="#d69e2e" stroke-width="2"/>
+  <line x1="710" y1="135" x2="738" y2="135" stroke="black" stroke-width="2"/>
+  <text x="500" y="200" font-family="Arial" font-size="9">Import: 1,240 kWh | Export: 680 kWh</text>
+  <text x="500" y="218" font-family="Arial" font-size="9">Net cost: $42.18 CAD (credit applied)</text>
+  <text x="500" y="250" font-family="Arial" font-size="9">+ SolarEdge / Enphase API integration</text>
+  <text x="500" y="290" font-family="Arial" font-size="9" fill="#276749">Impact: 500K+ solar homes, premium tier +$15-20/mo</text>
+</svg>
