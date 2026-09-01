@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="900" height="550">
+  <title>Figure 10 - Panel Installation</title>
+  <rect width="900" height="550" fill="white"/>
+  <text x="450" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">FIG. 10 - PANEL INSTALLATION BLUEPRINT</text>
+
+  <!-- Panel enclosure -->
+  <rect x="80" y="60" width="740" height="420" fill="#f7fafc" stroke="#1a365d" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">ELECTRICAL DISTRIBUTION PANEL</text>
+
+  <!-- DIN rail -->
+  <rect x="110" y="380" width="680" height="12" fill="#4a5568"/>
+  <text x="450" y="410" text-anchor="middle" font-family="Arial" font-size="10">35 mm DIN Rail</text>
+
+  <!-- Modules -->
+  <g id="modules">
+    <rect x="130" y="250" width="54" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="157" y="320" text-anchor="middle" font-family="Arial" font-size="8">Mains</text>
+
+    <rect x="200" y="250" width="108" height="130" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5"/>
+    <text x="254" y="295" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">ELECSECURE</text>
+    <text x="254" y="315" text-anchor="middle" font-family="Arial" font-size="10">Device 102</text>
+    <text x="254" y="340" text-anchor="middle" font-family="Arial" font-size="9">2 modules (36mm)</text>
+    <text x="254" y="360" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">102</text>
+
+    <rect x="330" y="250" width="54" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="357" y="320" text-anchor="middle" font-family="Arial" font-size="8">Circuit 2</text>
+    <rect x="400" y="250" width="54" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="427" y="320" text-anchor="middle" font-family="Arial" font-size="8">Circuit 3</text>
+    <rect x="470" y="250" width="54" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="497" y="320" text-anchor="middle" font-family="Arial" font-size="8">Circuit 4</text>
+    <rect x="540" y="250" width="54" height="130" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="567" y="320" text-anchor="middle" font-family="Arial" font-size="8">Circuit 5</text>
+  </g>
+
+  <!-- Wi-Fi signal to cloud -->
+  <path d="M 254 230 Q 350 150 500 120 Q 650 90 780 100" fill="none" stroke="#6b46c1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="520" y="115" font-family="Arial" font-size="10" fill="#6b46c1">Wi-Fi / BLE - Cloud 106</text>
+
+  <!-- Wiring top -->
+  <line x1="157" y1="250" x2="157" y2="140" stroke="black" stroke-width="2"/>
+  <line x1="254" y1="250" x2="254" y2="140" stroke="#2b6cb0" stroke-width="2"/>
+  <line x1="357" y1="250" x2="357" y2="160" stroke="black" stroke-width="1.5"/>
+
+  <!-- Bus bar -->
+  <rect x="120" y="120" width="660" height="16" fill="#e2e8f0" stroke="black" stroke-width="1"/>
+  <text x="450" y="133" text-anchor="middle" font-family="Arial" font-size="9">Bus Bar (Line / Neutral)</text>
+
+  <!-- Bidirectional note -->
+  <rect x="620" y="250" width="180" height="100" rx="4" fill="white" stroke="#c05621" stroke-width="1.5"/>
+  <text x="710" y="275" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Bidirectional Feed</text>
+  <text x="710" y="295" text-anchor="middle" font-family="Arial" font-size="9">Top terminals 204</text>
+  <text x="710" y="312" text-anchor="middle" font-family="Arial" font-size="9">or bottom terminals 206</text>
+  <line x1="380" y1="300" x2="615" y2="300" stroke="#c05621" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c05621"/>
+    </marker>
+  </defs>
+
+  <!-- Dimensions -->
+  <line x1="200" y1="450" x2="308" y2="450" stroke="black" stroke-width="1"/>
+  <line x1="200" y1="445" x2="200" y2="455" stroke="black" stroke-width="1"/>
+  <line x1="308" y1="445" x2="308" y2="455" stroke="black" stroke-width="1"/>
+  <text x="254" y="468" text-anchor="middle" font-family="Arial" font-size="10">36 mm</text>
+
+  <text x="450" y="520" text-anchor="middle" font-family="Arial" font-size="11" fill="#4a5568">Typical Canadian residential panel installation - CEC Part I compliant</text>
+</svg>

@@ -22,7 +22,7 @@ This package is a **technical draft** prepared to support a Canadian patent appl
 | `03_DESCRIPTION.md` | Description (s. 56) | Full technical disclosure |
 | `04_CLAIMS.md` | Claims (ss. 60–62) | Legal scope of protection |
 | `05_DRAWINGS_BLUEPRINTS.md` | Drawings index (s. 59) | Figure descriptions and reference numerals |
-| `drawings/*.svg` | Drawings (if required) | Black-and-white technical figures |
+| `drawings/*.svg` | Drawings (s. 59) | 11 black-and-white technical figures |
 
 ---
 
