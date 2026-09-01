@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 23  -  PIPEDA PRIVACY ARCHITECTURE (CURRENT vs PROPOSED)</text>
+  <rect x="30" y="50" width="400" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#c53030">CURRENT</text>
+  <rect x="120" y="110" width="220" height="90" rx="4" fill="white" stroke="black"/>
+  <text x="230" y="145" text-anchor="middle" font-family="Arial" font-size="10">TLS + auth (generic)</text>
+  <text x="230" y="165" text-anchor="middle" font-family="Arial" font-size="9">US cloud region default</text>
+  <text x="60" y="240" font-family="Arial" font-size="9">- No PIPEDA documentation</text>
+  <text x="60" y="258" font-family="Arial" font-size="9">- No data export / deletion flow</text>
+  <text x="60" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#c53030">Impact: Trust barrier for IoT</text>
+  <polygon points="450,210 470,200 470,220" fill="#276749"/>
+  <rect x="490" y="50" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="680" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#276749">PROPOSED</text>
+  <rect x="540" y="100" width="120" height="60" rx="3" fill="white" stroke="black"/><text x="600" y="135" text-anchor="middle" font-size="8">Device</text>
+  <rect x="680" y="100" width="120" height="60" rx="3" fill="#276749"/><text x="740" y="125" text-anchor="middle" fill="white" font-size="8">CA Cloud</text><text x="740" y="140" text-anchor="middle" fill="white" font-size="7">(PIPEDA)</text>
+  <line x1="660" y1="130" x2="680" y2="130" stroke="#276749" stroke-width="2"/>
+  <text x="520" y="190" font-family="Arial" font-size="9">+ User data export &amp; deletion rights</text>
+  <text x="520" y="208" font-family="Arial" font-size="9">+ No third-party data sale (marketed)</text>
+  <text x="520" y="226" font-family="Arial" font-size="9">+ Quebec Law 25 alignment</text>
+  <text x="520" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#276749">Impact: Enterprise + consumer trust</text>
+</svg>

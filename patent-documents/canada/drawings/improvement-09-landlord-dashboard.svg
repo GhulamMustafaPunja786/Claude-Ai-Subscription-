@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 20  -  LANDLORD MULTI-UNIT DASHBOARD (CURRENT vs PROPOSED)</text>
+  <rect x="30" y="50" width="400" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#c53030">CURRENT</text>
+  <rect x="150" y="110" width="160" height="100" rx="4" fill="white" stroke="black"/>
+  <text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="10">Single home view</text>
+  <text x="230" y="175" text-anchor="middle" font-family="Arial" font-size="9">1 property / 1 user</text>
+  <text x="60" y="250" font-family="Arial" font-size="9">- No per-unit billing</text>
+  <text x="60" y="268" font-family="Arial" font-size="9">- No tenant privacy controls</text>
+  <text x="60" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#c53030">Impact: B2B market untapped</text>
+  <polygon points="450,210 470,200 470,220" fill="#276749"/>
+  <rect x="490" y="50" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="680" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#276749">PROPOSED</text>
+  <rect x="520" y="100" width="80" height="50" rx="2" fill="white" stroke="black"/><text x="560" y="130" text-anchor="middle" font-size="8">Unit 1</text>
+  <rect x="610" y="100" width="80" height="50" rx="2" fill="white" stroke="black"/><text x="650" y="130" text-anchor="middle" font-size="8">Unit 2</text>
+  <rect x="700" y="100" width="80" height="50" rx="2" fill="white" stroke="black"/><text x="740" y="130" text-anchor="middle" font-size="8">Unit 3</text>
+  <rect x="560" y="165" width="240" height="40" rx="3" fill="#276749"/><text x="680" y="190" text-anchor="middle" fill="white" font-size="9">Landlord portal</text>
+  <text x="520" y="240" font-family="Arial" font-size="9">+ Per-unit billing (ON/BC rent rules)</text>
+  <text x="520" y="258" font-family="Arial" font-size="9">+ Tenant privacy mode (alerts only)</text>
+  <text x="520" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#276749">Impact: 4-50x units per customer</text>
+</svg>

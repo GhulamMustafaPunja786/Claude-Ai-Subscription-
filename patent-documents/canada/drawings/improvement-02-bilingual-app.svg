@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380">
+  <title>FIG 13 - Bilingual App Enhancement</title>
+  <rect width="900" height="380" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 13 - BILINGUAL APP ENHANCEMENT (EN / FR)</text>
+
+  <!-- CURRENT -->
+  <rect x="40" y="55" width="380" height="300" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#c53030">CURRENT - English Only</text>
+  <rect x="170" y="100" width="120" height="200" rx="12" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="230" y="130" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Dashboard</text>
+  <text x="230" y="155" text-anchor="middle" font-family="Arial" font-size="8">Voltage: 240V</text>
+  <text x="230" y="175" text-anchor="middle" font-family="Arial" font-size="8" fill="#c53030">! Arc fault detected</text>
+  <text x="230" y="200" text-anchor="middle" font-family="Arial" font-size="8">Circuit 7 tripped</text>
+  <text x="60" y="320" font-family="Arial" font-size="9">Quebec market blocked (Bill 101)</text>
+
+  <!-- PROPOSED -->
+  <rect x="480" y="55" width="380" height="300" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="670" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#276749">PROPOSED - EN / FR Toggle</text>
+  <rect x="530" y="100" width="120" height="200" rx="12" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="590" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold">EN | FR</text>
+  <text x="590" y="150" text-anchor="middle" font-family="Arial" font-size="8">Tension: 240V</text>
+  <text x="590" y="170" text-anchor="middle" font-family="Arial" font-size="8" fill="#c53030">! Arc detecte</text>
+  <text x="590" y="190" text-anchor="middle" font-family="Arial" font-size="8">Circuit 7 declenche</text>
+  <rect x="680" y="100" width="120" height="200" rx="12" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="740" y="125" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold">EN | FR</text>
+  <text x="740" y="150" text-anchor="middle" font-family="Arial" font-size="8">Voltage: 240V</text>
+  <text x="740" y="170" text-anchor="middle" font-family="Arial" font-size="8" fill="#c53030">! Arc fault detected</text>
+  <text x="500" y="320" font-family="Arial" font-size="9" fill="#276749">Impact: +23% market (QC), federal tender eligible, +25% satisfaction</text>
+</svg>

@@ -18,9 +18,12 @@ Draft patent application materials for filing with the **Canadian Intellectual P
 | 3 | [03_DESCRIPTION.md](./03_DESCRIPTION.md) | Full specification with 8 figure references |
 | 4 | [04_CLAIMS.md](./04_CLAIMS.md) | 20 claims (device, system, method) |
 | 5 | [05_DRAWINGS_BLUEPRINTS.md](./05_DRAWINGS_BLUEPRINTS.md) | Drawing index, BOM, electrical notes |
-| — | [ElecSecure_Canada_Patent_Package.pdf](./ElecSecure_Canada_Patent_Package.pdf) | **Visual PDF package (40 pages, v2.0)** |
-| — | [generate_pdf.py](./generate_pdf.py) | PDF generator script |
-| — | [drawings/](./drawings/) | 11 black-and-white SVG patent figures |
+| 6 | [06_CANADIAN_PRODUCT_IMPROVEMENT_ROADMAP.md](./06_CANADIAN_PRODUCT_IMPROVEMENT_ROADMAP.md) | **Canadian market product improvement guide** (12 enhancements) |
+| — | [ElecSecure_Canada_Patent_Package.pdf](./ElecSecure_Canada_Patent_Package.pdf) | **Visual PDF package (40 pages, v2.2)** |
+| — | [ElecSecure_Canadian_Improvement_Roadmap.pdf](./ElecSecure_Canadian_Improvement_Roadmap.pdf) | **Canadian improvement roadmap PDF with blueprints** |
+| — | [generate_pdf.py](./generate_pdf.py) | Patent PDF generator script |
+| — | [generate_improvement_pdf.py](./generate_improvement_pdf.py) | Improvement roadmap PDF generator |
+| — | [drawings/](./drawings/) | Patent figures + improvement blueprints (FIG 12–24) |
 
 ---
 

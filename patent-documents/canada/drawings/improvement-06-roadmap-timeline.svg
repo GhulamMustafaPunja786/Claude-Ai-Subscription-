@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
+  <title>FIG 17 - Priority Roadmap Timeline</title>
+  <rect width="900" height="420" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 17 - CANADIAN IMPROVEMENT PRIORITY ROADMAP</text>
+
+  <!-- Phase 1 -->
+  <rect x="40" y="60" width="250" height="320" rx="6" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2"/>
+  <text x="165" y="88" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#2b6cb0">PHASE 1 (0-6 mo)</text>
+  <text x="165" y="108" text-anchor="middle" font-family="Arial" font-size="9">Must-have for launch</text>
+  <text x="55" y="140" font-family="Arial" font-size="9">1. CEC / CSA certification</text>
+  <text x="55" y="162" font-family="Arial" font-size="9">2. Bilingual EN/FR app</text>
+  <text x="55" y="184" font-family="Arial" font-size="9">3. TOU rate integration</text>
+  <text x="55" y="206" font-family="Arial" font-size="9">4. PIPEDA privacy compliance</text>
+  <text x="55" y="250" font-family="Arial" font-size="8" fill="#2b6cb0">Investment: $80-150K CAD</text>
+  <text x="55" y="270" font-family="Arial" font-size="8">Legal market entry + QC access</text>
+
+  <!-- Phase 2 -->
+  <rect x="325" y="60" width="250" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="450" y="88" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#276749">PHASE 2 (6-12 mo)</text>
+  <text x="450" y="108" text-anchor="middle" font-family="Arial" font-size="9">Growth drivers</text>
+  <text x="340" y="140" font-family="Arial" font-size="9">5. Greener Homes reports</text>
+  <text x="340" y="162" font-family="Arial" font-size="9">6. -40C cold climate rating</text>
+  <text x="340" y="184" font-family="Arial" font-size="9">7. Electrician Pro toolkit</text>
+  <text x="340" y="206" font-family="Arial" font-size="9">8. EV load management</text>
+  <text x="340" y="250" font-family="Arial" font-size="8" fill="#276749">Investment: $120-200K CAD</text>
+  <text x="340" y="270" font-family="Arial" font-size="8">Channel growth + premium tiers</text>
+
+  <!-- Phase 3 -->
+  <rect x="610" y="60" width="250" height="320" rx="6" fill="#faf5ff" stroke="#6b46c1" stroke-width="2"/>
+  <text x="735" y="88" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#6b46c1">PHASE 3 (12-24 mo)</text>
+  <text x="735" y="108" text-anchor="middle" font-family="Arial" font-size="9">Market leadership</text>
+  <text x="625" y="140" font-family="Arial" font-size="9">9. Solar / net metering</text>
+  <text x="625" y="162" font-family="Arial" font-size="9">10. Smart meter fusion</text>
+  <text x="625" y="184" font-family="Arial" font-size="9">11. Landlord dashboard</text>
+  <text x="625" y="206" font-family="Arial" font-size="9">12. Backup power safety</text>
+  <text x="625" y="250" font-family="Arial" font-size="8" fill="#6b46c1">Investment: $150-250K CAD</text>
+  <text x="625" y="270" font-family="Arial" font-size="8">B2B scale + competitive moat</text>
+
+  <line x1="290" y1="220" x2="320" y2="220" stroke="black" stroke-width="1.5"/>
+  <polygon points="320,220 312,216 312,224" fill="black"/>
+  <line x1="575" y1="220" x2="605" y2="220" stroke="black" stroke-width="1.5"/>
+  <polygon points="605,220 597,216 597,224" fill="black"/>
+</svg>

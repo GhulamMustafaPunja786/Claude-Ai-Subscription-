@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <title>FIG 14 - Cold Climate Enhancement</title>
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 14 - COLD CLIMATE HARDWARE (-40C RATING)</text>
+
+  <rect x="40" y="55" width="380" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#c53030">CURRENT: -25C to +55C</text>
+  <rect x="150" y="110" width="160" height="120" fill="#edf2f7" stroke="black" stroke-width="1"/>
+  <text x="230" y="175" text-anchor="middle" font-family="Arial" font-size="10">Garage Panel</text>
+  <text x="70" y="260" font-family="Arial" font-size="9">Standard bimetallic element</text>
+  <text x="70" y="278" font-family="Arial" font-size="9">Fails / false trips below -25C</text>
+  <text x="70" y="310" font-family="Arial" font-size="9" fill="#c53030">Prairies, Northern ON/QC at risk</text>
+
+  <rect x="480" y="55" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="670" y="82" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#276749">PROPOSED: -40C to +55C</text>
+  <rect x="590" y="110" width="160" height="120" fill="#ebf8ff" stroke="black" stroke-width="1.5"/>
+  <text x="670" y="165" text-anchor="middle" font-family="Arial" font-size="10">Garage Panel</text>
+  <text x="670" y="185" text-anchor="middle" font-family="Arial" font-size="9">-40C rated</text>
+  <text x="500" y="250" font-family="Arial" font-size="9">+ Cold-rated bimetallic / solenoid</text>
+  <text x="500" y="268" font-family="Arial" font-size="9">+ Cold-start self-test on boot</text>
+  <text x="500" y="286" font-family="Arial" font-size="9">+ Optional heated terminals</text>
+  <text x="500" y="320" font-family="Arial" font-size="9" fill="#276749">Impact: +30% Prairie/North market, -20% warranty claims</text>
+
+  <!-- Temperature scale -->
+  <line x1="450" y1="120" x2="450" y2="300" stroke="black" stroke-width="1"/>
+  <text x="455" y="130" font-family="Arial" font-size="8">+55C</text>
+  <text x="455" y="220" font-family="Arial" font-size="8">0C</text>
+  <text x="455" y="295" font-family="Arial" font-size="8">-40C</text>
+</svg>

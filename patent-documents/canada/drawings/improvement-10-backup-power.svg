@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="28" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 21  -  BACKUP POWER SAFETY MONITORING (CURRENT vs PROPOSED)</text>
+  <rect x="30" y="50" width="400" height="320" rx="6" fill="#fff5f5" stroke="#c53030" stroke-width="1.5"/>
+  <text x="230" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#c53030">CURRENT</text>
+  <rect x="140" y="110" width="180" height="80" rx="4" fill="white" stroke="black"/>
+  <text x="230" y="145" text-anchor="middle" font-family="Arial" font-size="10">Grid power only</text>
+  <text x="230" y="165" text-anchor="middle" font-family="Arial" font-size="9">No generator awareness</text>
+  <text x="60" y="230" font-family="Arial" font-size="9">- Backfeed hazard undetected</text>
+  <text x="60" y="248" font-family="Arial" font-size="9">- No post-storm surge logging</text>
+  <text x="60" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#c53030">Impact: Safety gap in outages</text>
+  <polygon points="450,210 470,200 470,220" fill="#276749"/>
+  <rect x="490" y="50" width="380" height="320" rx="6" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="680" y="78" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#276749">PROPOSED</text>
+  <rect x="540" y="100" width="90" height="50" rx="3" fill="white" stroke="black"/><text x="585" y="130" text-anchor="middle" font-size="8">Generator</text>
+  <rect x="650" y="100" width="90" height="50" rx="3" fill="white" stroke="black"/><text x="695" y="130" text-anchor="middle" font-size="8">Transfer sw.</text>
+  <rect x="760" y="100" width="80" height="50" rx="3" fill="#c53030"/><text x="800" y="125" text-anchor="middle" fill="white" font-size="7">Backfeed</text><text x="800" y="138" text-anchor="middle" fill="white" font-size="7">ALERT</text>
+  <text x="520" y="190" font-family="Arial" font-size="9">+ Powerwall / battery integration</text>
+  <text x="520" y="208" font-family="Arial" font-size="9">+ Post-outage surge event log</text>
+  <text x="520" y="340" font-family="Arial" font-size="10" font-weight="bold" fill="#276749">Impact: Storm-ready safety positioning</text>
+</svg>
