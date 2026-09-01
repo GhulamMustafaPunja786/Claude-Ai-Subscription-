@@ -82,7 +82,7 @@ class PatentDocTemplate(BaseDocTemplate):
         canv.line(MARGIN_L, 1.5 * cm, PAGE_W - MARGIN_R, 1.5 * cm)
         canv.setFillColor(MUTED)
         canv.setFont("Helvetica", 8)
-        canv.drawString(MARGIN_L, 1.0 * cm, "Azfar Mushtaq | Draft v2.1 | Not filed with CIPO")
+        canv.drawString(MARGIN_L, 1.0 * cm, "Azfar Mushtaq | Draft v2.2 | Not filed with CIPO")
         canv.drawRightString(PAGE_W - MARGIN_R, 1.0 * cm, f"Page {canv.getPageNumber()}")
         canv.restoreState()
 
@@ -96,7 +96,16 @@ def svg_to_png(svg_path: Path, scale: float = 3.0) -> Path:
     return png_path
 
 
-def esc(text: str) -> str:
+def plain_text(text: str) -> str:
+    """Strip markdown formatting for table cells and plain strings."""
+    text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
+    text = re.sub(r"`(.+?)`", r"\1", text)
+    text = re.sub(r"\[(.+?)\]\(.+?\)", r"\1", text)
+    return text.strip()
+
+
+def esc_rich(text: str) -> str:
+    """Escape text for Paragraphs, preserving **bold** markdown."""
     text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
     text = re.sub(r"`(.+?)`", r"<font face='Courier' size='9'>\1</font>", text)
     text = re.sub(r"\[(.+?)\]\(.+?\)", r"\1", text)
@@ -109,6 +118,101 @@ def esc(text: str) -> str:
         else:
             out.append(part.replace("<", "&lt;").replace(">", "&gt;"))
     return "".join(out)
+
+
+def esc(text: str) -> str:
+    text = plain_text(text)
+    text = text.replace("&", "&amp;")
+    text = text.replace("<", "&lt;").replace(">", "&gt;")
+    return text
+
+
+def table_cell(text: str, style: ParagraphStyle) -> Paragraph:
+    return Paragraph(esc(text), style)
+
+
+def professional_table(
+    styles,
+    data: list[list[str]],
+    col_widths: list[float],
+    header_color=NAVY,
+    center_cols: set[int] | None = None,
+    mono_cols: set[int] | None = None,
+    highlight_col: int | None = None,
+    has_header: bool = True,
+):
+    """Build a word-wrapping table with Paragraph cells (no raw HTML leakage)."""
+    center_cols = center_cols or set()
+    mono_cols = mono_cols or set()
+
+    cell_left = ParagraphStyle(
+        "TblCellL", parent=styles["Body"], fontSize=8.5, leading=11.5,
+        alignment=TA_LEFT, wordWrap="CJK",
+    )
+    cell_center = ParagraphStyle(
+        "TblCellC", parent=cell_left, alignment=TA_CENTER,
+    )
+    cell_mono = ParagraphStyle(
+        "TblCellM", parent=cell_left, fontName="Courier", fontSize=7.5, leading=10,
+    )
+    cell_header = ParagraphStyle(
+        "TblCellH", parent=cell_left, fontName="Helvetica-Bold",
+        fontSize=8.5, leading=11, textColor=colors.white, alignment=TA_CENTER,
+    )
+    cell_header_left = ParagraphStyle(
+        "TblCellHL", parent=cell_header, alignment=TA_LEFT,
+    )
+
+    rows: list[list[Paragraph]] = []
+    for r_idx, row in enumerate(data):
+        prow: list[Paragraph] = []
+        for c_idx, cell in enumerate(row):
+            if r_idx == 0 and has_header:
+                pstyle = cell_header_left if c_idx == 0 else cell_header
+            elif c_idx in mono_cols:
+                pstyle = cell_mono
+            elif c_idx in center_cols:
+                pstyle = cell_center
+            else:
+                pstyle = cell_left
+            prow.append(table_cell(cell, pstyle))
+        rows.append(prow)
+
+    t = Table(rows, colWidths=col_widths, repeatRows=1 if has_header else 0)
+    style_cmds = [
+        ("ROWBACKGROUNDS", (0, 0 if not has_header else 1), (-1, -1), [colors.white, LIGHT]),
+        ("BOX", (0, 0), (-1, -1), 0.75, BORDER),
+        ("INNERGRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#e2e8f0")),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ("TOPPADDING", (0, 0), (-1, -1), 7),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ]
+    if has_header:
+        style_cmds.insert(0, ("BACKGROUND", (0, 0), (-1, 0), header_color))
+    else:
+        style_cmds.extend([
+            ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+            ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#edf2f7")),
+        ])
+    if highlight_col is not None:
+        style_cmds.append(
+            ("BACKGROUND", (highlight_col, 1), (highlight_col, -1), colors.HexColor("#f0fff4"))
+        )
+        style_cmds.append(
+            ("FONTNAME", (highlight_col, 1), (highlight_col, -1), "Helvetica-Bold")
+        )
+    t.setStyle(TableStyle(style_cmds))
+    return t
+
+
+def styled_table(data, col_widths, header_color=NAVY):
+    """Legacy wrapper - prefer professional_table with styles."""
+    tmp_styles = build_styles()
+    plain = [[plain_text(str(c)) for c in row] for row in data]
+    center = set(range(1, len(plain[0]))) if plain else set()
+    return professional_table(tmp_styles, plain, col_widths, header_color, center_cols=center)
 
 
 def build_styles():
@@ -149,26 +253,6 @@ def build_styles():
     return s
 
 
-def styled_table(data, col_widths, header_color=NAVY):
-    t = Table(data, colWidths=col_widths, repeatRows=1)
-    t.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-        ("FONTNAME", (0, 1), (-1, -1), "Helvetica"),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-        ("BACKGROUND", (0, 0), (-1, 0), header_color),
-        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, LIGHT]),
-        ("BOX", (0, 0), (-1, -1), 0.5, BORDER),
-        ("INNERGRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#e2e8f0")),
-        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 8),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-        ("TOPPADDING", (0, 0), (-1, -1), 6),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-    ]))
-    return t
-
-
 def section_divider(styles, number: str, title: str):
     banner = Table([[f"SECTION {number}", title]], colWidths=[3.5 * cm, 12 * cm])
     banner.setStyle(TableStyle([
@@ -195,7 +279,7 @@ def add_cover(story, styles):
     story.append(Paragraph("Canadian Patent Application Package", styles["CoverSub"]))
     story.append(Spacer(1, 0.4 * cm))
 
-    tag = Table([["CIPO DRAFT - VERSION 2.1"]], colWidths=[8 * cm])
+    tag = Table([["CIPO DRAFT - VERSION 2.2"]], colWidths=[8 * cm])
     tag.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), BLUE),
         ("TEXTCOLOR", (0, 0), (-1, -1), colors.white),
@@ -224,7 +308,7 @@ def add_cover(story, styles):
         ["Technical figures", "11 drawings"],
         ["IPC classification", "H02H 3/00, H02H 1/00, H04Q 9/00"],
     ]
-    story.append(styled_table(meta, [5.5 * cm, 9.5 * cm]))
+    story.append(professional_table(styles, meta, [5.5 * cm, 9.5 * cm], has_header=False))
     story.append(Spacer(1, 0.8 * cm))
 
     highlights = [
@@ -312,6 +396,7 @@ def add_competitive_table(story, styles):
         "in the electrical protection and energy management market.",
         styles["Body"],
     ))
+    story.append(Spacer(1, 0.2 * cm))
     data = [
         ["Feature", "Conventional Breaker", "Smart Meter Only", "ElecSecure (Invention)"],
         ["Arc fault extinguishing chamber", "No", "No", "Yes"],
@@ -324,7 +409,13 @@ def add_competitive_table(story, styles):
         ["Smart-home integration", "No", "Limited", "Yes"],
         ["Bidirectional power connection", "Rare", "N/A", "Yes"],
     ]
-    story.append(styled_table(data, [4.2 * cm, 3.5 * cm, 3.5 * cm, 4.3 * cm], TEAL))
+    story.append(professional_table(
+        styles, data,
+        col_widths=[6.4 * cm, 3.0 * cm, 3.0 * cm, 3.1 * cm],
+        header_color=TEAL,
+        center_cols={1, 2, 3},
+        highlight_col=3,
+    ))
     story.append(PageBreak())
 
 
@@ -377,27 +468,32 @@ def is_table_separator(cells: list[str]) -> bool:
     return all(re.match(r"^:?-+:?$", c.replace(" ", "")) for c in cells)
 
 
-def add_markdown_table(story, rows: list[list[str]]):
+def add_markdown_table(story, styles, rows: list[list[str]]):
     if not rows:
         return
     ncols = max(len(r) for r in rows)
     rows = [r + [""] * (ncols - len(r)) for r in rows]
-    col_w = 15.5 * cm / ncols
-    t = Table(rows, colWidths=[col_w] * ncols)
-    t.setStyle(TableStyle([
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-        ("FONTNAME", (0, 1), (-1, -1), "Helvetica"),
-        ("FONTSIZE", (0, 0), (-1, -1), 9),
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#edf2f7")),
-        ("BOX", (0, 0), (-1, -1), 0.5, BORDER),
-        ("INNERGRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#e2e8f0")),
-        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-        ("TOPPADDING", (0, 0), (-1, -1), 5),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-    ]))
-    story.append(t)
+    plain_rows = [[plain_text(c) for c in row] for row in rows]
+
+    if ncols == 3:
+        widths = [4.8 * cm, 4.6 * cm, 6.1 * cm]
+        mono_cols = {0}
+    elif ncols == 2:
+        widths = [5.5 * cm, 10.0 * cm]
+        mono_cols = set()
+    elif ncols == 4:
+        widths = [3.2 * cm, 3.2 * cm, 3.2 * cm, 5.9 * cm]
+        mono_cols = set()
+    else:
+        widths = [15.5 * cm / ncols] * ncols
+        mono_cols = set()
+
+    story.append(professional_table(
+        styles, plain_rows, widths,
+        header_color=NAVY,
+        center_cols=set(range(1, ncols)),
+        mono_cols=mono_cols,
+    ))
     story.append(Spacer(1, 0.3 * cm))
 
 
@@ -423,24 +519,24 @@ def add_markdown_full(story, styles, title: str, md_path: Path, skip_h1: bool = 
             while i < len(lines) and lines[i].strip().startswith("|"):
                 cells = parse_markdown_table_row(lines[i].strip())
                 if cells and not is_table_separator(cells):
-                    table_rows.append([esc(c) for c in cells])
+                    table_rows.append(cells)
                 i += 1
-            add_markdown_table(story, table_rows)
+            add_markdown_table(story, styles, table_rows)
             continue
 
         if stripped.startswith("## "):
-            story.append(Paragraph(esc(stripped[3:]), styles["SubHead"]))
+            story.append(Paragraph(esc_rich(stripped[3:]), styles["SubHead"]))
         elif stripped.startswith("### "):
-            story.append(Paragraph(esc(stripped[4:]), styles["SubHead"]))
+            story.append(Paragraph(esc_rich(stripped[4:]), styles["SubHead"]))
         elif stripped.startswith("- ") or stripped.startswith("* ") or stripped.startswith("➢ "):
             content = stripped.lstrip("-*➢ ").strip()
-            story.append(Paragraph("• " + esc(content), styles["BodyBullet"]))
+            story.append(Paragraph("• " + esc_rich(content), styles["BodyBullet"]))
         elif re.match(r"^\d+\.", stripped):
-            story.append(Paragraph(esc(stripped), styles["BodyBullet"]))
+            story.append(Paragraph(esc_rich(stripped), styles["BodyBullet"]))
         elif stripped.startswith("#"):
             pass
         else:
-            story.append(Paragraph(esc(stripped), styles["Body"]))
+            story.append(Paragraph(esc_rich(stripped), styles["Body"]))
         i += 1
 
     story.append(PageBreak())
@@ -535,7 +631,7 @@ def add_blueprints_summary(story, styles):
         ["612", "Machine-learning module"],
         ["802–814", "Mobile application UI panels"],
     ]
-    story.append(styled_table(refs, [2.5 * cm, 12.8 * cm]))
+    story.append(professional_table(styles, refs, [2.8 * cm, 12.7 * cm], mono_cols={0}))
     story.append(PageBreak())
 
 
@@ -555,7 +651,7 @@ def add_bom_and_specs(story, styles):
         ["Form factor", "2-module DIN rail (36 mm width)"],
         ["Ingress protection", "IP20 (panel interior)"],
     ]
-    story.append(styled_table(specs, [5.5 * cm, 10 * cm]))
+    story.append(professional_table(styles, specs, [5.5 * cm, 10.0 * cm], center_cols={1}))
     story.append(Spacer(1, 0.5 * cm))
 
     bom = [
@@ -576,7 +672,7 @@ def add_bom_and_specs(story, styles):
         ["M1", "Flash memory (4–16 MB)", "1"],
     ]
     story.append(Paragraph("Key Components (BOM)", styles["SubHead"]))
-    story.append(styled_table(bom, [1.5 * cm, 10.5 * cm, 1.5 * cm], BLUE))
+    story.append(professional_table(styles, bom, [1.6 * cm, 10.4 * cm, 1.5 * cm], header_color=BLUE, center_cols={2}))
     story.append(PageBreak())
 
 
@@ -593,7 +689,7 @@ def add_filing_timeline(story, styles):
         ["Excess claims (&gt;20)", "$117.94 CAD each", "$58.97 CAD each"],
         ["Final fee (on allowance)", "$446.03 CAD", "$181.20 CAD"],
     ]
-    story.append(styled_table(fees, [5.5 * cm, 4.5 * cm, 4.5 * cm], PURPLE))
+    story.append(professional_table(styles, fees, [5.5 * cm, 4.5 * cm, 4.5 * cm], header_color=PURPLE, center_cols={1, 2}))
     story.append(PageBreak())
 
 
@@ -615,7 +711,7 @@ def add_signature_page(story, styles):
         ["Patent Agent (if appointed)", "_________________________________"],
         ["Agent registration #", "_________________________________"],
     ]
-    story.append(styled_table(sig, [5.5 * cm, 9.5 * cm]))
+    story.append(professional_table(styles, sig, [5.5 * cm, 9.5 * cm], has_header=False))
     story.append(Spacer(1, 1 * cm))
     story.append(Paragraph(
         "<b>Filing checklist:</b> □ Prior art search  □ Agent review  □ Petition completed  "
