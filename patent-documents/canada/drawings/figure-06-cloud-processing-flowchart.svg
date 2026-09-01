@@ -1,67 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 700" width="560" height="700">
   <title>Figure 6 - Cloud Processing Flowchart</title>
-  <rect width="500" height="700" fill="white"/>
-  <text x="250" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 6</text>
-  
-  <rect x="150" y="50" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="75" text-anchor="middle" font-family="Arial" font-size="10">Receive encrypted telemetry</text>
-  <text x="400" y="75" font-family="Arial" font-size="12" font-weight="bold">602</text>
-  
-  <rect x="150" y="120" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="145" text-anchor="middle" font-family="Arial" font-size="10">Store in time-series DB</text>
-  <text x="400" y="145" font-family="Arial" font-size="12" font-weight="bold">604</text>
-  
-  <rect x="150" y="190" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="215" text-anchor="middle" font-family="Arial" font-size="10">Real-time rule engine</text>
-  <text x="400" y="215" font-family="Arial" font-size="12" font-weight="bold">606</text>
-  
-  <rect x="150" y="260" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="285" text-anchor="middle" font-family="Arial" font-size="10">Generate alerts</text>
-  <text x="400" y="285" font-family="Arial" font-size="12" font-weight="bold">608</text>
-  
-  <rect x="150" y="330" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="355" text-anchor="middle" font-family="Arial" font-size="10">ML analysis</text>
-  <text x="400" y="355" font-family="Arial" font-size="12" font-weight="bold">610</text>
-  
-  <rect x="320" y="330" width="130" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="385" y="355" text-anchor="middle" font-family="Arial" font-size="10">ML Module</text>
-  <text x="470" y="355" font-family="Arial" font-size="12" font-weight="bold">612</text>
-  
-  <rect x="150" y="400" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="425" text-anchor="middle" font-family="Arial" font-size="10">Send recommendations</text>
-  <text x="400" y="425" font-family="Arial" font-size="12" font-weight="bold">614</text>
-  
-  <rect x="150" y="470" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="495" text-anchor="middle" font-family="Arial" font-size="10">Collect user feedback</text>
-  <text x="400" y="495" font-family="Arial" font-size="12" font-weight="bold">616</text>
-  
-  <rect x="150" y="540" width="200" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="250" y="565" text-anchor="middle" font-family="Arial" font-size="10">Update ML models</text>
-  
+  <rect width="560" height="700" fill="white"/>
+  <text x="280" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 6</text>
+
+  <rect x="170" y="50" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="75" text-anchor="middle" font-family="Arial" font-size="10">Receive encrypted telemetry</text>
+  <text x="410" y="75" font-family="Arial" font-size="11" font-weight="bold">602</text>
+
+  <rect x="170" y="120" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="145" text-anchor="middle" font-family="Arial" font-size="10">Store in time-series DB</text>
+  <text x="410" y="145" font-family="Arial" font-size="11" font-weight="bold">604</text>
+
+  <rect x="170" y="190" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="215" text-anchor="middle" font-family="Arial" font-size="10">Real-time rule engine</text>
+  <text x="410" y="215" font-family="Arial" font-size="11" font-weight="bold">606</text>
+
+  <rect x="170" y="260" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="285" text-anchor="middle" font-family="Arial" font-size="10">Generate alerts</text>
+  <text x="410" y="285" font-family="Arial" font-size="11" font-weight="bold">608</text>
+
+  <rect x="170" y="330" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="355" text-anchor="middle" font-family="Arial" font-size="10">ML analysis</text>
+  <text x="410" y="355" font-family="Arial" font-size="11" font-weight="bold">610</text>
+
+  <rect x="400" y="330" width="130" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="465" y="355" text-anchor="middle" font-family="Arial" font-size="10">ML Module</text>
+  <text x="465" y="385" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">612</text>
+
+  <rect x="170" y="400" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="425" text-anchor="middle" font-family="Arial" font-size="10">Send recommendations</text>
+  <text x="410" y="425" font-family="Arial" font-size="11" font-weight="bold">614</text>
+
+  <rect x="170" y="470" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="495" text-anchor="middle" font-family="Arial" font-size="10">Collect user feedback</text>
+  <text x="410" y="495" font-family="Arial" font-size="11" font-weight="bold">616</text>
+
+  <rect x="170" y="540" width="220" height="40" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="565" text-anchor="middle" font-family="Arial" font-size="10">Update ML models</text>
+
   <!-- Mobile app -->
-  <rect x="50" y="260" width="80" height="50" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <text x="90" y="285" text-anchor="middle" font-family="Arial" font-size="9">Mobile</text>
-  <text x="90" y="300" text-anchor="middle" font-family="Arial" font-size="9">App 108</text>
-  
+  <rect x="30" y="260" width="90" height="50" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="75" y="282" text-anchor="middle" font-family="Arial" font-size="9">Mobile App</text>
+  <text x="75" y="298" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">108</text>
+
   <!-- Arrows -->
-  <line x1="250" y1="90" x2="250" y2="115" stroke="black" stroke-width="1"/>
-  <polygon points="250,115 246,107 254,107" fill="black"/>
-  <line x1="250" y1="160" x2="250" y2="185" stroke="black" stroke-width="1"/>
-  <polygon points="250,185 246,177 254,177" fill="black"/>
-  <line x1="250" y1="230" x2="250" y2="255" stroke="black" stroke-width="1"/>
-  <polygon points="250,255 246,247 254,247" fill="black"/>
-  <line x1="250" y1="300" x2="250" y2="325" stroke="black" stroke-width="1"/>
-  <polygon points="250,325 246,317 254,317" fill="black"/>
-  <line x1="350" y1="350" x2="320" y2="350" stroke="black" stroke-width="1"/>
-  <polygon points="320,350 328,346 328,354" fill="black"/>
-  <line x1="250" y1="370" x2="250" y2="395" stroke="black" stroke-width="1"/>
-  <polygon points="250,395 246,387 254,387" fill="black"/>
-  <line x1="250" y1="440" x2="250" y2="465" stroke="black" stroke-width="1"/>
-  <polygon points="250,465 246,457 254,457" fill="black"/>
-  <line x1="250" y1="510" x2="250" y2="535" stroke="black" stroke-width="1"/>
-  <polygon points="250,535 246,527 254,527" fill="black"/>
-  <line x1="150" y1="285" x2="135" y2="285" stroke="black" stroke-width="1"/>
-  <polygon points="135,285 143,281 143,289" fill="black"/>
-  
-  <text x="250" y="650" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">600</text>
+  <line x1="280" y1="90" x2="280" y2="115" stroke="black" stroke-width="1"/>
+  <polygon points="280,115 276,107 284,107" fill="black"/>
+  <line x1="280" y1="160" x2="280" y2="185" stroke="black" stroke-width="1"/>
+  <polygon points="280,185 276,177 284,177" fill="black"/>
+  <line x1="280" y1="230" x2="280" y2="255" stroke="black" stroke-width="1"/>
+  <polygon points="280,255 276,247 284,247" fill="black"/>
+  <line x1="280" y1="300" x2="280" y2="325" stroke="black" stroke-width="1"/>
+  <polygon points="280,325 276,317 284,317" fill="black"/>
+  <line x1="390" y1="350" x2="398" y2="350" stroke="black" stroke-width="1"/>
+  <polygon points="398,350 390,346 390,354" fill="black"/>
+  <line x1="280" y1="370" x2="280" y2="395" stroke="black" stroke-width="1"/>
+  <polygon points="280,395 276,387 284,387" fill="black"/>
+  <line x1="280" y1="440" x2="280" y2="465" stroke="black" stroke-width="1"/>
+  <polygon points="280,465 276,457 284,457" fill="black"/>
+  <line x1="280" y1="510" x2="280" y2="535" stroke="black" stroke-width="1"/>
+  <polygon points="280,535 276,527 284,527" fill="black"/>
+  <line x1="120" y1="285" x2="165" y2="285" stroke="black" stroke-width="1"/>
+  <polygon points="165,285 157,281 157,289" fill="black"/>
+
+  <text x="280" y="650" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">600</text>
 </svg>

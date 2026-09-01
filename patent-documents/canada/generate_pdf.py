@@ -82,7 +82,7 @@ class PatentDocTemplate(BaseDocTemplate):
         canv.line(MARGIN_L, 1.5 * cm, PAGE_W - MARGIN_R, 1.5 * cm)
         canv.setFillColor(MUTED)
         canv.setFont("Helvetica", 8)
-        canv.drawString(MARGIN_L, 1.0 * cm, "Azfar Mushtaq | Draft v2.0 | Not filed with CIPO")
+        canv.drawString(MARGIN_L, 1.0 * cm, "Azfar Mushtaq | Draft v2.1 | Not filed with CIPO")
         canv.drawRightString(PAGE_W - MARGIN_R, 1.0 * cm, f"Page {canv.getPageNumber()}")
         canv.restoreState()
 
@@ -174,16 +174,15 @@ def section_divider(styles, number: str, title: str):
     banner.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), NAVY),
         ("TEXTCOLOR", (0, 0), (-1, -1), colors.white),
-        ("FONTNAME", (0, 0), (0, 0), "Helvetica-Bold"),
-        ("FONTNAME", (1, 0), (1, 0), "Helvetica-Bold"),
-        ("FONTSIZE", (0, 0), (0, 0), 12),
-        ("FONTSIZE", (1, 0), (1, 0), 16),
+        ("FONTNAME", (0, 0), (-1, -1), "Helvetica-Bold"),
+        ("FONTSIZE", (0, 0), (0, 0), 11),
+        ("FONTSIZE", (1, 0), (1, 0), 14),
         ("ALIGN", (0, 0), (-1, -1), "CENTER"),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("TOPPADDING", (0, 0), (-1, -1), 18),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 18),
+        ("TOPPADDING", (0, 0), (-1, -1), 10),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 10),
     ]))
-    return [Spacer(1, 5 * cm), banner, Spacer(1, 1 * cm), PageBreak()]
+    return [Spacer(1, 0.3 * cm), banner, Spacer(1, 0.4 * cm)]
 
 
 def add_cover(story, styles):
@@ -196,7 +195,7 @@ def add_cover(story, styles):
     story.append(Paragraph("Canadian Patent Application Package", styles["CoverSub"]))
     story.append(Spacer(1, 0.4 * cm))
 
-    tag = Table([["CIPO DRAFT — VERSION 2.0"]], colWidths=[8 * cm])
+    tag = Table([["CIPO DRAFT - VERSION 2.1"]], colWidths=[8 * cm])
     tag.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), BLUE),
         ("TEXTCOLOR", (0, 0), (-1, -1), colors.white),
@@ -367,35 +366,89 @@ def add_toc(story, styles):
     story.append(PageBreak())
 
 
-def add_markdown_full(story, styles, title: str, md_path: Path, skip_h1: bool = True):
-    story.append(Paragraph(title, styles["SectionHead"]))
-    text = md_path.read_text(encoding="utf-8")
-    for line in text.splitlines():
-        line = line.strip()
-        if not line or line.startswith("---"):
+def parse_markdown_table_row(line: str) -> list[str] | None:
+    if not line.startswith("|"):
+        return None
+    cells = [c.strip() for c in line.strip().strip("|").split("|")]
+    return cells if cells else None
+
+
+def is_table_separator(cells: list[str]) -> bool:
+    return all(re.match(r"^:?-+:?$", c.replace(" ", "")) for c in cells)
+
+
+def add_markdown_table(story, rows: list[list[str]]):
+    if not rows:
+        return
+    ncols = max(len(r) for r in rows)
+    rows = [r + [""] * (ncols - len(r)) for r in rows]
+    col_w = 15.5 * cm / ncols
+    t = Table(rows, colWidths=[col_w] * ncols)
+    t.setStyle(TableStyle([
+        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+        ("FONTNAME", (0, 1), (-1, -1), "Helvetica"),
+        ("FONTSIZE", (0, 0), (-1, -1), 9),
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#edf2f7")),
+        ("BOX", (0, 0), (-1, -1), 0.5, BORDER),
+        ("INNERGRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#e2e8f0")),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 6),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+        ("TOPPADDING", (0, 0), (-1, -1), 5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+    ]))
+    story.append(t)
+    story.append(Spacer(1, 0.3 * cm))
+
+
+def add_markdown_full(story, styles, title: str, md_path: Path, skip_h1: bool = True, include_title: bool = True):
+    if include_title:
+        story.append(Paragraph(title, styles["SectionHead"]))
+    lines = md_path.read_text(encoding="utf-8").splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i].rstrip()
+        stripped = line.strip()
+
+        if not stripped or stripped.startswith("---"):
+            i += 1
             continue
-        if skip_h1 and line.startswith("# "):
+
+        if skip_h1 and stripped.startswith("# ") and not stripped.startswith("## "):
+            i += 1
             continue
-        if line.startswith("## "):
-            story.append(Paragraph(esc(line[3:]), styles["SubHead"]))
-        elif line.startswith("### "):
-            story.append(Paragraph(esc(line[4:]), styles["SubHead"]))
-        elif line.startswith("|"):
-            continue  # tables handled separately where needed
-        elif line.startswith("- ") or line.startswith("* ") or line.startswith("➢ "):
-            content = line.lstrip("-*➢ ").strip()
+
+        if stripped.startswith("|"):
+            table_rows: list[list[str]] = []
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                cells = parse_markdown_table_row(lines[i].strip())
+                if cells and not is_table_separator(cells):
+                    table_rows.append([esc(c) for c in cells])
+                i += 1
+            add_markdown_table(story, table_rows)
+            continue
+
+        if stripped.startswith("## "):
+            story.append(Paragraph(esc(stripped[3:]), styles["SubHead"]))
+        elif stripped.startswith("### "):
+            story.append(Paragraph(esc(stripped[4:]), styles["SubHead"]))
+        elif stripped.startswith("- ") or stripped.startswith("* ") or stripped.startswith("➢ "):
+            content = stripped.lstrip("-*➢ ").strip()
             story.append(Paragraph("• " + esc(content), styles["BodyBullet"]))
-        elif re.match(r"^\d+\.", line):
-            story.append(Paragraph(esc(line), styles["BodyBullet"]))
-        elif line.startswith("#"):
-            continue
+        elif re.match(r"^\d+\.", stripped):
+            story.append(Paragraph(esc(stripped), styles["BodyBullet"]))
+        elif stripped.startswith("#"):
+            pass
         else:
-            story.append(Paragraph(esc(line), styles["Body"]))
+            story.append(Paragraph(esc(stripped), styles["Body"]))
+        i += 1
+
     story.append(PageBreak())
 
 
-def add_claims(story, styles):
-    story.append(Paragraph("Claims", styles["SectionHead"]))
+def add_claims(story, styles, include_title: bool = True):
+    if include_title:
+        story.append(Paragraph("Claims", styles["SectionHead"]))
     story.append(Paragraph(
         "What is claimed is:", styles["Body"],
     ))
@@ -592,19 +645,19 @@ def main():
     add_competitive_table(story, styles)
 
     story.extend(section_divider(styles, "I", "FILING GUIDE"))
-    add_markdown_full(story, styles, "Filing Guide &amp; Checklist", BASE / "00_CANADA_FILING_GUIDE.md")
+    add_markdown_full(story, styles, "Filing Guide &amp; Checklist", BASE / "00_CANADA_FILING_GUIDE.md", include_title=False)
 
     story.extend(section_divider(styles, "II", "PETITION"))
-    add_markdown_full(story, styles, "Petition for a Patent", BASE / "01_PETITION.md")
+    add_markdown_full(story, styles, "Petition for a Patent", BASE / "01_PETITION.md", include_title=False)
 
     story.extend(section_divider(styles, "III", "ABSTRACT"))
-    add_markdown_full(story, styles, "Abstract", BASE / "02_ABSTRACT.md")
+    add_markdown_full(story, styles, "Abstract", BASE / "02_ABSTRACT.md", include_title=False)
 
     story.extend(section_divider(styles, "IV", "DESCRIPTION"))
-    add_markdown_full(story, styles, "Description of the Invention", BASE / "03_DESCRIPTION.md")
+    add_markdown_full(story, styles, "Description of the Invention", BASE / "03_DESCRIPTION.md", include_title=False)
 
     story.extend(section_divider(styles, "V", "CLAIMS"))
-    add_claims(story, styles)
+    add_claims(story, styles, include_title=False)
 
     story.extend(section_divider(styles, "VI", "TECHNICAL DRAWINGS"))
     add_blueprints_summary(story, styles)
