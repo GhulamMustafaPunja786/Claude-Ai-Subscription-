@@ -18,7 +18,9 @@ Draft patent application materials for filing with the **Canadian Intellectual P
 | 3 | [03_DESCRIPTION.md](./03_DESCRIPTION.md) | Full specification with 8 figure references |
 | 4 | [04_CLAIMS.md](./04_CLAIMS.md) | 20 claims (device, system, method) |
 | 5 | [05_DRAWINGS_BLUEPRINTS.md](./05_DRAWINGS_BLUEPRINTS.md) | Drawing index, BOM, electrical notes |
-| — | [drawings/](./drawings/) | 8 black-and-white SVG patent figures |
+| — | [ElecSecure_Canada_Patent_Package.pdf](./ElecSecure_Canada_Patent_Package.pdf) | **Visual PDF package (40 pages, v2.0)** |
+| — | [generate_pdf.py](./generate_pdf.py) | PDF generator script |
+| — | [drawings/](./drawings/) | 11 black-and-white SVG patent figures |
 
 ---
 
