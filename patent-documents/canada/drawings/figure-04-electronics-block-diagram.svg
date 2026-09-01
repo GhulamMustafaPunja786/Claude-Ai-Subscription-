@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <title>Figure 4 - Internal Electronics Block Diagram</title>
+  <rect width="700" height="500" fill="white"/>
+  <text x="350" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 4</text>
+  
+  <!-- Microcontroller 402 - center -->
+  <rect x="280" y="180" width="140" height="80" fill="none" stroke="black" stroke-width="2"/>
+  <text x="350" y="215" text-anchor="middle" font-family="Arial" font-size="11">Microcontroller</text>
+  <text x="350" y="245" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">402</text>
+  
+  <!-- Power Supply 412 -->
+  <rect x="50" y="190" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="110" y="215" text-anchor="middle" font-family="Arial" font-size="11">Power Supply</text>
+  <text x="110" y="240" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">412</text>
+  
+  <!-- Sensor Array 408 -->
+  <rect x="280" y="50" width="140" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="350" y="75" text-anchor="middle" font-family="Arial" font-size="11">Sensor Array</text>
+  <text x="350" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">408</text>
+  
+  <!-- Thermal Trip 404 -->
+  <rect x="50" y="320" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="110" y="345" text-anchor="middle" font-family="Arial" font-size="10">Thermal Trip</text>
+  <text x="110" y="370" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">404</text>
+  
+  <!-- Magnetic Trip 406 -->
+  <rect x="200" y="320" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="260" y="345" text-anchor="middle" font-family="Arial" font-size="10">Magnetic Trip</text>
+  <text x="260" y="370" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">406</text>
+  
+  <!-- Connectivity 410 -->
+  <rect x="530" y="190" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="590" y="215" text-anchor="middle" font-family="Arial" font-size="10">Wi-Fi / BLE</text>
+  <text x="590" y="240" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">410</text>
+  
+  <!-- Memory 414 -->
+  <rect x="530" y="320" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="590" y="345" text-anchor="middle" font-family="Arial" font-size="11">Flash Memory</text>
+  <text x="590" y="370" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">414</text>
+  
+  <!-- Arc subsystem 300 -->
+  <rect x="380" y="320" width="120" height="60" fill="none" stroke="black" stroke-width="2"/>
+  <text x="440" y="345" text-anchor="middle" font-family="Arial" font-size="10">Arc Detect/</text>
+  <text x="440" y="360" text-anchor="middle" font-family="Arial" font-size="10">Extinguish</text>
+  <text x="440" y="378" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">300</text>
+  
+  <!-- LEDs 208 -->
+  <rect x="280" y="420" width="140" height="40" fill="none" stroke="black" stroke-width="2"/>
+  <text x="350" y="445" text-anchor="middle" font-family="Arial" font-size="11">LED Indicators</text>
+  <text x="430" y="445" font-family="Arial" font-size="12" font-weight="bold">208</text>
+  
+  <!-- Connection lines -->
+  <line x1="170" y1="220" x2="275" y2="220" stroke="black" stroke-width="1.5"/>
+  <polygon points="275,220 267,216 267,224" fill="black"/>
+  <line x1="350" y1="110" x2="350" y2="175" stroke="black" stroke-width="1.5"/>
+  <polygon points="350,175 346,167 354,167" fill="black"/>
+  <line x1="110" y1="250" x2="110" y2="315" stroke="black" stroke-width="1.5"/>
+  <polygon points="110,315 106,307 114,307" fill="black"/>
+  <line x1="260" y1="260" x2="260" y2="315" stroke="black" stroke-width="1.5"/>
+  <polygon points="260,315 256,307 264,307" fill="black"/>
+  <line x1="420" y1="220" x2="525" y2="220" stroke="black" stroke-width="1.5"/>
+  <polygon points="525,220 517,216 517,224" fill="black"/>
+  <line x1="350" y1="260" x2="350" y2="415" stroke="black" stroke-width="1.5"/>
+  <polygon points="350,415 346,407 354,407" fill="black"/>
+  <line x1="420" y1="260" x2="440" y2="315" stroke="black" stroke-width="1.5"/>
+  <polygon points="440,315 436,307 444,307" fill="black"/>
+  <line x1="420" y1="240" x2="525" y2="350" stroke="black" stroke-width="1.5"/>
+  <polygon points="525,350 519,343 527,345" fill="black"/>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 400" width="650" height="400">
+  <title>Figure 7 - Dual Tripping Mechanism Schematic</title>
+  <rect width="650" height="400" fill="white"/>
+  <text x="325" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 7</text>
+  
+  <!-- Overload path (left) -->
+  <text x="160" y="60" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Overload Path</text>
+  <text x="300" y="60" font-family="Arial" font-size="12" font-weight="bold">702</text>
+  
+  <rect x="50" y="80" width="220" height="120" fill="none" stroke="black" stroke-width="1.5"/>
+  
+  <!-- Current line -->
+  <line x1="70" y1="120" x2="250" y2="120" stroke="black" stroke-width="2"/>
+  <text x="160" y="110" text-anchor="middle" font-family="Arial" font-size="10">Current</text>
+  <text x="270" y="125" font-family="Arial" font-size="12" font-weight="bold">704</text>
+  
+  <!-- Rated current threshold -->
+  <line x1="70" y1="150" x2="200" y2="150" stroke="black" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="160" y="165" text-anchor="middle" font-family="Arial" font-size="9">Rated In</text>
+  <text x="220" y="155" font-family="Arial" font-size="12" font-weight="bold">706</text>
+  
+  <!-- Bimetallic element -->
+  <path d="M 100 180 Q 130 200 160 180" fill="none" stroke="black" stroke-width="2"/>
+  <text x="130" y="195" text-anchor="middle" font-family="Arial" font-size="9">Bimetallic</text>
+  <text x="200" y="190" font-family="Arial" font-size="12" font-weight="bold">710</text>
+  
+  <!-- Latch and contacts -->
+  <rect x="180" y="100" width="30" height="15" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="180" y="125" width="30" height="15" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="230" y="120" font-family="Arial" font-size="10">Contacts</text>
+  <text x="230" y="135" font-family="Arial" font-size="12" font-weight="bold">716</text>
+  <text x="230" y="175" font-family="Arial" font-size="12" font-weight="bold">714</text>
+  <text x="230" y="188" font-family="Arial" font-size="9">Latch</text>
+  
+  <!-- Short circuit path (right) -->
+  <text x="490" y="60" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Short-Circuit Path</text>
+  <text x="580" y="60" font-family="Arial" font-size="12" font-weight="bold">720</text>
+  
+  <rect x="370" y="80" width="220" height="120" fill="none" stroke="black" stroke-width="1.5"/>
+  
+  <!-- Rapid current rise -->
+  <path d="M 390 170 L 420 170 L 430 100 L 560 100" fill="none" stroke="black" stroke-width="2"/>
+  <text x="480" y="90" text-anchor="middle" font-family="Arial" font-size="10">Fault current</text>
+  <text x="570" y="105" font-family="Arial" font-size="12" font-weight="bold">722</text>
+  
+  <!-- Solenoid -->
+  <rect x="450" y="130" width="60" height="40" fill="none" stroke="black" stroke-width="2"/>
+  <text x="480" y="155" text-anchor="middle" font-family="Arial" font-size="9">Solenoid</text>
+  <text x="530" y="155" font-family="Arial" font-size="12" font-weight="bold">726</text>
+  
+  <!-- Magnetic threshold -->
+  <line x1="390" y1="200" x2="520" y2="200" stroke="black" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="455" y="215" text-anchor="middle" font-family="Arial" font-size="9">Magnetic trip threshold</text>
+  <text x="540" y="205" font-family="Arial" font-size="12" font-weight="bold">724</text>
+  
+  <!-- Instant trip arrow -->
+  <line x1="480" y1="170" x2="480" y2="130" stroke="black" stroke-width="1.5"/>
+  <polygon points="480,130 476,138 484,138" fill="black"/>
+  <text x="510" y="145" font-family="Arial" font-size="12" font-weight="bold">728</text>
+  
+  <!-- Duration arrow for overload -->
+  <line x1="70" y1="230" x2="250" y2="230" stroke="black" stroke-width="1"/>
+  <text x="160" y="250" text-anchor="middle" font-family="Arial" font-size="9">Time duration</text>
+  <text x="270" y="235" font-family="Arial" font-size="12" font-weight="bold">708</text>
+  
+  <!-- Displacement -->
+  <line x1="130" y1="200" x2="150" y2="220" stroke="black" stroke-width="1"/>
+  <text x="175" y="225" font-family="Arial" font-size="12" font-weight="bold">712</text>
+  
+  <!-- Legend -->
+  <text x="325" y="320" text-anchor="middle" font-family="Arial" font-size="11">Thermal = inverse-time response | Magnetic = instantaneous response</text>
+  <text x="325" y="350" text-anchor="middle" font-family="Arial" font-size="11">Mechanisms 404 (thermal) and 406 (magnetic) operate independently</text>
+</svg>

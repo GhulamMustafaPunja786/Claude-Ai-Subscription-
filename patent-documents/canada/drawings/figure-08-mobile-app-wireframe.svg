@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 650" width="400" height="650">
+  <title>Figure 8 - Mobile Application Wireframe</title>
+  <rect width="400" height="650" fill="white"/>
+  <text x="200" y="30" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">FIG. 8</text>
+  
+  <!-- Phone frame -->
+  <rect x="80" y="50" width="240" height="520" rx="20" fill="none" stroke="black" stroke-width="2"/>
+  <rect x="160" y="60" width="80" height="15" rx="5" fill="none" stroke="black" stroke-width="1"/>
+  
+  <!-- Dashboard 802 -->
+  <rect x="95" y="85" width="210" height="70" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="110" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">Dashboard</text>
+  <text x="200" y="130" text-anchor="middle" font-family="Arial" font-size="9">V: 240V | I: 12A | P: 2.8kW</text>
+  <text x="310" y="105" font-family="Arial" font-size="11" font-weight="bold">802</text>
+  
+  <!-- Circuit panel 804 -->
+  <rect x="95" y="165" width="100" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="145" y="190" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Circuits</text>
+  <circle cx="115" cy="210" r="5" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="145" cy="210" r="5" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="175" cy="210" r="5" fill="none" stroke="black" stroke-width="1"/>
+  <text x="210" y="190" font-family="Arial" font-size="11" font-weight="bold">804</text>
+  
+  <!-- Alert center 806 -->
+  <rect x="205" y="165" width="100" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="255" y="190" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Alerts</text>
+  <text x="255" y="210" text-anchor="middle" font-family="Arial" font-size="8">! Arc fault C7</text>
+  <text x="255" y="225" text-anchor="middle" font-family="Arial" font-size="8">! Overload C3</text>
+  <text x="320" y="190" font-family="Arial" font-size="11" font-weight="bold">806</text>
+  
+  <!-- Remote control 808 -->
+  <rect x="95" y="255" width="210" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="280" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Remote Control</text>
+  <rect x="120" y="290" width="50" height="20" rx="3" fill="none" stroke="black" stroke-width="1"/>
+  <text x="145" y="304" text-anchor="middle" font-family="Arial" font-size="8">TRIP</text>
+  <rect x="230" y="290" width="50" height="20" rx="3" fill="none" stroke="black" stroke-width="1"/>
+  <text x="255" y="304" text-anchor="middle" font-family="Arial" font-size="8">RESET</text>
+  <text x="320" y="280" font-family="Arial" font-size="11" font-weight="bold">808</text>
+  
+  <!-- Analytics 810 -->
+  <rect x="95" y="325" width="100" height="70" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="145" y="350" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Analytics</text>
+  <polyline points="110,380 130,370 150,375 170,360 180,365" fill="none" stroke="black" stroke-width="1"/>
+  <text x="210" y="350" font-family="Arial" font-size="11" font-weight="bold">810</text>
+  
+  <!-- Recommendations 812 -->
+  <rect x="205" y="325" width="100" height="70" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="255" y="350" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Tips</text>
+  <text x="255" y="370" text-anchor="middle" font-family="Arial" font-size="7">Shift HVAC to</text>
+  <text x="255" y="382" text-anchor="middle" font-family="Arial" font-size="7">off-peak hours</text>
+  <text x="320" y="350" font-family="Arial" font-size="11" font-weight="bold">812</text>
+  
+  <!-- Smart home 814 -->
+  <rect x="95" y="405" width="210" height="50" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="430" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Smart Home Integration</text>
+  <text x="320" y="430" font-family="Arial" font-size="11" font-weight="bold">814</text>
+  
+  <!-- Nav bar -->
+  <rect x="95" y="470" width="210" height="35" fill="none" stroke="black" stroke-width="1"/>
+  <text x="130" y="492" text-anchor="middle" font-family="Arial" font-size="8">Home</text>
+  <text x="200" y="492" text-anchor="middle" font-family="Arial" font-size="8">Monitor</text>
+  <text x="270" y="492" text-anchor="middle" font-family="Arial" font-size="8">Settings</text>
+  
+  <text x="200" y="600" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">108</text>
+</svg>
