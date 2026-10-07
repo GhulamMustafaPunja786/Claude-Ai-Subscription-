@@ -51,15 +51,6 @@
     Home
   </a>
   <a
-    href="{{ routes.collections_url }}"
-    class="dr-ice-header__link{% if shop_active %} dr-ice-header__link--active{% endif %}"
-    {% if shop_active %}
-      aria-current="page"
-    {% endif %}
-  >
-    Shop
-  </a>
-  <a
     href="{{ pages.about.url | default: '/pages/about' }}"
     class="dr-ice-header__link{% if about_active %} dr-ice-header__link--active{% endif %}"
     {% if about_active %}
