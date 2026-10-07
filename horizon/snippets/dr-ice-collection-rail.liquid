@@ -1,0 +1,59 @@
+{%- liquid
+  assign rail_collection = collections[collection_handle]
+  assign rail_url = collection_url | default: rail_collection.url
+-%}
+
+<div class="dr-ice-rail__scroller" data-product-scroller>
+  {%- if rail_collection != blank and rail_collection.products_count > 0 -%}
+    {%- for product in rail_collection.products limit: 8 -%}
+      <article class="dr-ice-pcard">
+        <a href="{{ product.url }}">
+          {%- if product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 600 }}"
+              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+              width="600"
+              height="600"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <span class="dr-ice-pcard__meta">
+            <strong>{{ product.title }}</strong>
+            <span>{{ product.price | money }}</span>
+          </span>
+        </a>
+        <a class="dr-ice-pcard__go" href="{{ product.url }}" aria-label="View {{ product.title | escape }}">›</a>
+      </article>
+    {%- endfor -%}
+  {%- else -%}
+    {%- assign fallback_images = image_1 | append: '|' | append: image_2 | append: '|' | append: image_3 | split: '|' -%}
+    {%- assign fallback_alts = alt_1 | append: '|' | append: alt_2 | append: '|' | append: alt_3 | split: '|' -%}
+    {%- for image_name in fallback_images -%}
+      <article class="dr-ice-pcard">
+        <a href="{{ rail_url }}">
+          <img
+            src="{{ image_name | asset_url }}"
+            alt="{{ fallback_alts[forloop.index0] | escape }}"
+            width="380"
+            height="240"
+            loading="lazy"
+          >
+          <span class="dr-ice-pcard__meta">
+            <strong>{{ fallback_label }}</strong>
+            <span>{{ fallback_price }}</span>
+          </span>
+        </a>
+        <a class="dr-ice-pcard__go" href="{{ rail_url }}" aria-label="View {{ fallback_label | escape }}">›</a>
+      </article>
+    {%- endfor -%}
+  {%- endif -%}
+</div>
+<img
+  class="dr-ice-rail__ice"
+  src="{{ 'dr-ice-ice.png' | asset_url }}"
+  alt=""
+  width="878"
+  height="79"
+  loading="lazy"
+>
+<button class="dr-ice-rail__next" type="button" data-product-next aria-label="Next pieces">›</button>

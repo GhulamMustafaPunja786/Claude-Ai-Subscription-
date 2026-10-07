@@ -1,0 +1,324 @@
+{{ 'dr-ice-header.css' | asset_url | stylesheet_tag }}
+
+<script
+  type="module"
+  src="{{ 'cart-icon.js' | asset_url }}"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  assign current_path = request.path | downcase
+  assign home_active = false
+  assign shop_active = false
+  assign about_active = false
+  assign pendant_active = false
+  assign chain_active = false
+  assign ring_active = false
+  assign faq_active = false
+
+  if template.name == 'index'
+    assign home_active = true
+  endif
+
+  if template.name == 'collection' or template.name == 'list-collections' or current_path contains '/collections'
+    assign shop_active = true
+  endif
+
+  if template.name == 'page'
+    case page.handle
+      when 'about'
+        assign about_active = true
+      when 'instant-pendant-quote'
+        assign pendant_active = true
+      when 'instant-chain-quote'
+        assign chain_active = true
+      when 'instant-ring-quote'
+        assign ring_active = true
+      when 'faq'
+        assign faq_active = true
+    endcase
+  endif
+%}
+
+{% capture dr_ice_nav_links %}
+  <a
+    href="{{ routes.root_url }}"
+    class="dr-ice-header__link{% if home_active %} dr-ice-header__link--active{% endif %}"
+    {% if home_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    Home
+  </a>
+  <a
+    href="{{ pages.about.url | default: '/pages/about' }}"
+    class="dr-ice-header__link{% if about_active %} dr-ice-header__link--active{% endif %}"
+    {% if about_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    About Us
+  </a>
+  <a
+    href="{{ pages['instant-pendant-quote'].url | default: '/pages/instant-pendant-quote' }}"
+    class="dr-ice-header__link{% if pendant_active %} dr-ice-header__link--active{% endif %}"
+    {% if pendant_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    Instant Pendant Quote
+  </a>
+  <a
+    href="{{ pages['instant-chain-quote'].url | default: '/pages/instant-chain-quote' }}"
+    class="dr-ice-header__link{% if chain_active %} dr-ice-header__link--active{% endif %}"
+    {% if chain_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    Instant Chain Quote
+  </a>
+  <a
+    href="{{ pages['instant-ring-quote'].url | default: '/pages/instant-ring-quote' }}"
+    class="dr-ice-header__link{% if ring_active %} dr-ice-header__link--active{% endif %}"
+    {% if ring_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    Instant Ring Quote
+  </a>
+  <a
+    href="{{ pages.faq.url | default: '/pages/faq' }}"
+    class="dr-ice-header__link{% if faq_active %} dr-ice-header__link--active{% endif %}"
+    {% if faq_active %}
+      aria-current="page"
+    {% endif %}
+  >
+    Faqs
+  </a>
+{% endcapture %}
+
+{% capture dr_ice_cart_control %}
+  {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
+    <button
+      type="button"
+      class="dr-ice-header__cart"
+      on:click="#cart-drawer/toggle"
+      aria-haspopup="dialog"
+      aria-controls="cart-drawer"
+      aria-label="{{ 'accessibility.cart' | t }}"
+      aria-describedby="cart-bubble-text"
+      data-testid="cart-drawer-trigger"
+    >
+      <cart-icon class="dr-ice-header__cart-icon{% unless cart == empty %} header-actions__cart-icon--has-cart{% endunless %}">
+        <span class="svg-wrapper" aria-hidden="true">
+          {{ 'icon-cart.svg' | inline_asset_content }}
+        </span>
+        {% render 'cart-bubble', limit: 100 %}
+      </cart-icon>
+    </button>
+  {% else %}
+    <a
+      href="{{ routes.cart_url }}"
+      class="dr-ice-header__cart"
+      aria-label="{{ 'accessibility.cart' | t }}"
+      aria-describedby="cart-bubble-text"
+    >
+      <cart-icon class="dr-ice-header__cart-icon{% unless cart == empty %} header-actions__cart-icon--has-cart{% endunless %}">
+        <span class="svg-wrapper" aria-hidden="true">
+          {{ 'icon-cart.svg' | inline_asset_content }}
+        </span>
+        {% render 'cart-bubble', limit: 100 %}
+      </cart-icon>
+    </a>
+  {% endif %}
+{% endcapture %}
+
+<header
+  id="header-component"
+  class="dr-ice-header"
+  data-theme-color="#0a0a0a"
+>
+  <div class="dr-ice-header__bar">
+    <a
+      href="{{ routes.root_url }}"
+      class="dr-ice-header__logo"
+      aria-label="Dr. Ice"
+    >
+      <svg
+        class="dr-ice-header__diamond"
+        viewBox="0 0 14 14"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          d="M7 1.25 12.75 7 7 12.75 1.25 7 7 1.25Z"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="1.25"
+          stroke-linejoin="miter"
+        />
+      </svg>
+      <span class="dr-ice-header__logo-text" aria-hidden="true">DR. ICE</span>
+    </a>
+
+    <nav
+      class="dr-ice-header__nav"
+      aria-label="Primary"
+    >
+      {{ dr_ice_nav_links }}
+    </nav>
+
+    <div class="dr-ice-header__right">
+      <a
+        href="{{ pages['book-appointment'].url | default: '/pages/book-appointment' }}"
+        class="dr-ice-header__cta dr-ice-header__cta--desktop"
+      >
+        Book Appointment
+      </a>
+
+      <button
+        type="button"
+        class="dr-ice-header__menu-toggle"
+        id="DrIceHeaderMenuOpen"
+        aria-controls="DrIceHeaderDrawer"
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <span
+          class="dr-ice-header__menu-toggle-bars"
+          aria-hidden="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      {{ dr_ice_cart_control }}
+    </div>
+  </div>
+
+  <div
+    class="dr-ice-header__drawer"
+    id="DrIceHeaderDrawer"
+    hidden
+  >
+    <button
+      type="button"
+      class="dr-ice-header__drawer-backdrop"
+      id="DrIceHeaderDrawerBackdrop"
+      aria-label="Close menu"
+      tabindex="-1"
+    ></button>
+
+    <div
+      class="dr-ice-header__drawer-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="DrIceHeaderDrawerTitle"
+    >
+      <div class="dr-ice-header__drawer-header">
+        <p
+          class="dr-ice-header__drawer-title"
+          id="DrIceHeaderDrawerTitle"
+        >
+          Menu
+        </p>
+        <button
+          type="button"
+          class="dr-ice-header__drawer-close"
+          id="DrIceHeaderMenuClose"
+          aria-label="Close menu"
+        >
+          <svg
+            viewBox="0 0 18 18"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M4 4 14 14M14 4 4 14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <nav
+        class="dr-ice-header__drawer-nav"
+        aria-label="Mobile"
+      >
+        {{ dr_ice_nav_links }}
+      </nav>
+
+      <a
+        href="{{ pages['book-appointment'].url | default: '/pages/book-appointment' }}"
+        class="dr-ice-header__cta dr-ice-header__drawer-cta"
+      >
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var drawer = document.getElementById('DrIceHeaderDrawer');
+    var openBtn = document.getElementById('DrIceHeaderMenuOpen');
+    var closeBtn = document.getElementById('DrIceHeaderMenuClose');
+    var backdrop = document.getElementById('DrIceHeaderDrawerBackdrop');
+    if (!drawer || !openBtn || !closeBtn || !backdrop) return;
+
+    var lastFocus = null;
+
+    function openDrawer() {
+      lastFocus = document.activeElement;
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('dr-ice-header-drawer-open');
+      closeBtn.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('dr-ice-header-drawer-open');
+      window.setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) {
+          drawer.hidden = true;
+        }
+      }, 250);
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        lastFocus.focus();
+      } else {
+        openBtn.focus();
+      }
+    }
+
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:names.header",
+  "tag": "div",
+  "class": "header-section dr-ice-header-section",
+  "settings": []
+}
+{% endschema %}

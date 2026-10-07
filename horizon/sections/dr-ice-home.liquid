@@ -1,0 +1,416 @@
+{{ 'dr-ice-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'dr-ice-home.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign quote_url = pages['instant-pendant-quote'].url | default: '/pages/instant-pendant-quote'
+  assign chain_quote_url = pages['instant-chain-quote'].url | default: '/pages/instant-chain-quote'
+  assign ring_quote_url = pages['instant-ring-quote'].url | default: '/pages/instant-ring-quote'
+  assign book_url = pages['book-appointment'].url | default: '/pages/book-appointment'
+  assign rings_url = collections['wedding-rings'].url | default: '/collections/wedding-rings'
+  assign pendants_url = collections['pendants'].url | default: '/collections/pendants'
+  assign chains_url = collections['cuban-chains'].url | default: '/collections/cuban-chains'
+  assign grillz_url = collections['grillz'].url | default: '/collections/grillz'
+-%}
+
+<div class="dr-ice-home" data-dr-ice-home>
+  <section
+    class="dr-ice-hero"
+    style="background-image: url('{{ 'dr-ice-hero.jpg' | asset_url }}');"
+    aria-label="Introduction"
+  >
+    <div class="dr-ice-hero__inner">
+      <div class="dr-ice-hero__copy">
+        <p class="dr-ice-hero__eyebrow">Premium Custom Jewellery</p>
+        <h1>Cut To Your<br><span>Idea.</span></h1>
+        <p class="dr-ice-hero__text">
+          Send a reference or just describe what you want. You get a price back the same day and a CAD render to approve — before you pay for anything.
+        </p>
+        <div class="dr-ice-hero__actions">
+          <a class="dr-ice-btn" href="{{ quote_url }}">Get An Instant Quote</a>
+          <a class="dr-ice-btn dr-ice-btn--ghost" href="{{ book_url }}">Start Your Design <span aria-hidden="true">›</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dr-ice-story" aria-labelledby="dr-ice-story-title">
+    <div class="dr-ice-story__media">
+      <img
+        class="dr-ice-story__hand"
+        src="{{ 'dr-ice-story-hand.jpg' | asset_url }}"
+        alt="A hand wearing a diamond engagement ring and wedding band on dark fabric"
+        width="666"
+        height="827"
+        loading="lazy"
+      >
+      <img
+        class="dr-ice-story__rings"
+        src="{{ 'dr-ice-story-rings.png' | asset_url }}"
+        alt="Pavé diamond bridal set overlapping a black field"
+        width="580"
+        height="330"
+        loading="lazy"
+      >
+    </div>
+    <div class="dr-ice-story__copy">
+      <svg class="dr-ice-diamond" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 2.2 21.2 12 12 21.8 2.8 12 12 2.2Z" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      </svg>
+      <h2 id="dr-ice-story-title">No Two Pieces Leave Here The Same</h2>
+      <p class="dr-ice-story__text">
+        Every piece starts as a conversation, not a catalogue. You describe it, approve the render, and it gets built for you alone — sized, set and finished to your hand.
+      </p>
+      <a class="dr-ice-btn" href="{{ book_url }}">Start Your Design <span aria-hidden="true">›</span></a>
+      <p class="dr-ice-story__trust">
+        IGI &amp; GIA certified stones · <strong>8 years at the bench</strong> · <strong>Lifetime warranty &amp; free resizing</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="dr-ice-worn" aria-label="Pieces worn by">
+    <h2>Pieces Worn By</h2>
+    <ul>
+      <li>NDO Champ</li>
+      <li>AR Paisley</li>
+      <li>Kyle Landi</li>
+      <li>Singhinks</li>
+    </ul>
+  </section>
+
+  <section class="dr-ice-builds" aria-labelledby="dr-ice-builds-title">
+    <div class="dr-ice-builds__head">
+      <h2 id="dr-ice-builds-title">Four Things We Build More Than Anything Else.</h2>
+      <div class="dr-ice-builds__aside">
+        <p>Everything is made to order. Nothing on this page is a stock piece — these are starting points for yours.</p>
+        <a class="dr-ice-btn" href="{{ quote_url }}">Get An Instant Quote</a>
+      </div>
+    </div>
+    <ul class="dr-ice-cats">
+      <li>
+        <a href="{{ pendants_url }}">
+          <img src="{{ 'dr-ice-cat-pendants.jpg' | asset_url }}" alt="Custom diamond initial pendant on a Cuban chain" width="425" height="444" loading="lazy">
+          <span>Pendants</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ rings_url }}">
+          <img src="{{ 'dr-ice-cat-rings.jpg' | asset_url }}" alt="Radiant-cut diamond engagement ring with a diamond band" width="425" height="444" loading="lazy">
+          <span>Wedding rings</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ chains_url }}">
+          <img src="{{ 'dr-ice-cat-chains.jpg' | asset_url }}" alt="Iced Cuban link chain" width="425" height="444" loading="lazy">
+          <span>Cuban chains</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ grillz_url }}">
+          <img src="{{ 'dr-ice-cat-grillz.jpg' | asset_url }}" alt="Gold diamond grillz" width="425" height="444" loading="lazy">
+          <span>Grillz</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section
+    class="dr-ice-banner"
+    style="background-image: url('{{ 'dr-ice-custom-banner.jpg' | asset_url }}');"
+    aria-labelledby="dr-ice-banner-title"
+  >
+    <div class="dr-ice-banner__inner">
+      <svg class="dr-ice-diamond" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 2.2 21.2 12 12 21.8 2.8 12 12 2.2Z" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+      </svg>
+      <h2 id="dr-ice-banner-title">Design Your Own Jewelry</h2>
+      <p>A fully custom made Jewelry made specifically for you in 4 - 6 weeks.</p>
+      <a class="dr-ice-btn" href="{{ book_url }}">Start Your Design <span aria-hidden="true">›</span></a>
+      <p class="dr-ice-banner__note">Design and revisions cost nothing.</p>
+    </div>
+  </section>
+
+  <section class="dr-ice-bespoke" aria-labelledby="dr-ice-bespoke-title">
+    <div class="dr-ice-bespoke__band">
+      <div class="dr-ice-bespoke__photo">
+        <img
+          src="{{ 'dr-ice-bespoke.jpg' | asset_url }}"
+          alt="Custom diamond pendants, including a Jesus piece, initials, and a Khanda"
+          width="383"
+          height="512"
+          loading="lazy"
+        >
+      </div>
+      <div>
+        <h2 id="dr-ice-bespoke-title">Bespoke Brilliance</h2>
+        <p>
+          Experience the pinnacle of custom artistry with our masterfully crafted pendants. Each unique piece, including the iconic Jesus piece and personal initials, is meticulously set with the finest diamonds to reflect your distinctive style. Our dedicated artisans bring your vision to life, creating one-of-a-kind treasures designed to make a statement of exceptional luxury.
+        </p>
+        <div class="dr-ice-bespoke__actions">
+          <a class="dr-ice-btn dr-ice-btn--light" href="{{ pendants_url }}">Explore Pendants</a>
+          <a class="dr-ice-btn dr-ice-btn--line" href="{{ quote_url }}">Create Your Own</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dr-ice-rings" aria-labelledby="dr-ice-rings-title">
+    <p class="dr-ice-rings__watermark" aria-hidden="true">RINGS</p>
+    <h2 id="dr-ice-rings-title">Explore Our Custom Engagement Rings</h2>
+    <p class="dr-ice-rings__text">
+      Discover handcrafted engagement ring designs featuring brilliant diamonds, fine metal bands, and delicate accents tailored to celebrate your story. Browse our full collection to find the perfect setting, diamond shape, and metal tone for your special moment.
+    </p>
+    <div class="dr-ice-rings__actions">
+      <a class="dr-ice-btn" href="{{ rings_url }}">Explore Rings</a>
+      <a class="dr-ice-btn dr-ice-btn--ghost" href="{{ ring_quote_url }}">Create Your Own</a>
+    </div>
+    <img
+      class="dr-ice-rings__photo"
+      src="{{ 'dr-ice-rings.jpg' | asset_url }}"
+      alt="Side view of a halo diamond engagement ring with a pavé band"
+      width="759"
+      height="449"
+      loading="lazy"
+    >
+  </section>
+
+  <section class="dr-ice-elegance" aria-labelledby="dr-ice-elegance-title">
+    <div class="dr-ice-elegance__stage">
+      <div class="dr-ice-elegance__back" aria-hidden="true"></div>
+      <div class="dr-ice-elegance__card">
+        <img
+          class="dr-ice-elegance__chain"
+          src="{{ 'dr-ice-cuban-chain.png' | asset_url }}"
+          alt="Cuban link chain and bracelet displayed on a brushed metal pedestal"
+          width="650"
+          height="412"
+          loading="lazy"
+        >
+        <h2 id="dr-ice-elegance-title">Elegance Unbound</h2>
+        <p>
+          Crafted with surgical precision, this Cuban link set merges timeless sophistication with modern durability. The metallic luster of the polished links sits atop a minimalist brushed pedestal, offering a striking display of refined craftsmanship designed to complement any style.
+        </p>
+        <div class="dr-ice-elegance__actions">
+          <a class="dr-ice-btn dr-ice-btn--light" href="{{ chains_url }}">Explore Cuban Chain</a>
+          <a class="dr-ice-btn dr-ice-btn--line" href="{{ chain_quote_url }}">Create Your Own</a>
+        </div>
+      </div>
+      <img
+        class="dr-ice-elegance__wear"
+        src="{{ 'dr-ice-cuban-wear.jpg' | asset_url }}"
+        alt="Man wearing a diamond Cuban chain and matching bracelet"
+        width="550"
+        height="660"
+        loading="lazy"
+      >
+    </div>
+  </section>
+
+  <section class="dr-ice-collection" aria-labelledby="dr-ice-collection-title">
+    <div class="dr-ice-collection__layout">
+      <img
+        class="dr-ice-collection__feature"
+        src="{{ 'dr-ice-feature-ring.jpg' | asset_url }}"
+        alt="Yellow gold cluster diamond ring"
+        width="399"
+        height="710"
+        loading="lazy"
+      >
+      <div class="dr-ice-collection__main">
+        <h2 id="dr-ice-collection-title">The Coldest Collection</h2>
+        <div class="dr-ice-tabs" role="tablist" aria-label="Collections">
+          <button type="button" role="tab" class="is-active" data-tab="wedding-rings" aria-selected="true">Wedding rings</button>
+          <button type="button" role="tab" data-tab="pendants" aria-selected="false">Pendants</button>
+          <button type="button" role="tab" data-tab="cuban-chains" aria-selected="false">Cuban chains</button>
+          <button type="button" role="tab" data-tab="grillz" aria-selected="false">Grillz</button>
+        </div>
+
+      <div class="dr-ice-rail" data-panel="wedding-rings">
+        {% render 'dr-ice-collection-rail',
+          collection_handle: 'wedding-rings',
+          fallback_label: 'Rings',
+          fallback_price: 'FROM $900',
+          image_1: 'dr-ice-card-ring-1.jpg',
+          image_2: 'dr-ice-card-ring-2.jpg',
+          image_3: 'dr-ice-card-ring-3.jpg',
+          alt_1: 'Radiant diamond engagement ring, made to order from $900',
+          alt_2: 'Pavé bridal set, made to order from $900',
+          alt_3: 'Three-stone diamond ring, made to order from $900',
+          collection_url: rings_url
+        %}
+      </div>
+
+      <div class="dr-ice-rail" data-panel="pendants" hidden>
+        {% render 'dr-ice-collection-rail',
+          collection_handle: 'pendants',
+          fallback_label: 'Pendants',
+          fallback_price: 'FROM $900',
+          image_1: 'dr-ice-prod-pendant-a.jpg',
+          image_2: 'dr-ice-bespoke.jpg',
+          image_3: 'dr-ice-prod-pendant-b.jpg',
+          alt_1: 'Diamond letter pendant, made to order from $900',
+          alt_2: 'Custom initial and Jesus pendants, made to order from $900',
+          alt_3: 'Iced portrait pendant, made to order from $900',
+          collection_url: pendants_url
+        %}
+      </div>
+
+      <div class="dr-ice-rail" data-panel="cuban-chains" hidden>
+        {% render 'dr-ice-collection-rail',
+          collection_handle: 'cuban-chains',
+          fallback_label: 'Chains',
+          fallback_price: 'FROM $900',
+          image_1: 'dr-ice-cat-chains.jpg',
+          image_2: 'dr-ice-prod-chain-a.jpg',
+          image_3: 'dr-ice-prod-chain-b.jpg',
+          alt_1: 'Diamond Cuban chain, made to order from $900',
+          alt_2: 'Polished Cuban link chain, made to order from $900',
+          alt_3: 'Gold Cuban chain, made to order from $900',
+          collection_url: chains_url
+        %}
+      </div>
+
+      <div class="dr-ice-rail" data-panel="grillz" hidden>
+        {% render 'dr-ice-collection-rail',
+          collection_handle: 'grillz',
+          fallback_label: 'Grillz',
+          fallback_price: 'FROM $900',
+          image_1: 'dr-ice-cat-grillz.jpg',
+          image_2: 'dr-ice-cat-grillz.jpg',
+          image_3: 'dr-ice-feature-ring.jpg',
+          alt_1: 'Diamond gold grillz, made to order from $900',
+          alt_2: 'Custom iced grillz, made to order from $900',
+          alt_3: 'Yellow gold diamond piece, made to order from $900',
+          collection_url: grillz_url
+        %}
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dr-ice-stats" aria-label="Studio promises">
+    <article>
+      <img src="{{ 'dr-ice-stat-stopwatch.png' | asset_url }}" alt="" width="200" height="280" loading="lazy">
+      <h3>Same Day</h3>
+      <p>Quote and CAD render</p>
+    </article>
+    <article>
+      <img src="{{ 'dr-ice-stat-forty-eight.png' | asset_url }}" alt="" width="207" height="251" loading="lazy">
+      <h3>48 Hours</h3>
+      <p>Rush wedding bands</p>
+    </article>
+    <article>
+      <img src="{{ 'dr-ice-stat-infinity.png' | asset_url }}" alt="" width="215" height="201" loading="lazy">
+      <h3>Unlimited</h3>
+      <p>Design revisions, free</p>
+    </article>
+    <article>
+      <img src="{{ 'dr-ice-stat-globe.png' | asset_url }}" alt="" width="209" height="240" loading="lazy">
+      <h3>Worldwide</h3>
+      <p>Insured, shipping covered</p>
+    </article>
+  </section>
+
+  <section
+    class="dr-ice-steps"
+    style="background-image: url('{{ 'dr-ice-silk.jpg' | asset_url }}');"
+    aria-labelledby="dr-ice-steps-title"
+  >
+    <div class="dr-ice-steps__inner">
+      <h2 id="dr-ice-steps-title">Five Steps. You Approve<br>Before You Commit.</h2>
+      <p class="dr-ice-steps__lead">
+        Most jewellers quote in days and charge for the design. Here the quote is same-day and the render is free.
+      </p>
+      <ol>
+        <li>
+          <span class="dr-ice-steps__num">01</span>
+          <h3>Message Me</h3>
+          <p>WhatsApp a reference photo or describe the idea. A logo, a shape, a rough sketch — anything works.</p>
+        </li>
+        <li>
+          <span class="dr-ice-steps__num">02</span>
+          <h3>Price, Same Day</h3>
+          <p>You get an itemised quote: metal, stones, labour. No mystery markup, no deposit to get here.</p>
+        </li>
+        <li>
+          <span class="dr-ice-steps__num">03</span>
+          <h3>See The Render</h3>
+          <p>A 3D render of your exact piece. Change it as many times as you like — revisions are free.</p>
+        </li>
+        <li>
+          <span class="dr-ice-steps__num">04</span>
+          <h3>Built At The Bench</h3>
+          <p>Cast, set and finished. Five to thirty days, or 48 hours on wedding bands for a rush fee.</p>
+        </li>
+        <li>
+          <span class="dr-ice-steps__num">05</span>
+          <h3>Collect Or Ship</h3>
+          <p>Pick it up at the Vaughan studio, or get a video before it ships insured, anywhere.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="dr-ice-reviews" aria-labelledby="dr-ice-reviews-title">
+    <div class="dr-ice-reviews__still">
+      <img
+        src="{{ 'dr-ice-reviews-still.jpg' | asset_url }}"
+        alt="Finished custom pieces arranged with a watch, pendant, and chain"
+        width="500"
+        height="360"
+        loading="lazy"
+      >
+      <h2 id="dr-ice-reviews-title">Customer Reviews</h2>
+    </div>
+    <figure class="dr-ice-review">
+      <img
+        src="{{ 'dr-ice-reviewer.jpg' | asset_url }}"
+        alt="Terrence Philips"
+        width="200"
+        height="200"
+        loading="lazy"
+      >
+      <div class="dr-ice-stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote>
+        <p>“I had no idea how to choose an engagement ring for my partner! Luckily with the help of the friendly team, I was able to have the perfect ring designed and delivered without fuss!.”</p>
+      </blockquote>
+      <figcaption>
+        <strong>Terrence Philips</strong>
+        <span>Startup Founder</span>
+      </figcaption>
+      <span class="dr-ice-review__next" aria-hidden="true">→</span>
+    </figure>
+  </section>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Dr. Ice Jewelry",
+    "url": {{ shop.url | json }},
+    "image": {{ 'dr-ice-hero.jpg' | asset_url | prepend: 'https:' | json }},
+    "description": "Custom pendants, chains, grillz, and engagement rings made to order in Vaughan. Same-day quotes and free CAD renders.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vaughan",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "telephone": "+16479232533",
+    "areaServed": "Worldwide"
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Dr. Ice homepage",
+  "tag": "section",
+  "class": "dr-ice-home-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Dr. Ice homepage"
+    }
+  ]
+}
+{% endschema %}
