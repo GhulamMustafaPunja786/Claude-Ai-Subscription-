@@ -45,10 +45,10 @@
       >
       <img
         class="dr-ice-story__rings"
-        src="{{ 'dr-ice-story-rings.jpg' | asset_url }}"
-        alt="Pavé diamond bridal set on a black field"
-        width="683"
-        height="336"
+        src="{{ 'dr-ice-story-rings.png' | asset_url }}"
+        alt="Pavé diamond bridal set overlapping a black field"
+        width="580"
+        height="330"
         loading="lazy"
       >
     </div>
@@ -206,14 +206,6 @@
   </section>
 
   <section class="dr-ice-collection" aria-labelledby="dr-ice-collection-title">
-    <h2 id="dr-ice-collection-title">The Coldest Collection</h2>
-    <div class="dr-ice-tabs" role="tablist" aria-label="Collections">
-      <button type="button" role="tab" class="is-active" data-tab="wedding-rings" aria-selected="true">Wedding rings</button>
-      <button type="button" role="tab" data-tab="pendants" aria-selected="false">Pendants</button>
-      <button type="button" role="tab" data-tab="cuban-chains" aria-selected="false">Cuban chains</button>
-      <button type="button" role="tab" data-tab="grillz" aria-selected="false">Grillz</button>
-    </div>
-
     <div class="dr-ice-collection__layout">
       <img
         class="dr-ice-collection__feature"
@@ -223,6 +215,14 @@
         height="710"
         loading="lazy"
       >
+      <div class="dr-ice-collection__main">
+        <h2 id="dr-ice-collection-title">The Coldest Collection</h2>
+        <div class="dr-ice-tabs" role="tablist" aria-label="Collections">
+          <button type="button" role="tab" class="is-active" data-tab="wedding-rings" aria-selected="true">Wedding rings</button>
+          <button type="button" role="tab" data-tab="pendants" aria-selected="false">Pendants</button>
+          <button type="button" role="tab" data-tab="cuban-chains" aria-selected="false">Cuban chains</button>
+          <button type="button" role="tab" data-tab="grillz" aria-selected="false">Grillz</button>
+        </div>
 
       <div class="dr-ice-rail" data-panel="wedding-rings">
         {% render 'dr-ice-collection-rail',
@@ -283,27 +283,28 @@
           collection_url: grillz_url
         %}
       </div>
+      </div>
     </div>
   </section>
 
   <section class="dr-ice-stats" aria-label="Studio promises">
     <article>
-      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="26" r="12" fill="none" stroke="#1a1a1a" stroke-width="1.6"/><path d="M24 20v7l4 3M20 8h8M24 8v4" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <img src="{{ 'dr-ice-stat-stopwatch.png' | asset_url }}" alt="" width="200" height="280" loading="lazy">
       <h3>Same Day</h3>
       <p>Quote and CAD render</p>
     </article>
     <article>
-      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6 38 24 24 42 10 24 24 6Z" fill="none" stroke="#1a1a1a" stroke-width="1.6"/><path d="M16 24h16M24 16v16" fill="none" stroke="#1a1a1a" stroke-width="1.4"/></svg>
+      <img src="{{ 'dr-ice-stat-forty-eight.png' | asset_url }}" alt="" width="207" height="251" loading="lazy">
       <h3>48 Hours</h3>
       <p>Rush wedding bands</p>
     </article>
     <article>
-      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 20c6-8 14-8 20 0-6 2-8 6-8 10 0-4-2-8-8-10 6 8 6 14 0 20-6-6-6-12 0-20Z" fill="none" stroke="#1a1a1a" stroke-width="1.6"/></svg>
+      <img src="{{ 'dr-ice-stat-infinity.png' | asset_url }}" alt="" width="215" height="201" loading="lazy">
       <h3>Unlimited</h3>
       <p>Design revisions, free</p>
     </article>
     <article>
-      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.6"/><path d="M10 24h28M24 10c4 4 6 9 6 14s-2 10-6 14c-4-4-6-9-6-14s2-10 6-14Z" fill="none" stroke="#1a1a1a" stroke-width="1.4"/></svg>
+      <img src="{{ 'dr-ice-stat-globe.png' | asset_url }}" alt="" width="209" height="240" loading="lazy">
       <h3>Worldwide</h3>
       <p>Insured, shipping covered</p>
     </article>
@@ -354,8 +355,8 @@
       <img
         src="{{ 'dr-ice-reviews-still.jpg' | asset_url }}"
         alt="Finished custom pieces arranged with a watch, pendant, and chain"
-        width="820"
-        height="330"
+        width="500"
+        height="360"
         loading="lazy"
       >
       <h2 id="dr-ice-reviews-title">Customer Reviews</h2>

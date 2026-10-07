@@ -139,6 +139,7 @@
 }
 
 .dr-ice-header__cart {
+  --icon-stroke-width: 1.5px;
   position: relative;
   display: inline-flex;
   align-items: center;
